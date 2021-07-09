@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Computação | Python - Guia do Programador</title>
+  <meta name="description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Computação | Python - Guia do Programador" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="github-repo" content="pjandl/pygp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Computação | Python - Guia do Programador" />
+  
+  <meta name="twitter:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  
+
+<meta name="author" content="Peter Jandl Junior" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="e-s.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python - Guia do Programador</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#convenções"><i class="fa fa-check"></i>Convenções</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#código-fonte"><i class="fa fa-check"></i>Código fonte</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#introd-histo"><i class="fa fa-check"></i><b>1.1</b> Breve Histórico</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#introd-carac"><i class="fa fa-check"></i><b>1.2</b> Características</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#introd-habil"><i class="fa fa-check"></i><b>1.3</b> Habilidades da Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comput.html"><a href="comput.html"><i class="fa fa-check"></i><b>2</b> Computação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="comput.html"><a href="comput.html#comput-liter"><i class="fa fa-check"></i><b>2.1</b> Valores Literais</a></li>
+<li class="chapter" data-level="2.2" data-path="comput.html"><a href="comput.html#comput-tipos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Dados</a></li>
+<li class="chapter" data-level="2.3" data-path="comput.html"><a href="comput.html#comput-varia"><i class="fa fa-check"></i><b>2.3</b> Variáveis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="comput.html"><a href="comput.html#comput-varia-nomes"><i class="fa fa-check"></i><b>2.3.1</b> Denominação de Variáveis</a></li>
+<li class="chapter" data-level="2.3.2" data-path="comput.html"><a href="comput.html#comput-varia-reser"><i class="fa fa-check"></i><b>2.3.2</b> Palavras Reservadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="comput.html"><a href="comput.html#comput-opera"><i class="fa fa-check"></i><b>2.4</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="comput.html"><a href="comput.html#comput-opera-aritm"><i class="fa fa-check"></i><b>2.4.1</b> Operadores Aritméticos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="comput.html"><a href="comput.html#comput-opera-relac"><i class="fa fa-check"></i><b>2.4.2</b> Operadores Relacionais</a></li>
+<li class="chapter" data-level="2.4.3" data-path="comput.html"><a href="comput.html#comput-opera-logic"><i class="fa fa-check"></i><b>2.4.3</b> Operadores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="comput.html"><a href="comput.html#comput-expre"><i class="fa fa-check"></i><b>2.5</b> Expressões</a></li>
+<li class="chapter" data-level="2.6" data-path="comput.html"><a href="comput.html#comput-prior"><i class="fa fa-check"></i><b>2.6</b> Prioridade dos operadores</a></li>
+<li class="chapter" data-level="2.7" data-path="comput.html"><a href="comput.html#comput-atrib"><i class="fa fa-check"></i><b>2.7</b> Atribuição</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="comput.html"><a href="comput.html#comput-atrib-multi"><i class="fa fa-check"></i><b>2.7.1</b> Atribuição Múltipla</a></li>
+<li class="chapter" data-level="2.7.2" data-path="comput.html"><a href="comput.html#comput-atrib-compo"><i class="fa fa-check"></i><b>2.7.2</b> Atribuição Composta</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="comput.html"><a href="comput.html#comput-funcao"><i class="fa fa-check"></i><b>2.8</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="e-s.html"><a href="e-s.html"><i class="fa fa-check"></i><b>3</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="e-s.html"><a href="e-s.html#e-s-saida"><i class="fa fa-check"></i><b>3.1</b> Saída Simples</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="e-s.html"><a href="e-s.html#e-s-saida-escap"><i class="fa fa-check"></i><b>3.1.1</b> Caracteres Especiais</a></li>
+<li class="chapter" data-level="3.1.2" data-path="e-s.html"><a href="e-s.html#e-s-saida-opcao"><i class="fa fa-check"></i><b>3.1.2</b> Controle de Separação e Finalização</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="e-s.html"><a href="e-s.html#e-s-entra"><i class="fa fa-check"></i><b>3.2</b> Entrada</a></li>
+<li class="chapter" data-level="3.3" data-path="e-s.html"><a href="e-s.html#e-s-format"><i class="fa fa-check"></i><b>3.3</b> Saída Formatada</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="e-s.html"><a href="e-s.html#e-s-format-funcao"><i class="fa fa-check"></i><b>3.3.1</b> Formatação com função <code>format()</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="e-s.html"><a href="e-s.html#e-s-format-inter"><i class="fa fa-check"></i><b>3.3.2</b> Interpolação de <em>string</em></a></li>
+<li class="chapter" data-level="3.3.3" data-path="e-s.html"><a href="e-s.html#e-s-format-fstring"><i class="fa fa-check"></i><b>3.3.3</b> Formatação com <em>f-string</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seque.html"><a href="seque.html"><i class="fa fa-check"></i><b>4</b> Sequenciação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="seque.html"><a href="seque.html#seque-progr"><i class="fa fa-check"></i><b>4.1</b> Programa Mínimo</a></li>
+<li class="chapter" data-level="4.2" data-path="seque.html"><a href="seque.html#seque-e-p-s"><i class="fa fa-check"></i><b>4.2</b> Estratégia E-P-S</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="seque.html"><a href="seque.html#seque-e-p-s-temper"><i class="fa fa-check"></i><b>4.2.1</b> Problema I: temperatura média e amplitude térmica</a></li>
+<li class="chapter" data-level="4.2.2" data-path="seque.html"><a href="seque.html#seque-e-p-s-caixa"><i class="fa fa-check"></i><b>4.2.2</b> Problema II: caixas de papelão</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="repet.html"><a href="repet.html"><i class="fa fa-check"></i><b>5</b> Repetição</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="repet.html"><a href="repet.html#repet-while"><i class="fa fa-check"></i><b>5.1</b> Repetição Condicional</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="repet.html"><a href="repet.html#repet-while-conta"><i class="fa fa-check"></i><b>5.1.1</b> Contagem com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="repet.html"><a href="repet.html#repet-while-acumu"><i class="fa fa-check"></i><b>5.1.2</b> Agregação com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="repet.html"><a href="repet.html#repet-while-ating"><i class="fa fa-check"></i><b>5.1.3</b> Atingimento de condição com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="repet.html"><a href="repet.html#repet-while-percu"><i class="fa fa-check"></i><b>5.1.4</b> Percurso com <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="repet.html"><a href="repet.html#repet-for"><i class="fa fa-check"></i><b>5.2</b> Repetição Automática</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="repet.html"><a href="repet.html#repet-for-percu"><i class="fa fa-check"></i><b>5.2.1</b> Percurso com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="repet.html"><a href="repet.html#repet-for-conta"><i class="fa fa-check"></i><b>5.2.2</b> Contagem com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="repet.html"><a href="repet.html#repet-for-acumu"><i class="fa fa-check"></i><b>5.2.3</b> Agregação com <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="decis.html"><a href="decis.html"><i class="fa fa-check"></i><b>6</b> Decisão</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="decis.html"><a href="decis.html#decis-if"><i class="fa fa-check"></i><b>6.1</b> Decisão Simples</a></li>
+<li class="chapter" data-level="6.2" data-path="decis.html"><a href="decis.html#decis-if-else"><i class="fa fa-check"></i><b>6.2</b> Decisão Completa</a></li>
+<li class="chapter" data-level="6.3" data-path="decis.html"><a href="decis.html#decis-if-elif-else"><i class="fa fa-check"></i><b>6.3</b> Decisões Encadeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>7</b> Modularização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>7.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="modul.html"><a href="modul.html#modul-funcao"><i class="fa fa-check"></i><b>7.2</b> Funções</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modul.html"><a href="modul.html#modul-funcao-tipos"><i class="fa fa-check"></i><b>7.2.1</b> Tipos de funções</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modul.html"><a href="modul.html#modul-funcao-return"><i class="fa fa-check"></i><b>7.2.2</b> Retorno de Valor</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modul.html"><a href="modul.html#modul-funcao-param"><i class="fa fa-check"></i><b>7.2.3</b> Passagem de Parâmetros</a></li>
+<li class="chapter" data-level="7.2.4" data-path="modul.html"><a href="modul.html#modul-funcao-default"><i class="fa fa-check"></i><b>7.2.4</b> Parâmetros <em>Default</em></a></li>
+<li class="chapter" data-level="7.2.5" data-path="modul.html"><a href="modul.html#modul-funcao-var"><i class="fa fa-check"></i><b>7.2.5</b> Parâmetros Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>7.3</b> Importação</a></li>
+<li class="chapter" data-level="7.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>7.4</b> Criação de pacotes e módulos</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
+<li class="chapter" data-level="B" data-path="instalação-do-anaconda.html"><a href="instalação-do-anaconda.html"><i class="fa fa-check"></i><b>B</b> Instalação do Anaconda</a></li>
+<li class="chapter" data-level="" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i>Referências Bibliográficas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python - Guia do Programador</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="comput" class="section level1" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Computação</h1>
+<p>A palavra <em>computar</em><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> significa <em>fazer o cômputo de, calcular, orçar</em>, assim, a <em>computação</em> é a habilidade da programação voltada para a realização de cálculos, o que permite explorar uma das capacidades centrais dos computadores.</p>
+<p>A realização de cálculos envolve a construção de <em>expressões</em>, as quais podem conter vários elementos:</p>
+<ul>
+<li>valores literais,</li>
+<li>variáveis,</li>
+<li>operadores, e</li>
+<li>funções.</li>
+</ul>
+<div id="comput-liter" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Valores Literais</h2>
+<p>Um <em>valor literal</em>, ou apenas <em>literal</em>, é uma quantidade, um número, uma palavra, um nome ou um texto que podemos ler diretamente numa instrução, isto é, um elemento que não depende da execução da instrução ou de qualquer outra parte do programa para que possa ser compreendido. Alguns exemplos podem facilitar no entendimento do que são os literais.</p>
+<p>O número <code>2021</code> é um literal, assim como <code>15</code>, <code>3.14</code>, <code>-3</code> ou <code>4294967296</code> também são literais numéricos, que são escritos diretamente no texto do programa Python, tal como em todas as linguagens de programação. Vale notar que o <em>separador</em> decimal é o caractere ponto (<code>.</code>).</p>
+<p>Já a inclusão de literais de texto no Python, seja uma palavra, frase ou um caractere individual, requer que sejam dispostos entre aspas simples (<code>'</code>) ou aspas duplas (<code>"</code>). Estes <em>delimitadores</em> de texto podem ser usados para indicar palavras, como <code>'computador'</code> ou <code>"programação"</code>, e caracteres individuais, como <code>'A'</code>, <code>"x"</code>, <code>'!'</code>, <code>"@"</code> ou <code>'+'</code>. Pequenas frases, que não podem exceder uma linha, são indicadas da mesma maneira, ou seja, com uso destes delimitadores, como no fragmento que segue.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="comput.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;Python é uma linguagem de programação moderna.&#39;</span></span>
+<span id="cb3-2"><a href="comput.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;A área de &#39;data science&#39; utiliza Python.&quot;</span></span>
+<span id="cb3-3"><a href="comput.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;A linguagem Python é &quot;interpretada&quot; e &quot;dinâmica&quot;.&#39;</span></span></code></pre></div>
+<p>Os delimitadores são exigidos para que seja possível distinguir o texto literal fornecidos pelo programador dos demais elementos da linguagem. O delimitador não pode fazer parte do texto delimitado, no entanto, é interessante observar que as aspas simples podem usadas quando delimitadas por aspas duplas e vice-versa.</p>
+<p>Também é possível definir texto literal com múltiplas linhas, com o uso triplo de aspas simples ou aspas duplas, o que pode ser conveniente em algumas situações, como por exemplo indicar comandos SQL<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> usados pelo programa. Seguem exemplos diretos.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="comput.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;Python is used in pursuits as diverse as data science,</span></span>
+<span id="cb4-2"><a href="comput.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">film-making, computer science education, IT management, </span></span>
+<span id="cb4-3"><a href="comput.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">and much more.&quot;&quot;&quot;</span></span>
+<span id="cb4-4"><a href="comput.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="comput.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;&#39;&#39;There really is no computing field that Python has not </span></span>
+<span id="cb4-6"><a href="comput.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">touched (except maybe kernel development). Python is loved</span></span>
+<span id="cb4-7"><a href="comput.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">for its flexibility, beautiful and succinct syntax, </span></span>
+<span id="cb4-8"><a href="comput.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">object-oriented purity, and bustling community.</span></span>
+<span id="cb4-9"><a href="comput.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="comput.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">--- Kopec (2019)&#39;&#39;&#39;</span></span></code></pre></div>
+<p>Além de literais numéricos e de texto, o Python também dispõe de dois literais de tipo lógico (ou boleanos), que são <code>False</code> e <code>True</code>, que respectivamente representam os estados <em>falso</em> e <em>verdadeiro</em>.</p>
+</div>
+<div id="comput-tipos" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Tipos de Dados</h2>
+<p>A linguagem Python é capaz de lidar com vários tipos de dados, ou seja, com categorias distintas de valores, cada uma oferecendo um conjunto próprio de possibilidades. Os tipos de dados básicos disponíveis na linguagem são considerados tipos <em>built-in</em><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, ou <em>nativos</em>, e estão listados na Tabela <a href="#tab:tipos-dados">2.1</a>.</p>
+<p>Tabela <a name="tab:data-types">2.1</a>: Tipos de dados <em>built-in</em></p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>int</code></td>
+<td>Inteiro (ou integral), valor númerico sem parte fracionária.</td>
+</tr>
+<tr class="even">
+<td><code>float</code></td>
+<td>Real, valor numérico com parte fracionária em ponto flutuante.</td>
+</tr>
+<tr class="odd">
+<td><code>bool</code></td>
+<td>Lógico (ou boleano).</td>
+</tr>
+<tr class="even">
+<td><code>string</code></td>
+<td><em>String</em> ou cadeia de caracteres.</td>
+</tr>
+<tr class="odd">
+<td><code>complex</code></td>
+<td>Número complexo, com a parte imaginária identificada pelo sufixo <code>j</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>O Python dispõe de três tipos de dados numéricos <em>built-in</em>: <code>int</code>, <code>float</code> e <code>complex</code>. O tipo <code>int</code> possibilita a representação de valores numéricos inteiros, ou seja, números, contagens e quantidades, positivos ou negativos, mas sem uma parte fracionária. A função <em>built-in</em> <code>type()</code> permite determinar o tipo de quaisquer valores literais (na verdade, de qualquer coisa no Python). Observe o uso de <code>type()</code> para o valor inteiro <code>15</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="comput.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="dv">15</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;int&#39;&gt;</code></pre>
+<p>Qualquer valor inteiro, quando avaliado por <code>type()</code>, produz como retorno a classe <code>int</code>, que representa este tipo de dados.</p>
+<p>Analogamente, o tipo <code>float</code> possibilita a representação de valores numéricos reais, ou seja, números positivos ou negativos dotados de uma parte fracionária. Como antes, pode ser usada a função <em>built-in</em> <code>type()</code> para determinar o tipo de literais reais, como segue.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="comput.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="fl">3.14</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;float&#39;&gt;</code></pre>
+<p>Valores reais avaliados por <code>type()</code> produzem como retorno a classe <code>float</code>, que representa este tipo de dados.</p>
+<p>Diferente da grande maioria das linguagens de programação, Python permite a representação nativa de números complexos, ou seja, valores dotados de uma parte real e uma parte imaginária, que utiliza o sufixo <code>j</code> para diferenciá-la da parte real. No fragmento que segue, a função <code>type()</code> é utilizada para determinar o tipo do valor literal <code>1.5 - 4.9j</code>, um número complexo cuja parte real tem valor <code>1.5</code> e a parte imaginária vale <code>4.9j</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="comput.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="fl">1.5</span> <span class="op">-</span> <span class="ot">4.9j</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;complex&#39;&gt;</code></pre>
+<p>A verificação de tipo com <code>type()</code> retorna a classe <code>complex</code> quando recebe números complexos como argumento.</p>
+<p>Outro importante tipo <em>built-in</em> é <code>bool</code> que representa o tipo lógico ou boleano, que possui apenas dois valores possíveis: <code>False</code>, para valores falsos; e <code>True</code>, para valores verdadeiros. O uso de <code>type()</code> para o literal lógico <code>True</code> é mostrado no fragmento que segue.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="comput.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="va">True</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;bool&#39;&gt;</code></pre>
+<p>Como esperado, é retornada a classe <code>bool</code>.</p>
+<p>Finalmente, a representação de texto, sejam caracteres, palavras ou frases, é feita por <em>strings</em>, ou seja, elementos do tipo <code>str</code>, à despeito do delimitador usado (aspas simples, duplas ou triplas). A função <code>type()</code> também permite determinar o tipo de literais ou valores de texto, como segue.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="comput.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="st">&#39;Python: Guia do programador&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;str&#39;&gt;</code></pre>
+<p>Observamos que a classe <code>str</code> é retornada quando <code>type()</code> verifica o tipo de uma <em>string</em>, ou seja, quando se fornece um argumento de texto.</p>
+</div>
+<div id="comput-varia" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Variáveis</h2>
+<p>Um programa de computador requer o uso de alguns ou de muitos dados para que possa produzir os resultados desejados. Durante a execução do programa, os dados necessários são armazenados na memória do computador. Para evitar que o programador tenha que lidar com os endereços de memória, isto é, com as posições onde os dados ficam efetivamente armazenados, são utilizadas <em>variáveis</em>.</p>
+<p>Uma <em>variável</em> é um espaço em memória, reservado para guardar um valor, ao qual se associa um <em>identificador</em>, ou seja, um nome por meio do qual se define e se recupera o valor armazenado. O uso de variáveis simplifica a programação, pois o programador não precisa se preocupar com os endereços de memória utilizados, nem com o espaço necessário (número de bytes) para armazenar tais valores, tão pouco com a organização dos dados e das instruções do programa.</p>
+<p>Por meio do uso das variáveis, o programador pode armazenar valores literais ou o resultado de cálculos diversos, que podem ser utilizados em etapas posteriores do programa, evitando sua repetição e o processamento destes cálculos.</p>
+<p>Além disso, o uso de variáveis constitui um importante mecanismo de abstração<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>, pois o uso de nomes significativos melhora a legibilidade do programa e permite que suas ações sejam compreendidas mais facilmente.</p>
+<p>A criação de variáveis em Python é bastante simples e direta, empregando a sintaxe que segue:</p>
+<blockquote>
+<p>identificador = valor_inicial</p>
+</blockquote>
+<p>O <em>identificador</em> é o <em>nome</em> que o programador escolhe para uma variável, o símbolo <code>=</code> é o operador de atribuição e <code>valor_inicial</code> é o valor que será inicialmente armazenado por esta variável. Por exemplo, a criação da variável de nome <code>x</code> com valor inicial definido pelo literal <code>15</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="comput.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variável x com conteúdo 15</span></span>
+<span id="cb15-2"><a href="comput.html#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">15</span></span></code></pre></div>
+<p>Esta construção é lida como <em>variável <code>x</code> recebe o valor 15</em> ou, resumidamente, <em><code>x</code> recebe 15</em>.</p>
+<p>A linha iniciada pelo caractere <code>#</code> é um <em>comentário</em>, ou seja, um texto, com qualquer conteúdo desejado pelo programador, que serve para registrar alguma explicação ou observação sobre o código. Os comentários não são considerados na execução dos programas e, portanto, sua utilização não interfere em seu funcionamento, nem em seu desempenho.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/do.png" alt="DO" /></th>
+<th align="left">O uso de comentários é considerado uma boa prática de programação e, assim, é incentivado. Sempre que possível, o programador deve considerar acrescentar comentários aos seus programas, clarificando as decisões sobre sua construção.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Desta forma, para criar uma nova variável em um programa Python basta atribuir um valor para um novo identificador. A criação de uma variável desta maneira é chamada <em>inicialização</em>. A partir de sua inicialização, a variável criada se torna disponível no escopo onde foi declarada.</p>
+<p>Para utilizar uma variável, em Python e outras linguagens de programação, basta utilizar seu nome, de maneira que este é automaticamente substituído pelo valor atual (ou corrente) da variável. Ou seja. apenas escrever seu nome.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="comput.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 15</code></pre>
+<p>Como esperado, o uso do nome de variável <code>x</code> recupera seu valor, no caso <code>15</code>.</p>
+<p>Observe que o Python não requer que o tipo da variável seja declarado, pois este é inferido conforme o tipo do valor atribuído , assim a variável <code>x</code> será do tipo <code>int</code>, como mostrado pelo uso da função <em>built-in</em> <code>type()</code>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="comput.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x) <span class="co"># obtenção do tipo de x</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;int&#39;&gt;</code></pre>
+<p>Neste fragmento também se observa a existência de um comentário. Aqui, o texto existente <em>antes</em> do caractere <code>#</code> é considerado como código e, depois dele, até o final da linha, como comentário.</p>
+<p>Cada vez que a variável recebe um valor, o tipo da variável é novamente inferido, de maneira que, se atribuído um valor de tipo diferente do previamente armazenado na variável, seu tipo é <em>alterado dinamicamente</em>, sem produzir qualquer tipo de erro. Assim, a variável <code>x</code>, do tipo <code>int</code>, pode receber um valor real como segue:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="comput.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">7.45</span> <span class="co"># atribuição de valor para x</span></span></code></pre></div>
+<p>A alteração do tipo da variável pode ser visto por meio da função <code>type()</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="comput.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;float&#39;&gt;</code></pre>
+<p>A valor da variável <code>a</code> pode ser recuperado com uso de seu nome, permitindo verificar a alteração em seu conteúdo.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="comput.html#cb23-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 7.45</code></pre>
+<p>Em conjunto, tudo isto confere grande simplificade e flexibilidade ao Python em relação a criação e utilização de variáveis.</p>
+<div id="comput-varia-nomes" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Denominação de Variáveis</h3>
+<p>Os nomes de variáveis em Python podem ser compostos de uma ou mais letras, números e também símbolos <code>_</code> (sublinhado ou <em>underscore</em>), desde que iniciados por uma letra ou sublinhado. É recomendado que usem apenas letras minúsculas e, caso sejam compostos de mais de uma palavra, estas sejam separadas por um sublinhado. Esta convenção é conhecida como <em>snake case</em>.</p>
+<p>São exemplo válidos: <code>x</code>, <code>s3</code>, <code>total</code>, <code>quadra03</code>, <code>posicao_absoluta</code>, <code>_media_parcial</code>.</p>
+<p>Desde que seguida esta regra de formação, os nomes podem quaisquer, exceto das <em>palavras reservadas</em> da linguagem (seção <a href="comput.html#comput-varia-reser">2.3.2</a>), e arbitrariamente longos, assim sugere-se o uso de denominações representativas do propósito das variáveis, melhorando a legibilidade dos programas. Caracteres acentuados podem ser usados, embora desaconselhado. Em hipótese alguma os nomes podem conter espaços em branco, tabulações ou quaisquer operadores.</p>
+</div>
+<div id="comput-varia-reser" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Palavras Reservadas</h3>
+<p>O Python possui um conjunto de <em>palavras reservadas</em> que tem significado pré-definido, pois indicam as diretivas da linguagem e outros elementos de sua sintaxe. As <em>palavras reservadas</em>, ou as <em>keywords</em>, listadas na Tabela <a href="#tab:keywords">2.2</a> não podem ser utilizadas como identificadores ou para qualquer outro fim, exceto o determinado pela linguagem.</p>
+<p>Tabela <a name="tab:keywords">2.2</a>: Palavras reservadas (<em>keywords</em>)</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">and</td>
+<td align="center">as</td>
+<td align="center">assert</td>
+<td align="center">async</td>
+<td align="center">await</td>
+</tr>
+<tr class="even">
+<td align="center">break</td>
+<td align="center">class</td>
+<td align="center">continue</td>
+<td align="center">def</td>
+<td align="center">del</td>
+</tr>
+<tr class="odd">
+<td align="center">elif</td>
+<td align="center">else</td>
+<td align="center">except</td>
+<td align="center">False</td>
+<td align="center">finally</td>
+</tr>
+<tr class="even">
+<td align="center">for</td>
+<td align="center">from</td>
+<td align="center">global</td>
+<td align="center">if</td>
+<td align="center">import</td>
+</tr>
+<tr class="odd">
+<td align="center">in</td>
+<td align="center">is</td>
+<td align="center">lambda</td>
+<td align="center">None</td>
+<td align="center">nonlocal</td>
+</tr>
+<tr class="even">
+<td align="center">not</td>
+<td align="center">or</td>
+<td align="center">pass</td>
+<td align="center">raise</td>
+<td align="center">return</td>
+</tr>
+<tr class="odd">
+<td align="center">True</td>
+<td align="center">try</td>
+<td align="center">while</td>
+<td align="center">with</td>
+<td align="center">yield</td>
+</tr>
+</tbody>
+</table>
+<p>A maioria das palavras reservadas do Python é comum à outras linguagens de programação. Por exemplo, dentre as 35 <em>keywords</em>, 12 são comuns ao Java e ao C#.</p>
+</div>
+</div>
+<div id="comput-opera" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Operadores</h2>
+<p>A utilidade dos computadores se deve, em grande parte, às suas capacidades de realizar cálculos. Então, as linguagens de programação devem suportar essas capacidades e, para isso, deve oferecer operadores que permitam combinar valores e variáveis (seção <a href="comput.html#comput-varia">2.3</a>) para expressar as sequências de cálculos adequadas à obtenção dos resultados desejados.</p>
+<p>Como na matemática, um operador é um símbolo convencionado para representar uma operação específica entre seus operandos, isto é, os valores participantes desta operação. Existem cinco grupos principais de operadores, indicados na Tabela <a href="#tab:operadores">2.3</a>.</p>
+<p>Tabela <a name="tab:operadores">2.3</a>: Grupos de operadores</p>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Grupo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aritméticos</td>
+<td>Destinados às operações algébricas comuns, como adição, subtração e outras.</td>
+</tr>
+<tr class="even">
+<td>Relacionais</td>
+<td>Possibilitam a comparação entre valores numéricos e não numéricos.</td>
+</tr>
+<tr class="odd">
+<td>Lógicos</td>
+<td>Permitem a combinação de predicados lógicos.</td>
+</tr>
+<tr class="even">
+<td>Atribuição</td>
+<td>São usados para definir o valor de variáveis e parâmetros de funções.</td>
+</tr>
+<tr class="odd">
+<td>Bit-a-bit</td>
+<td>Permitem a manipulação dos bits de valores inteiros<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Com o uso destes operadores, é possível realizar cálculos, comparar valores, avaliar condições e atribuir valores para variáveis, como será tratados nas seções que seguem.</p>
+<div id="comput-opera-aritm" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Operadores Aritméticos</h3>
+<p>Os operadores aritméticos são destinados à realização das operações algébricas de adição, subtração, multiplicação, divisão e potenciação, como relacionado na Tabela <a href="#tab:oper-aritmeticos">2.4</a>, onde podemos observar que a maior parte dos operadores aritméticos são idênticos aos usados na matemática, exatamente para facilitar sua identificação e emprego.</p>
+<p>Tabela <a name="tab:oper-aritmeticos">2.4</a>: Operadores aritméticos</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operador</th>
+<th>Operação</th>
+<th align="right">Aridade<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></th>
+<th align="left">Associatividade<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>+</code></td>
+<td>Adição (soma).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="even">
+<td align="center"><code>-</code></td>
+<td>Subtração (diferença).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>*</code></td>
+<td>Multiplicação (produto).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="even">
+<td align="center"><code>/</code></td>
+<td>Divisão (quociente).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>//</code></td>
+<td>Divisão inteira (quociente).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="even">
+<td align="center"><code>%</code></td>
+<td>Resto da divisão inteira (módulo).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>**</code></td>
+<td>Potenciação (exponenciação).</td>
+<td align="right">2</td>
+<td align="left">Esquerda</td>
+</tr>
+<tr class="even">
+<td align="center"><code>+</code></td>
+<td>Sinal positivo.</td>
+<td align="right">1</td>
+<td align="left">Direita</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>-</code></td>
+<td>Sinal negativo.</td>
+<td align="right">1</td>
+<td align="left">Direita</td>
+</tr>
+</tbody>
+</table>
+<p>Nas próximas seções, as variáveis <code>A</code>, <code>B</code> e <code>C</code> serão empregadas para armazenar valores que serão utilizados em expressões simples. Alguns dos resultados obtidos serão atribuídos à outras variáveis, como <code>R</code>, <code>S</code> e <code>T</code>.</p>
+<div id="adição" class="section level4" number="2.4.1.1">
+<h4><span class="header-section-number">2.4.1.1</span> Adição</h4>
+<p>Utilizamos o operador <code>+</code> para indicar a adição ou a soma, que requer dois operandos (sua aridade), ou seja, os dois valores que serão adicionados. No fragmento que segue é possível ver que o uso deste operador é simples.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="comput.html#cb25-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">123</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb25-2"><a href="comput.html#cb25-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">+</span> <span class="dv">456</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 579</code></pre>
+<p>O operador <code>+</code> pode ser usado para somar qualquer combinação de valores inteiros e reais, além de obedecer as propriedades <em>comutativa</em><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>, <em>associativa</em><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>, <em>distributiva</em><a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> e do <em>elemento nêutro</em><a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> da adição. A soma de valores inteiros produz resultados de tipo <code>int</code>, mas se combinados valores inteiros e reais, o resultado será de tipo <code>float</code>, como segue.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="comput.html#cb27-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">0.456</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb27-2"><a href="comput.html#cb27-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">+</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 123.456</code></pre>
+<p>Existe outro uso para o operador <code>+</code>, que é como sinal positivo, tal como <code>+5</code> ou <code>+19.12</code>, mas cujo uso é pouco frequente, pois por padrão, valores sem sinal são considerados positivos.</p>
+</div>
+<div id="subtração" class="section level4" number="2.4.1.2">
+<h4><span class="header-section-number">2.4.1.2</span> Subtração</h4>
+<p>O operador <code>-</code> permite realizar a subtração ou a diferença entre dois valores, ou seja, requer dois operandos (sua aridade). Seu uso também é simples.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="comput.html#cb29-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">123</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb29-2"><a href="comput.html#cb29-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">-</span> <span class="dv">100</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 23</code></pre>
+<p>O operador <code>-</code> pode efetuar a diferença de qualquer combinação de valores inteiros e reais, além de obedecer as propriedades <em>distributiva</em><a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> e do <em>elemento nêutro</em><a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> da subtração. A subtração de valores inteiros produz resultados de tipo <code>int</code>, mas se combinados valores inteiros e reais, o resultado será de tipo <code>float</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="comput.html#cb31-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">0.456</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb31-2"><a href="comput.html#cb31-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">-</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 122.544</code></pre>
+<p>Como para o operador <code>+</code>, existe um segundo uso para o operador <code>-</code> como sinal negativo, por exemplo, <code>-7</code> ou <code>+20.06</code>, e cujo uso é mais comum, para explicitar valores considerados negativos.</p>
+</div>
+<div id="multiplicação" class="section level4" number="2.4.1.3">
+<h4><span class="header-section-number">2.4.1.3</span> Multiplicação</h4>
+<p>O operador <code>*</code> permite efetuar a multiplicação ou o produto de dois valores, tomando dois operandos, com uso como segue.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="comput.html#cb33-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">537</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb33-2"><a href="comput.html#cb33-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">215</span></span>
+<span id="cb33-3"><a href="comput.html#cb33-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">*</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 115455</code></pre>
+<p>Este operador pode efetuar o produto de qualquer combinação de valores inteiros e reais, além de obedecer as propriedades <em>comutativa</em><a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>, <em>associativa</em><a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> e do <em>elemento nêutro</em><a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> da multiplicação. Como antes, o produto de valores inteiros produz resultados de tipo <code>int</code>, mas se multiplicados valores inteiros e reais, o resultado será de tipo <code>float</code>.</p>
+</div>
+<div id="divisão-real-divisão-inteira-e-resto-da-divisão" class="section level4" number="2.4.1.4">
+<h4><span class="header-section-number">2.4.1.4</span> Divisão real, divisão inteira e resto da divisão</h4>
+<p>O operador <code>/</code> realiza a divisão de dois valores, obtendo um quociente a partir de dois operandos, com uso como segue.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="comput.html#cb35-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">537</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb35-2"><a href="comput.html#cb35-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">215</span></span>
+<span id="cb35-3"><a href="comput.html#cb35-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">/</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 2.4976744186046513</code></pre>
+<p>Podem ser combinados valores inteiros e reais com este operador, que também possui um <em>elemento nêutro</em><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>. Também deve ser destacado que este operador realiza a divisão real dos operandos indicados, produzindo um resultado de tipo <code>float</code>, ou seja, que pode conter uma parte fracionária, com uma ou mais casas decimais. Mesmo que o resultado da divisão seja exato e não possua uma parte fracionária, seu tipo será <code>float</code>.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/dont.png" alt="DONT" /></th>
+<th align="left">Deve-se tomar cuidado com a divisão por zero, que provoca o erro <code>ZeroDivisionError</code>.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Se desejado, pode ser utilizado o operador <code>//</code>, que realiza a divisão inteira (<em>floor division</em>) de seus operandos, descartando a parte fracionária, retornando um resultado sempre do tipo <code>int</code>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="comput.html#cb37-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">537</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb37-2"><a href="comput.html#cb37-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">215</span></span>
+<span id="cb37-3"><a href="comput.html#cb37-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">//</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 2</code></pre>
+<p>Também é possível obter o resto da divisão inteira com o operador <code>%</code>, ou seja, a parcela inteira descartada pela divisão inteira. Por exemplo a divisão <code>6 / 4</code> produz <code>1.5</code>, um valor real; enquanto a divisão inteira <code>6 // 4</code> resulta <code>1</code>, sendo que o resto desta divisão <code>6 % 4</code> permite obter <code>2</code>. Este operador também é conhecido como <em>módulo</em>.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="comput.html#cb39-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">17</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb39-2"><a href="comput.html#cb39-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb39-3"><a href="comput.html#cb39-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">%</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 2</code></pre>
+</div>
+<div id="potenciação" class="section level4" number="2.4.1.5">
+<h4><span class="header-section-number">2.4.1.5</span> Potenciação</h4>
+<p>Python oferece um operador para realização da <em>potenciação</em> (ou da <em>exponenciação</em>) que é <code>**</code> (duplo asterisco, sem espaço em branco), usado na forma <code>base ** expoente</code>, onde tanto a base, como o expoente, podem ser números inteiros ou reais, como segue:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="comput.html#cb41-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">17</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb41-2"><a href="comput.html#cb41-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb41-3"><a href="comput.html#cb41-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">%</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 2</code></pre>
+<p>Assim, <code>2 ** 10</code> representa dois elevado à décima potência e <code>10 ** 3</code> calcula dez elevado ao cubo.</p>
+<p>Como na matemática, expoentes negativos representam potências inversas, por exemplo <code>2 ** -3</code> equivale à <code>1 / (2 ** 3)</code>; e expoentes entre <code>0</code> e <code>1</code> permitem efetuar a <em>radiciação</em> (obter raízes), ou seja, <code>16 ** (1/2)</code> e <code>16 ** 0.5</code> permitem calcular a raíz quadrada de <code>16</code>, enquanto <code>5 ** (1/3)</code> e <code>5 ** 0.3333</code> calculam a raiz cúbica de <code>5</code>, tal como no fragmento seguinte.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="comput.html#cb43-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">5</span> <span class="co"># Valores arbitrários, podem ser outros</span></span>
+<span id="cb43-2"><a href="comput.html#cb43-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">0.3333</span></span>
+<span id="cb43-3"><a href="comput.html#cb43-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">**</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 1.7098842124667966</code></pre>
+</div>
+</div>
+<div id="comput-opera-relac" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Operadores Relacionais</h3>
+<p>Os operadores relacionais permitem comparar valores determinando as existência de relações específicas entre eles, tal como mostra a Tabela <a href="#tab:oper-relacionais">2.4</a>. Vários dos operadores relacionais são compostos por dois caracteres, entre os quais <em>não pode existir espaços em branco</em>.</p>
+<p>Tabela <a name="tab:oper-relacionais">2.4</a>: Operadores relacionais</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operador</th>
+<th>Relação</th>
+<th align="right">Aridade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>&gt;</code></td>
+<td>Maior que.</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&gt;=</code></td>
+<td>Maior ou igual a.</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>&lt;</code></td>
+<td>Menor que.</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="center"><code>&lt;=</code></td>
+<td>Menor ou igual a.</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>==</code></td>
+<td>Igual.</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="center"><code>!=</code></td>
+<td>Diferente.</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>Todos os operadores relacionais tomam dois operandos e retornam como resultado um valor do tipo <code>bool</code>, ou seja, um resultado que só pode ser <code>False</code>, quando a relação indicada não existe (é falsa), ou <code>True</code>, quando se confirma a relação indicada (ou seja, é verdadeira). Exemplos simples do uso destes operadores estão no fragmento que segue, no qual se verifica se o valor <code>1964</code> <em>é menor</em> que <code>1995</code>, que produz um retorno <code>True</code>, e se <code>1995</code> <em>é maior</em> que <code>2021</code>, que resulta em <code>False</code>.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="comput.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1964</span> <span class="op">&lt;</span> <span class="dv">1995</span></span>
+<span id="cb45-2"><a href="comput.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="va">True</span></span>
+<span id="cb45-3"><a href="comput.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1995</span> <span class="op">&gt;</span> <span class="dv">2021</span></span>
+<span id="cb45-4"><a href="comput.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="va">False</span></span></code></pre></div>
+<p>O próximo fragmento mostra outros usos destes operadores, onde se compara o conteúdo de <code>A</code> (que é <code>1931</code>) e o literal <code>2021</code> em relação a sua igualdade, o que resulta em <code>False</code>, e verifica se o literal <code>1995</code> é diferente de <code>A</code>, que produz <code>True</code>.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="comput.html#cb46-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">1964</span></span>
+<span id="cb46-2"><a href="comput.html#cb46-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">==</span> <span class="dv">2021</span></span>
+<span id="cb46-3"><a href="comput.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="va">False</span></span>
+<span id="cb46-4"><a href="comput.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1995</span> <span class="op">!=</span> A</span>
+<span id="cb46-5"><a href="comput.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="va">True</span></span></code></pre></div>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/warn.png" alt="WARN" /></th>
+<th align="left">Observe com atenção o uso dos operadores de atribuição <code>=</code> e de igualdade <code>==</code>, que produzem efeitos bastante distintos.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Como será visto na seção <a href="comput.html#comput-expre">2.5</a>, os operadores relacionais pode ser combinados com operadores aritméticos e lógicos para formar expressões compostas capazes de verificar relações mais complexas.</p>
+</div>
+<div id="comput-opera-logic" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Operadores Lógicos</h3>
+<p>Os operadores lógicos, listados da Tabela <a href="#tab:oper-logicos">2.5</a>, permitem realizar as operações fundamentais da álgebra de Boole que são a conjunção (<em>e-lógico</em>), a disjunção (<em>ou-Lógico</em>) e a negação (<em>não-lógico</em>).</p>
+<p>Tabela <a name="tab:oper-logicos">2.5</a>: Operadores lógicos</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Operador</th>
+<th>Operação</th>
+<th align="right">Aridade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>and</code></td>
+<td>E-lógico (conjunção).</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="center"><code>or</code></td>
+<td>Ou-lógico (disjunção).</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>not</code></td>
+<td>Não-lógico (negação).</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="center"><code>in</code></td>
+<td>Membro de.</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>is</code></td>
+<td>Identidade.</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>As operações realizadas por estes operadores consideram os valores lógicos <code>False</code> e <code>True</code>, do tipo <code>bool</code>.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/info.png" alt="INFO" /></th>
+<th align="left">O Python, como a linguagem C, considera valores <code>0</code> como <code>False</code> e valores diferentes de zero como <code>True</code>, realizando esta equivalência <em>lógico-numérica</em> automaticamente.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>A operação de conjunção ou <em>e-lógico</em> verifica o estado lógico de seus dois operandos e retorna um resultado verdadeiro (<code>True</code>) apenas se ambos são verdadeiros, como mostra a Tabela <a href="#tab:oper-conjuncao">2.6</a>, que toma as variáveis <code>A</code> e <code>B</code> como seus operandos.</p>
+<p>Tabela <a name="tab:oper-conjuncao">2.6</a>: Tabela-verdade<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a> do <em>e-lógico</em> (conjunção)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">A and B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>False</code></td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>False</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>False</code></td>
+<td align="left"><code>True</code></td>
+<td align="left"><code>False</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>True</code></td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>False</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>True</code></td>
+<td align="left"><code>True</code></td>
+<td align="left"><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p>No fragmento que segue, verifica-se um dos resultados possível da operação e-lógico.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="comput.html#cb47-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb47-2"><a href="comput.html#cb47-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb47-3"><a href="comput.html#cb47-3" aria-hidden="true" tabindex="-1"></a>A <span class="kw">and</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; False</code></pre>
+<p>Variáveis do tipo <code>bool</code> e outras numéricas podem ser combinadas com os operadores lógicos devido a equivalância <em>lógico-numérica</em> do Python, como segue.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="comput.html#cb49-1" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb49-2"><a href="comput.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="kw">and</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<p>A operação de disjunção ou <em>ou-lógico</em> também verifica o estado lógico de seus dois operandos, mas retorna um resultado falso (<code>False</code>) apenas se ambos os operandos são falsos, como mostra a Tabela <a href="#tab:oper-disjuncao">2.7</a>.</p>
+<p>Tabela <a name="tab:oper-disjuncao">2.7</a>: Tabela-verdade do <em>ou-lógico</em> (disjunção)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">A or B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>False</code></td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>False</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>False</code></td>
+<td align="left"><code>True</code></td>
+<td align="left"><code>True</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>True</code></td>
+<td align="left"><code>False</code></td>
+<td align="left"><code>True</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>True</code></td>
+<td align="left"><code>True</code></td>
+<td align="left"><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p>O próximo fragmento mostra um dos resultados possível da operação ou-lógico.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="comput.html#cb51-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb51-2"><a href="comput.html#cb51-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb51-3"><a href="comput.html#cb51-3" aria-hidden="true" tabindex="-1"></a>A <span class="kw">or</span> B</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<p>Finalmente, a operação de negação ou <em>não-lógico</em> retorna o oposto (ou inverso) de seu único operando, ou seja, quando este tem valor <code>False</code>, sua negação retorna <code>True</code>, e vice-versa, como na Tabela <a href="#tab:oper-negacao">2.8</a>.</p>
+<p>Tabela <a name="tab:oper-negacao">2.8</a>: Tabela-verdade do <em>não-lógico</em> (negação)</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">A</th>
+<th align="left">not A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>False</code></td>
+<td align="left"><code>True</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>True</code></td>
+<td align="left"><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>O uso do operador não-lógico é bastante direto, como segue:</p>
+<p>No fragmento que segue, verifica-se um dos resultados possível da operação e-lógico.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="comput.html#cb53-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb53-2"><a href="comput.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="kw">not</span> A</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<p>Os operadores lógicos <code>and</code>, <code>or</code> e <code>not</code> permitem conectar logicamente o resultado de diferentes expressões aritméticas, relacionais ou lógicas, o que permite construir expressões compostas de várias partes e, portanto, mais complexas, como será visto na seção <a href="comput.html#comput-expre">2.5</a>.</p>
+<p>Os operadores <code>in</code> (<em>teste de membro</em>) e <code>is</code> (<em>teste de identidade</em>) serão vistos nas seções que tratam de estruturas de dados e uso de objetos.</p>
+</div>
+</div>
+<div id="comput-expre" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Expressões</h2>
+<p>Uma <em>expressão</em> é uma combinação de valores literais (seção <a href="comput.html#comput-liter">2.1</a>), variáveis (seção <a href="comput.html#comput-varia">2.3</a>) e operadores (seção <a href="comput.html#comput-opera">2.4</a>), que produz um resultado como consequência do encadeamento dos elementos nela indicados. A determinação do valor resultante de uma expressão é que se denomina <em>avaliação da expressão</em>.</p>
+<p>O Python avalia as expressões da <em>esquerda para direita</em>, ou seja, no sentido usual de leitura, por exemplo, considere as variáveis <code>x</code> e <code>y</code> inicializadas como seguem;</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="comput.html#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb55-2"><a href="comput.html#cb55-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">3</span></span></code></pre></div>
+<p>Uma expressão simples pode combinar valores literais e variáveis, como segue:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="comput.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> x <span class="op">+</span> y <span class="op">+</span> <span class="dv">4</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 10</code></pre>
+<p>O resultado, <code>10</code>, é obtido da soma dos valores expressos diretamente pelos literais e recuperados das variáveis indicadas, ou seja, <code>1 + 2 + 3 + 4</code>.</p>
+<p>Podemos nos referir às expressões conforme o resultado que produzem, ou seja, existem:</p>
+<ul>
+<li>expressões de <em>atribuição</em>, não produzem resultado, mas o <em>efeito</em> de determinar o valor de variáveis com o resultado de uma expressão;</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="comput.html#cb58-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">7</span></span></code></pre></div>
+<ul>
+<li>expressões <em>aritméticas</em>, que combinam valores literais, variáveis e operadores aritméticos para produzir um resultado numérico (de tipos <code>int</code>, <code>float</code> ou <code>complex</code>);</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="comput.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> z <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 15</code></pre>
+<ul>
+<li>expressões <em>relacionais</em>, que combinam expressões aritméticas e operadores relacionais para produzir um resultado lógico (de tipo <code>bool</code>); e</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="comput.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;=</span> <span class="dv">10</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; False</code></pre>
+<ul>
+<li>expressões <em>lógicas</em>, que combinam valores literais, variáveis e expressões relacionais para produzir um resultado lógico (de tipo <code>bool</code>).</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="comput.html#cb63-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> <span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">1</span> <span class="op">&lt;=</span> <span class="dv">10</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<p>Assim, as expressões podem combinar e utilizar operadores diferentes, como:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="comput.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> x <span class="op">+</span>  y <span class="op">/</span> <span class="dv">4</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 4.75</code></pre>
+<p>Aqui, o resultado <code>4.75</code> mostra que, quando operadores diferentes são misturados, a ordem de avaliação esquerda-para-direita é modificada. Isto ocorre porque alguns operadores possuem maior <em>prioridade</em> (ou <em>precedência</em>).</p>
+<p>A <em>prioridade</em> dos operadores, ou sua <em>precedência</em>, é o critério matemático que estabele a ordem com que os operadores serão executados em uma expressão, além de como os operadores envolvidos serão tomados (sua <em>associatividade</em>).</p>
+<p>Para toda e qualquer expressão, sempre são aplicadas as regras de precedência da linguagem, garantindo que a expressão produza sempre o mesmo resultado, independentemente da plataforma ou do computadores utilizado.</p>
+</div>
+<div id="comput-prior" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Prioridade dos operadores</h2>
+<p>Como uma expressão pode combinar operadores diferentes e com aridade distinta, é necessário estabelecer um critério para determinar qual a ordem de execução dos operadores, garantindo resultados consistentes na avaliação da expressões, seja qual for a combinação empregada.</p>
+<p>A Tabela <a href="#tab:oper-prioridade">2.9</a> relaciona a prioridade dos operadores em Python, da maior (nível 1) para a menor (nível 18). Várias das indicações tratam de construções que serão vistas nos próximos capítulos deste material.</p>
+<p>Tabela <a name="tab:oper-prioridade">2.9</a>: Prioridade (precedência) dos operadores em Python</p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="34%" />
+<col width="56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">Nível</th>
+<th align="left">Operadores</th>
+<th align="left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">(<em>expr</em>), [<em>expr</em>,…],<br/>{<em>ch</em>:<em>val</em>}, {<em>expr</em>,…}</td>
+<td align="left">Expressões parentisadas, listas,<br/> dicionários e conjuntos</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">[<em>idx</em>], [<em>ini</em>:<em>fim</em>],<br/>x(<em>args</em>), <strong>.</strong></td>
+<td align="left">Subscrição, fatiamento,<br/>passagem de argumentos, seleção</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left"><code>await x</code></td>
+<td align="left">Expressão <code>await</code></td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left"><code>**</code></td>
+<td align="left">Potenciação</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left"><code>+x</code>, <code>-x</code>, <code>~</code></td>
+<td align="left">Positivo, negativo, não <em>bitwise</em></td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left"><code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+<td align="left">Multiplicação, divisão, divisão inteira, módulo</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left"><code>+</code>, <code>-</code></td>
+<td align="left">Adição, subtração</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left"><code>&lt;&lt;</code>, <code>&gt;&gt;</code></td>
+<td align="left">Deslocamento à esquerda e à direita</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left"><code>&amp;</code></td>
+<td align="left">E <em>bitwise</em></td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="left"><code>^</code></td>
+<td align="left">Ou-exclusivo <em>bitwise</em></td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="left"><code>|</code></td>
+<td align="left">Ou <em>bitwise</em></td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="left"><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>==</code>, <code>!=</code>,<br/><code>in</code>, <code>not in</code>, <code>is</code>, <code>not is</code></td>
+<td align="left">Relacionais, teste de membro e teste de identidade</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="left"><code>not x</code></td>
+<td align="left">Não lógico</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="left"><code>and</code></td>
+<td align="left">E lógico</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="left"><code>or</code></td>
+<td align="left">Ou lógico</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="left"><code>if - else</code></td>
+<td align="left">Expressão condicional</td>
+</tr>
+<tr class="odd">
+<td align="right">17</td>
+<td align="left"><code>lambda</code></td>
+<td align="left">Expressão lambda</td>
+</tr>
+<tr class="even">
+<td align="right">18</td>
+<td align="left"><code>=</code></td>
+<td align="left">Atribuição</td>
+</tr>
+</tbody>
+</table>
+<p>Os operadores existentes num mesmo nível possuem a mesma precedência, sendo assim avaliados conforme encontrados da esquerda para a direita.</p>
+<p>Os parênteses são operadores especiais, que podem ser utilizados para alterar a precedência pré-estabelecida de avaliação dos operadores, permitindo determinar uma sequência específica para o cálculo de uma expressão. Sempre é avaliado o conteúdo dos parênteses mais internos, prosseguindo com o conteúdo dos mais externos, até que a expressão seja completamente avaliada. Dentro de cada parênteses, a prioridade dos operadores é aplicada normalmente. A expressão <code>9 * 5 + 2</code> equivale à <code>(9 * 5) + 2</code>, pois os parênteses não alteram a prioridade das operações, mas que é diferente de <code>9 * (5 + 2)</code>, cujo parênteses <em>força</em> que a soma <code>5 + 2</code> ocorra <em>antes</em> da multiplicação, como mostram os fragmentos que seguem.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="comput.html#cb67-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb67-2"><a href="comput.html#cb67-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb67-3"><a href="comput.html#cb67-3" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb67-4"><a href="comput.html#cb67-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">*</span> B <span class="op">+</span> C</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 47</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="comput.html#cb69-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">*</span> B <span class="op">+</span> C <span class="op">==</span> (A <span class="op">*</span> B) <span class="op">+</span> C</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<p>Mas a próxima expressão só poderá ser avaliada corretamente se estiverem presentes os parênteses indicados, caso contrário será obtido o resultado das expressões anteriores:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="comput.html#cb71-1" aria-hidden="true" tabindex="-1"></a>(A <span class="op">*</span> B) <span class="op">+</span> C <span class="op">==</span> A <span class="op">*</span> (B <span class="op">+</span> C)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; False</code></pre>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/do.png" alt="DO" /></th>
+<th align="left">O uso de parênteses, mesmo quando indicando a ordem natural de precedência, permite construir expressões cuja leitura é mais fácil, além de evitar alguns erros, constituindo assim uma boa prática de programação.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div id="comput-atrib" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Atribuição</h2>
+<p>A <em>atribuição</em> é uma operação importante, pois permite determinar o valor das variáveis de um programa. Vale repetir que o uso das variáveis permite que o programador armazene valores literais ou resultados de cálculos diversos, para que possam ser utilizados em etapas posteriores do programa, evitando a repetição de sua entrada ou de seu processamento.</p>
+<p>A atribuição simples é realizada por meio do operador <code>=</code> segundo a sintaxe:</p>
+<blockquote>
+<p>variável = expressão</p>
+</blockquote>
+<p>No fragmento que segue, temos a atribuição dos diferentes tipos de expressões à diferentes variáveis, utilizadas nas próprias expressões.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="comput.html#cb73-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">2</span> <span class="co"># atribuição de literal</span></span>
+<span id="cb73-2"><a href="comput.html#cb73-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> v <span class="co"># atribuição de variável</span></span>
+<span id="cb73-3"><a href="comput.html#cb73-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">2.5</span> <span class="op">*</span> x <span class="op">+</span> <span class="fl">1.7</span> <span class="co"># atribuição de expressão aritmética</span></span>
+<span id="cb73-4"><a href="comput.html#cb73-4" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> x <span class="op">&lt;</span> y <span class="co"># atribuição de expressão relacional</span></span>
+<span id="cb73-5"><a href="comput.html#cb73-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> w <span class="kw">or</span> y <span class="co"># atribuição de expressão lógica</span></span>
+<span id="cb73-6"><a href="comput.html#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;v = </span><span class="sc">{v}</span><span class="ss">, x = </span><span class="sc">{x}</span><span class="ss">, y = </span><span class="sc">{y}</span><span class="ss">, w = </span><span class="sc">{w}</span><span class="ss">, z = </span><span class="sc">{z}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; v = 2, x = 2, y = 6.7, w = True, z = True</code></pre>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/info.png" alt="INFO" /></th>
+<th align="left">Python permite atribuir um mesmo valor para várias variáveis fazendo, por exemplo, <code>x = y = z = 0</code>, onde as variáveis <code>x</code>, <code>y</code>, <code>z</code> recebem o valor <code>0</code>.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div id="comput-atrib-multi" class="section level3" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Atribuição Múltipla</h3>
+<p>Python permite a atribuição simultânea de múltiplas variáveis, com a sintaxe:</p>
+<blockquote>
+<p>variável_1, variável_2 [,…] = expressão_1, expressão_2 [,…]</p>
+</blockquote>
+<p>Ou seja, uma lista de variáveis podem ser inicializadas ou alteradas em uma única operação de atribuição, desde que sejam indicadas uma expressão para cada variável, como no exemplo:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="comput.html#cb75-1" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="dv">0</span>, <span class="fl">1.5</span> <span class="op">*</span> x <span class="op">-</span> y,  w <span class="kw">or</span> y</span>
+<span id="cb75-2"><a href="comput.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;a = </span><span class="sc">{a}</span><span class="ss">, b = </span><span class="sc">{b}</span><span class="ss">, c = </span><span class="sc">{c}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; a = 0, b = -3.7, c = True</code></pre>
+</div>
+<div id="comput-atrib-compo" class="section level3" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Atribuição Composta</h3>
+<p>Na programação é bastante comum que uma variável tenha seu valor modificado por meio de uma expressão da qual faz parte, ou seja, a própria variável é usada no cômputo de seu próximo valor, como por exemplo:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="comput.html#cb77-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb77-2"><a href="comput.html#cb77-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> b <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb77-3"><a href="comput.html#cb77-3" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> v <span class="op">-</span> a <span class="op">/</span> <span class="dv">2</span></span></code></pre></div>
+<p>Quando for identificada a situação que segue, envolvendo um operador aritmético:</p>
+<blockquote>
+<p>var = var op expressao</p>
+</blockquote>
+<p>Podem ser aplicados os operadores de atribuição compostos, que combinam a atribuição com o operador aritmético presente na expressão, ou seja:</p>
+<blockquote>
+<p>var op= expressao</p>
+</blockquote>
+<p>Assim o fragmento anterior pode ser reescrito como:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="comput.html#cb78-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb78-2"><a href="comput.html#cb78-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb78-3"><a href="comput.html#cb78-3" aria-hidden="true" tabindex="-1"></a>v <span class="op">-=</span> a <span class="op">/</span> <span class="dv">2</span></span></code></pre></div>
+<p>A atribuição composta oferece uma pequena simplificação nas expressões, mas constitui um recurso útil.</p>
+</div>
+</div>
+<div id="comput-funcao" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Funções</h2>
+<p>Durante a programação é bastante comum que tarefas determinadas sejam realizadas com muita frequência, o que sempre é natural em praticamente qualquer área do conhecimento. Para evitar a repetição de um segmento de código utilizado muitas vezes, é comum a construção de uma <em>função</em>.</p>
+<p>Conforme Brandão <span class="citation">(<a href="#ref-bra2021" role="doc-biblioref">BRANDÃO 2021</a>)</span>:</p>
+<blockquote>
+<p>A ideia básica de uma função, implementada em alguma linguagem de programação, é encapsular um código que poderá ser invocado/chamado por qualquer outro trecho do programa. Seu significado e uso são muito parecidos com o de funções matemáticas, ou seja, existe um nome, uma definição e posterior invocação à função.</p>
+</blockquote>
+<p>Uma função, um procedimento ou uma subrotina nada mais são do que segmentos de código, organizados de uma maneira que possam ser reutilizados por um programa. Cada linguagem de programação tem uma sintaxe própria para a definição de funções, mas é comum que cada função:</p>
+<ul>
+<li>tenha um nome que permita seu acionamento;</li>
+<li>receba parâmetros, que permitem passar dados para a função;</li>
+<li>um trecho de código que realiza uma tarefa específica;</li>
+<li>possa retornar um resultado.</li>
+</ul>
+<p>As funções podem ser usadas na construção de expressões, ampliando muito suas possibilidades de realização de cálculos, além de prover enorme simplificação.</p>
+<p>O Python dispõe de um conjunto de funções pré-definidas, que podem ser utilizadas a qualquer momento, denominadas funções <em>built-in</em>. Algumas destas funções são <code>abs()</code>, <code>bin()</code>, <code>bool()</code>, <code>chr()</code>, <code>float()</code>, <code>hex()</code>, <code>id()</code>, <code>input()</code>, <code>int()</code>, <code>len()</code>, <code>max()</code>, <code>min()</code>, <code>oct()</code>, <code>ord()</code>, <code>pow()</code>, <code>print()</code>, <code>round()</code>, <code>str()</code> e <code>type()</code>.</p>
+<p>Seguem as descrições e exemplos de uso destas funções.</p>
+<dl>
+<dt><code>abs(x)</code></dt>
+<dd>Retorna o valor absoluto (sem sinal) de um número, que pode ser inteiro, real ou complexo (quando sua magnitude é retornada).
+</dd>
+</dl>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="comput.html#cb79-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="op">-</span><span class="fl">7.5</span> <span class="co"># um real negativo qualquer</span></span>
+<span id="cb79-2"><a href="comput.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="bu">abs</span>(A)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 7.5</code></pre>
+<dl>
+<dt><code>bin(x)</code></dt>
+<dd>Converte um número inteiro em uma <em>string</em> (um texto) binária, com prefixo <code>0b</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="comput.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bin</span>(<span class="dv">10</span>) <span class="co"># binário de um inteiro qualquer</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &#39;0b1010&#39;</code></pre>
+<dl>
+<dt><code>bool(x)</code></dt>
+<dd>Avalia o valor recebido e retorna <code>False</code> ou <code>True</code> de acordo com as regras de equivalência do Python, por exemplo, números diferentes de zero são considerados <code>True</code>. Se o argumento é omitido, retorna <code>False</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="comput.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bool</span>(<span class="st">&#39;jandl&#39;</span>) <span class="co"># um literal qualquer</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; True</code></pre>
+<dl>
+<dt><code>chr(x)</code></dt>
+<dd>Retorna uma <em>string</em> contendo o caractere correspondente o <em>code point</em> Unicode do inteiro dado.
+</dd>
+</dl>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="comput.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">chr</span>(<span class="dv">80</span>) <span class="co"># inteiro que corresponde ao caractere &#39;P&#39;</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &#39;P&#39;</code></pre>
+<dl>
+<dt><code>float(x)</code></dt>
+<dd>Retorna um número real, do tipo <code>float</code> correspondente ao número ou <em>string</em> fornecido. Se o argumento é omitido, retorna <code>0.0</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="comput.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="bu">float</span>(<span class="st">&#39;314E-2&#39;</span>) <span class="co"># converte string em float</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 3.14</code></pre>
+<dl>
+<dt><code>hex(x)</code></dt>
+<dd>Converte um número inteiro em uma <em>string</em> (um texto) hexadecimal em minúsculas, com prefixo <code>0x</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="comput.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="bu">hex</span>(<span class="dv">2021</span>) <span class="co"># hexadecimal de um inteiro qualquer</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &#39;0x7e5&#39;</code></pre>
+<dl>
+<dt><code>id(objeto)</code></dt>
+<dd>Retorna um número inteiro único que identifica o objeto recebido. Na maior parte das implementações de Python, este número corresponde ao endereço de memória onde o objeto está alocado.
+</dd>
+</dl>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="comput.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(A) <span class="co"># identidade da variável A</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 578893480</code></pre>
+<dl>
+<dt><code>input(prompt)</code></dt>
+<dd>Exibe a mensagem de <em>prompt</em>, se fornecida e retorna a leitura do texto digitado pelo usuário (até que seja pressionado <code>ENTER</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="comput.html#cb93-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Digite seu nome: &#39;</span>) <span class="co"># entrada de dados</span></span></code></pre></div>
+<dl>
+<dt><code>int(x)</code></dt>
+<dd>Retorna um número inteiro, do tipo <code>int</code> correspondente ao número ou <em>string</em> fornecido. Trunca as casas decimais quando o argumento é um valor real (de tipo <code>float</code>). Se o argumento é omitido, retorna <code>0</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="comput.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="st">&#39;2013&#39;</span>) <span class="co"># converte string em int</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 2013</code></pre>
+<dl>
+<dt><code>len(objeto)</code></dt>
+<dd>Retorna o comprimento (o número de itens) de um objeto, que deve ser uma sequência ou coleção.
+</dd>
+</dl>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="comput.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(<span class="st">&#39;Python&#39;</span>) <span class="co"># retorna o número de caracteres</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 6</code></pre>
+<dl>
+<dt><code>max(arg0, *arg1)</code></dt>
+<dd>Retorna o maior item de um <em>iterable</em>, ou entre dois ou mais argumentos fornecidos.
+</dd>
+</dl>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="comput.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>(<span class="dv">736</span>, <span class="dv">13</span>) <span class="co"># retorna o maior item</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 736</code></pre>
+<dl>
+<dt><code>min(arg0, *arg1)</code></dt>
+<dd>Retorna o maior item de um <em>iterable</em>, ou entre dois ou mais argumentos fornecidos.
+</dd>
+</dl>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="comput.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>(<span class="dv">736</span>, <span class="dv">13</span>) <span class="co"># retorna o menor item</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 13</code></pre>
+<dl>
+<dt><code>oct(x)</code></dt>
+<dd>Converte um número inteiro em uma <em>string</em> (um texto) octal, com prefixo <code>0o</code>.
+</dd>
+</dl>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="comput.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="bu">oct</span>(<span class="dv">2021</span>) <span class="co"># octal de um inteiro qualquer</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &#39;0o3745&#39;</code></pre>
+<dl>
+<dt><code>ord(c)</code></dt>
+<dd>Dada uma <em>string</em> contendo um caractere, retorna seu <em>code point</em> Unicode inteiro.
+</dd>
+</dl>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="comput.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="bu">ord</span>(<span class="st">&#39;P&#39;</span>) <span class="co"># retorna o código Unicode da letra P</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 80</code></pre>
+<dl>
+<dt><code>pow(base, exp)</code></dt>
+<dd>Retorna o resultado da base elevada ao expoente. A base e o expoente devem ser valores numéricos, inteiros ou reais.
+</dd>
+</dl>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="comput.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pow</span>(<span class="dv">5</span>, <span class="dv">4</span>) <span class="co"># retorna 5 a quarta potência</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 625</code></pre>
+<dl>
+<dt><code>print(*argumento)</code></dt>
+<dd>Imprime, no dispositivo de saída padrão (console), um ou mais argumentos recebidos, Possibilita controlar o separador dos argumentos e o finalizador de cada impressão. Os argumentos podem ser de qualquer tipo (numéricos, de texto, lógico ou outros).
+</dd>
+</dl>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="comput.html#cb108-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb108-2"><a href="comput.html#cb108-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="fl">2.3</span></span>
+<span id="cb108-3"><a href="comput.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Soma de&#39;</span>, A, <span class="st">&#39;e&#39;</span>, B, <span class="st">&#39;=&#39;</span>, A <span class="op">+</span> B) <span class="co"># saída de dados</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Soma de 1 e 2.3 = 3.3</code></pre>
+<dl>
+<dt><code>round(x, [digitos])</code></dt>
+<dd>Efetua o arredondamento do valor recebido como um inteiro, ou, opcionalmente, com o número de dígitos indicado.
+</dd>
+</dl>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="comput.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(<span class="fl">12.345678</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 12.35</code></pre>
+<dl>
+<dt><code>str(objeto)</code></dt>
+<dd>Retorna uma representação de texto do objeto dado.
+</dd>
+</dl>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="comput.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="bu">print</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &#39;&lt;built-in function print&gt;&#39;</code></pre>
+<dl>
+<dt><code>type(objeto)</code></dt>
+<dd>Retorna o tipo do objeto fornecido.
+</dd>
+</dl>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="comput.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(<span class="st">&#39;0x1234ABCD&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; &lt;class &#39;str&#39;&gt;</code></pre>
+<p>A lista completa das funções <em>built-in</em> do Python pode ser consultada em sua <a href="https://docs.python.org/3/library/functions.html">documentação</a>.</p>
+<p>O Capítulo <a href="modul.html#modul">7</a> detalhará a construção de funções, assim como sua utilização, discutindo também suas vantagens e desvantagens. A linguagem Python, tal como as demais linguagens de programação, permite explorarmos a utilização das funções.</p>
+
+</div>
+</div>
+<h3>Referências Bibliográficas</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bra2021" class="csl-entry">
+BRANDÃO, Leônidas de Oliveira. 2021. <em>Introdução Às Funções</em>. São Paulo, SP: IME/USP. <a href="https://www.ime.usp.br/~leo/mac2166/2017-1/introducao_funcoes.html">https://www.ime.usp.br/~leo/mac2166/2017-1/introducao_funcoes.html</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Dicio (Dicionário On-Line de Português): <a href="https://www.dicio.com.br/computar" class="uri">https://www.dicio.com.br/computar</a>.<a href="comput.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><em>Structured Query Language</em>, linguagem padronizada para consulta e manipulação de dados em <em>Sistemas Gerenciadores de Bancos de Dados Relacionais</em> (SGBDR).<a href="comput.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>O termo <em>built-in</em> é utilizado para designar um elemento que faz parte da própria definição da linguagem, ou seja, está disponível em todos os programas, sem necessidade de importação de módulos ou pacotes.<a href="comput.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Segundo o Dicio (Dicionário On-Line de Português) <em>abstrair</em> é a ação de analisar isoladamente um aspecto, contido num todo, sem ter em consideração sua relação com a realidade. Fazer a abstração de uma coisa permite simplificar, pois observamos seu aspecto principal, sem levar em conta seus detalhes (<a href="https://www.dicio.com.br/" class="uri">https://www.dicio.com.br/</a>).<a href="comput.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>O Python possui vários operadores bit-a-bit (ou <em>bitwise</em>) que atuam sobre os bits que compõem os valores inteiros, mas que não serão tratados neste material dado que têm aplicação bastante restrita.<a href="comput.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Na matemática a <em>aridade</em> de uma função ou operação é o número de argumentos ou operandos tomados.<a href="comput.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Na matemática a <em>associatividade</em> de um operador determina qual de seus operandos é avaliado e tomado primeiro.<a href="comput.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Propriedade <em>comutativa</em>: a ordem dos operandos não altera o resultado, pois na adição temos que<br />
+<code>A + B = B + A</code>.<a href="comput.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Propriedade <em>associativa</em>: a associação dos operandos não modifica o resultado, pois na adição temos que<br />
+<code>A + B + C = (A + B) + C = A + (B + C) = (A + C) + B</code>.<a href="comput.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Propriedade <em>distributiva</em>: realizamos o produto do termo externo ao parênteses com seus termos internos, ou seja, na adição <code>A * (B + C) = A * B + A * C</code>.<a href="comput.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p><em>Elemento nêutro</em>: valor que não modifica o resultado da operação, na adição ao somar zero não altera o resultado, pois <code>A + 0 = A</code>.<a href="comput.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Propriedade <em>distributiva</em>: realizamos o produto do termo externo ao parênteses com seus termos internos, ou seja, na subtração <code>A * (B - C) = A * B - A * C</code>.<a href="comput.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p><em>Elemento nêutro</em>: valor que não modifica o resultado da operação, subtrair zero não altera o resultado, pois <code>A - 0 = A</code>.<a href="comput.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>Propriedade <em>comutativa</em>: a ordem dos operandos não altera o resultado, pois na multiplicação
+<code>A * B = B * A</code>.<a href="comput.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>Propriedade <em>associativa</em>: a associação dos operandos não modifica o resultado, pois na multiplicação
+<code>A * B * C = (A * B) * C = A * (B * C) = (A * C) * B</code>.<a href="comput.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p><em>Elemento nêutro</em>: valor que não modifica o resultado da operação, a multiplicação por um não modifica o resultado, pois <code>A * 1 = A</code>.<a href="comput.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p><em>Elemento nêutro</em>: valor que não modifica o resultado da operação, a divisão por um não modifica o resultado, pois <code>A / 1 = A</code>.<a href="comput.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Uma <em>tabela-verdade</em> mostra todas as combinações possíveis dos operandos de uma função lógica e seus resultados. O número de combinações possíveis sempre é 2<sup>operandos</sup>.<a href="comput.html#fnref22" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="e-s.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-computacao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pygp.pdf", "pygp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

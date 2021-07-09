@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Decisão | Python - Guia do Programador</title>
+  <meta name="description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Decisão | Python - Guia do Programador" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="github-repo" content="pjandl/pygp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Decisão | Python - Guia do Programador" />
+  
+  <meta name="twitter:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  
+
+<meta name="author" content="Peter Jandl Junior" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="repet.html"/>
+<link rel="next" href="modul.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python - Guia do Programador</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#convenções"><i class="fa fa-check"></i>Convenções</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#código-fonte"><i class="fa fa-check"></i>Código fonte</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#introd-histo"><i class="fa fa-check"></i><b>1.1</b> Breve Histórico</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#introd-carac"><i class="fa fa-check"></i><b>1.2</b> Características</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#introd-habil"><i class="fa fa-check"></i><b>1.3</b> Habilidades da Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comput.html"><a href="comput.html"><i class="fa fa-check"></i><b>2</b> Computação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="comput.html"><a href="comput.html#comput-liter"><i class="fa fa-check"></i><b>2.1</b> Valores Literais</a></li>
+<li class="chapter" data-level="2.2" data-path="comput.html"><a href="comput.html#comput-tipos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Dados</a></li>
+<li class="chapter" data-level="2.3" data-path="comput.html"><a href="comput.html#comput-varia"><i class="fa fa-check"></i><b>2.3</b> Variáveis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="comput.html"><a href="comput.html#comput-varia-nomes"><i class="fa fa-check"></i><b>2.3.1</b> Denominação de Variáveis</a></li>
+<li class="chapter" data-level="2.3.2" data-path="comput.html"><a href="comput.html#comput-varia-reser"><i class="fa fa-check"></i><b>2.3.2</b> Palavras Reservadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="comput.html"><a href="comput.html#comput-opera"><i class="fa fa-check"></i><b>2.4</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="comput.html"><a href="comput.html#comput-opera-aritm"><i class="fa fa-check"></i><b>2.4.1</b> Operadores Aritméticos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="comput.html"><a href="comput.html#comput-opera-relac"><i class="fa fa-check"></i><b>2.4.2</b> Operadores Relacionais</a></li>
+<li class="chapter" data-level="2.4.3" data-path="comput.html"><a href="comput.html#comput-opera-logic"><i class="fa fa-check"></i><b>2.4.3</b> Operadores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="comput.html"><a href="comput.html#comput-expre"><i class="fa fa-check"></i><b>2.5</b> Expressões</a></li>
+<li class="chapter" data-level="2.6" data-path="comput.html"><a href="comput.html#comput-prior"><i class="fa fa-check"></i><b>2.6</b> Prioridade dos operadores</a></li>
+<li class="chapter" data-level="2.7" data-path="comput.html"><a href="comput.html#comput-atrib"><i class="fa fa-check"></i><b>2.7</b> Atribuição</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="comput.html"><a href="comput.html#comput-atrib-multi"><i class="fa fa-check"></i><b>2.7.1</b> Atribuição Múltipla</a></li>
+<li class="chapter" data-level="2.7.2" data-path="comput.html"><a href="comput.html#comput-atrib-compo"><i class="fa fa-check"></i><b>2.7.2</b> Atribuição Composta</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="comput.html"><a href="comput.html#comput-funcao"><i class="fa fa-check"></i><b>2.8</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="e-s.html"><a href="e-s.html"><i class="fa fa-check"></i><b>3</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="e-s.html"><a href="e-s.html#e-s-saida"><i class="fa fa-check"></i><b>3.1</b> Saída Simples</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="e-s.html"><a href="e-s.html#e-s-saida-escap"><i class="fa fa-check"></i><b>3.1.1</b> Caracteres Especiais</a></li>
+<li class="chapter" data-level="3.1.2" data-path="e-s.html"><a href="e-s.html#e-s-saida-opcao"><i class="fa fa-check"></i><b>3.1.2</b> Controle de Separação e Finalização</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="e-s.html"><a href="e-s.html#e-s-entra"><i class="fa fa-check"></i><b>3.2</b> Entrada</a></li>
+<li class="chapter" data-level="3.3" data-path="e-s.html"><a href="e-s.html#e-s-format"><i class="fa fa-check"></i><b>3.3</b> Saída Formatada</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="e-s.html"><a href="e-s.html#e-s-format-funcao"><i class="fa fa-check"></i><b>3.3.1</b> Formatação com função <code>format()</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="e-s.html"><a href="e-s.html#e-s-format-inter"><i class="fa fa-check"></i><b>3.3.2</b> Interpolação de <em>string</em></a></li>
+<li class="chapter" data-level="3.3.3" data-path="e-s.html"><a href="e-s.html#e-s-format-fstring"><i class="fa fa-check"></i><b>3.3.3</b> Formatação com <em>f-string</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seque.html"><a href="seque.html"><i class="fa fa-check"></i><b>4</b> Sequenciação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="seque.html"><a href="seque.html#seque-progr"><i class="fa fa-check"></i><b>4.1</b> Programa Mínimo</a></li>
+<li class="chapter" data-level="4.2" data-path="seque.html"><a href="seque.html#seque-e-p-s"><i class="fa fa-check"></i><b>4.2</b> Estratégia E-P-S</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="seque.html"><a href="seque.html#seque-e-p-s-temper"><i class="fa fa-check"></i><b>4.2.1</b> Problema I: temperatura média e amplitude térmica</a></li>
+<li class="chapter" data-level="4.2.2" data-path="seque.html"><a href="seque.html#seque-e-p-s-caixa"><i class="fa fa-check"></i><b>4.2.2</b> Problema II: caixas de papelão</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="repet.html"><a href="repet.html"><i class="fa fa-check"></i><b>5</b> Repetição</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="repet.html"><a href="repet.html#repet-while"><i class="fa fa-check"></i><b>5.1</b> Repetição Condicional</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="repet.html"><a href="repet.html#repet-while-conta"><i class="fa fa-check"></i><b>5.1.1</b> Contagem com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="repet.html"><a href="repet.html#repet-while-acumu"><i class="fa fa-check"></i><b>5.1.2</b> Agregação com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="repet.html"><a href="repet.html#repet-while-ating"><i class="fa fa-check"></i><b>5.1.3</b> Atingimento de condição com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="repet.html"><a href="repet.html#repet-while-percu"><i class="fa fa-check"></i><b>5.1.4</b> Percurso com <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="repet.html"><a href="repet.html#repet-for"><i class="fa fa-check"></i><b>5.2</b> Repetição Automática</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="repet.html"><a href="repet.html#repet-for-percu"><i class="fa fa-check"></i><b>5.2.1</b> Percurso com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="repet.html"><a href="repet.html#repet-for-conta"><i class="fa fa-check"></i><b>5.2.2</b> Contagem com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="repet.html"><a href="repet.html#repet-for-acumu"><i class="fa fa-check"></i><b>5.2.3</b> Agregação com <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="decis.html"><a href="decis.html"><i class="fa fa-check"></i><b>6</b> Decisão</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="decis.html"><a href="decis.html#decis-if"><i class="fa fa-check"></i><b>6.1</b> Decisão Simples</a></li>
+<li class="chapter" data-level="6.2" data-path="decis.html"><a href="decis.html#decis-if-else"><i class="fa fa-check"></i><b>6.2</b> Decisão Completa</a></li>
+<li class="chapter" data-level="6.3" data-path="decis.html"><a href="decis.html#decis-if-elif-else"><i class="fa fa-check"></i><b>6.3</b> Decisões Encadeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>7</b> Modularização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>7.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="modul.html"><a href="modul.html#modul-funcao"><i class="fa fa-check"></i><b>7.2</b> Funções</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modul.html"><a href="modul.html#modul-funcao-tipos"><i class="fa fa-check"></i><b>7.2.1</b> Tipos de funções</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modul.html"><a href="modul.html#modul-funcao-return"><i class="fa fa-check"></i><b>7.2.2</b> Retorno de Valor</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modul.html"><a href="modul.html#modul-funcao-param"><i class="fa fa-check"></i><b>7.2.3</b> Passagem de Parâmetros</a></li>
+<li class="chapter" data-level="7.2.4" data-path="modul.html"><a href="modul.html#modul-funcao-default"><i class="fa fa-check"></i><b>7.2.4</b> Parâmetros <em>Default</em></a></li>
+<li class="chapter" data-level="7.2.5" data-path="modul.html"><a href="modul.html#modul-funcao-var"><i class="fa fa-check"></i><b>7.2.5</b> Parâmetros Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>7.3</b> Importação</a></li>
+<li class="chapter" data-level="7.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>7.4</b> Criação de pacotes e módulos</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
+<li class="chapter" data-level="B" data-path="instalação-do-anaconda.html"><a href="instalação-do-anaconda.html"><i class="fa fa-check"></i><b>B</b> Instalação do Anaconda</a></li>
+<li class="chapter" data-level="" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i>Referências Bibliográficas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python - Guia do Programador</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="decis" class="section level1" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Decisão</h1>
+<p>A sequenciação é fundamental na programação, pois permite estabelecer uma sequência adequada de instruções, organizadas para solucionar um problema, ou seja, determina quais dados são necessários e como serão processados, representando, assim, a lógica com a qual resolvemos um problema. Desta maneira, são combinadas as operações de entrada e saída, de computação e de repetição.</p>
+<p>Mas existem circunstâncias onde, considerados os resultados obtidos pelo programa, um determinado conjunto de instruções não é adequado para realizar uma etapa específica do problema, sendo requerido o uso de outra alternativa diferente para o processamento dos dados, ou seja, existem situações onde o fluxo sequencial de execução não mais atende as necessidades do problema.</p>
+<p>A <em>decisão</em> é uma habilidade muito importante na programação de computadores, pois oferece uma maneira para escolher quais instruções serão executadas, isto é, permite que, durante a execução do programa, sejam selecionadas as instruções que serão executadas. A <em>decisão</em> ou <em>seleção</em> é realizada mediante a avaliação de uma expressão lógica que representa a <em>condição</em> que o programador estabelece como critério de escolha ou de seleção.</p>
+<p>O Python oferece a diretiva de decisão <code>if</code>, que oferece várias possibilidades de uso:</p>
+<ul>
+<li>efetuar uma decisão simples;</li>
+<li>realizar uma decisão completa;</li>
+<li>encadear várias decisões.</li>
+</ul>
+<p>Vejamos cada uma dessas possibilidades.</p>
+<div id="decis-if" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Decisão Simples</h2>
+<p>A <em>decisão simples</em> permite selecionar um comando ou um conjunto de comandos para execução, por meio da avaliação de uma expressão lógica, considerada como a <em>condição</em>, cujo resultado determina a execução dos comandos associados. Observe o fluxograma exibido na Figura <a href="decis.html#fig:06-01">6.1</a>.</p>
+<div class="figure"><span id="fig:06-01"></span>
+<img src="images/06-01.jpg" alt="Fluxograma da decisão simples"  />
+<p class="caption">
+Figura 6.1: Fluxograma da decisão simples
+</p>
+</div>
+<p>A diretiva <code>if</code> é iniciada pela avaliação da condição, que deve ser uma expressão de tipo <code>bool</code> (lógico), ou que possa ser avaliada logicamente. Quando a condição é avaliada como <code>True</code>, os comandos associados são executados sequencialmente; mas quando produz um resultado <code>False</code>, ocorre um desvio e a execução do programa continua com o comando seguinte à diretiva <code>if</code>. Isto significa que se a condição é avaliada como falsa, nenhum dos comandos associados é executado.</p>
+<p>Podem ser associados um ou mais comandos à diretiva <code>if</code>, desde que indentados de quatro espaços à direita, que é o padrão do Python. Observe que existe um dois-pontos <code>:</code> obrigatório após a condição, tal como nas diretivas <code>while</code> e <code>for</code>.</p>
+<p>A condição utilizada pelo <code>if</code> pode ser uma expressão aritmética simples, cujo resultado será considerado <code>False</code> apenas quando resultar em zero, ou seja, qualquer valor diferente de zero, positivo ou negativo, é tomado como <code>True</code>. Também são válidas expressões aritméticas combinadas com operadores relacionais, que são consideradas expressões lógicas devido seu resultado de tipo <code>bool</code>, ou expressões compostas, combinando várias expressões aritméticas e relacionais com o uso de operadores lógicos, que também produzem resultado <code>bool</code>.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/do.png" alt="DO" /></th>
+<th align="left">É uma boa prática de programação utilizar como <em>condição</em> indicada no <code>if</code> expressões que resultem o tipo <code>bool</code>, explicitando qualquer comparação desejada, evitando o uso de operações implícitas. Isto traz mais clareza ao código e facilita sua manutenção.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Observe o fragmento que segue, onde a variável <code>valor</code> é <em>testada</em> pela diretiva <code>if</code>, isto é, seu conteúdo é avaliado logicamente. Como contém o inteiro <code>33</code>, um valor não nulo, é considerada <code>True</code>, de maneira que a função <code>print()</code>, associado ao <code>if</code>, é executada, produzindo sua mensagem.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="decis.html#cb1-1" aria-hidden="true" tabindex="-1"></a>valor <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb1-2"><a href="decis.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> valor:</span>
+<span id="cb1-3"><a href="decis.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Valor contém&#39;</span>, valor, <span class="st">&#39;que é NÃO NULO&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor contém 33 que é NÃO NULO</code></pre>
+</div>
+<div id="decis-if-else" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Decisão Completa</h2>
+<p>Aqui tratamos do <em>if/else</em>!</p>
+</div>
+<div id="decis-if-elif-else" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Decisões Encadeadas</h2>
+<p>Aqui tratamos do <em>if/elif/else</em>!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="repet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modul.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-decisao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pygp.pdf", "pygp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

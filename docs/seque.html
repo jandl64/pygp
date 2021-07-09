@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Sequenciação | Python - Guia do Programador</title>
+  <meta name="description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Sequenciação | Python - Guia do Programador" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="github-repo" content="pjandl/pygp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Sequenciação | Python - Guia do Programador" />
+  
+  <meta name="twitter:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  
+
+<meta name="author" content="Peter Jandl Junior" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="e-s.html"/>
+<link rel="next" href="repet.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python - Guia do Programador</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#convenções"><i class="fa fa-check"></i>Convenções</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#código-fonte"><i class="fa fa-check"></i>Código fonte</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#introd-histo"><i class="fa fa-check"></i><b>1.1</b> Breve Histórico</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#introd-carac"><i class="fa fa-check"></i><b>1.2</b> Características</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#introd-habil"><i class="fa fa-check"></i><b>1.3</b> Habilidades da Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comput.html"><a href="comput.html"><i class="fa fa-check"></i><b>2</b> Computação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="comput.html"><a href="comput.html#comput-liter"><i class="fa fa-check"></i><b>2.1</b> Valores Literais</a></li>
+<li class="chapter" data-level="2.2" data-path="comput.html"><a href="comput.html#comput-tipos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Dados</a></li>
+<li class="chapter" data-level="2.3" data-path="comput.html"><a href="comput.html#comput-varia"><i class="fa fa-check"></i><b>2.3</b> Variáveis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="comput.html"><a href="comput.html#comput-varia-nomes"><i class="fa fa-check"></i><b>2.3.1</b> Denominação de Variáveis</a></li>
+<li class="chapter" data-level="2.3.2" data-path="comput.html"><a href="comput.html#comput-varia-reser"><i class="fa fa-check"></i><b>2.3.2</b> Palavras Reservadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="comput.html"><a href="comput.html#comput-opera"><i class="fa fa-check"></i><b>2.4</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="comput.html"><a href="comput.html#comput-opera-aritm"><i class="fa fa-check"></i><b>2.4.1</b> Operadores Aritméticos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="comput.html"><a href="comput.html#comput-opera-relac"><i class="fa fa-check"></i><b>2.4.2</b> Operadores Relacionais</a></li>
+<li class="chapter" data-level="2.4.3" data-path="comput.html"><a href="comput.html#comput-opera-logic"><i class="fa fa-check"></i><b>2.4.3</b> Operadores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="comput.html"><a href="comput.html#comput-expre"><i class="fa fa-check"></i><b>2.5</b> Expressões</a></li>
+<li class="chapter" data-level="2.6" data-path="comput.html"><a href="comput.html#comput-prior"><i class="fa fa-check"></i><b>2.6</b> Prioridade dos operadores</a></li>
+<li class="chapter" data-level="2.7" data-path="comput.html"><a href="comput.html#comput-atrib"><i class="fa fa-check"></i><b>2.7</b> Atribuição</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="comput.html"><a href="comput.html#comput-atrib-multi"><i class="fa fa-check"></i><b>2.7.1</b> Atribuição Múltipla</a></li>
+<li class="chapter" data-level="2.7.2" data-path="comput.html"><a href="comput.html#comput-atrib-compo"><i class="fa fa-check"></i><b>2.7.2</b> Atribuição Composta</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="comput.html"><a href="comput.html#comput-funcao"><i class="fa fa-check"></i><b>2.8</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="e-s.html"><a href="e-s.html"><i class="fa fa-check"></i><b>3</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="e-s.html"><a href="e-s.html#e-s-saida"><i class="fa fa-check"></i><b>3.1</b> Saída Simples</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="e-s.html"><a href="e-s.html#e-s-saida-escap"><i class="fa fa-check"></i><b>3.1.1</b> Caracteres Especiais</a></li>
+<li class="chapter" data-level="3.1.2" data-path="e-s.html"><a href="e-s.html#e-s-saida-opcao"><i class="fa fa-check"></i><b>3.1.2</b> Controle de Separação e Finalização</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="e-s.html"><a href="e-s.html#e-s-entra"><i class="fa fa-check"></i><b>3.2</b> Entrada</a></li>
+<li class="chapter" data-level="3.3" data-path="e-s.html"><a href="e-s.html#e-s-format"><i class="fa fa-check"></i><b>3.3</b> Saída Formatada</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="e-s.html"><a href="e-s.html#e-s-format-funcao"><i class="fa fa-check"></i><b>3.3.1</b> Formatação com função <code>format()</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="e-s.html"><a href="e-s.html#e-s-format-inter"><i class="fa fa-check"></i><b>3.3.2</b> Interpolação de <em>string</em></a></li>
+<li class="chapter" data-level="3.3.3" data-path="e-s.html"><a href="e-s.html#e-s-format-fstring"><i class="fa fa-check"></i><b>3.3.3</b> Formatação com <em>f-string</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seque.html"><a href="seque.html"><i class="fa fa-check"></i><b>4</b> Sequenciação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="seque.html"><a href="seque.html#seque-progr"><i class="fa fa-check"></i><b>4.1</b> Programa Mínimo</a></li>
+<li class="chapter" data-level="4.2" data-path="seque.html"><a href="seque.html#seque-e-p-s"><i class="fa fa-check"></i><b>4.2</b> Estratégia E-P-S</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="seque.html"><a href="seque.html#seque-e-p-s-temper"><i class="fa fa-check"></i><b>4.2.1</b> Problema I: temperatura média e amplitude térmica</a></li>
+<li class="chapter" data-level="4.2.2" data-path="seque.html"><a href="seque.html#seque-e-p-s-caixa"><i class="fa fa-check"></i><b>4.2.2</b> Problema II: caixas de papelão</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="repet.html"><a href="repet.html"><i class="fa fa-check"></i><b>5</b> Repetição</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="repet.html"><a href="repet.html#repet-while"><i class="fa fa-check"></i><b>5.1</b> Repetição Condicional</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="repet.html"><a href="repet.html#repet-while-conta"><i class="fa fa-check"></i><b>5.1.1</b> Contagem com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="repet.html"><a href="repet.html#repet-while-acumu"><i class="fa fa-check"></i><b>5.1.2</b> Agregação com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="repet.html"><a href="repet.html#repet-while-ating"><i class="fa fa-check"></i><b>5.1.3</b> Atingimento de condição com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="repet.html"><a href="repet.html#repet-while-percu"><i class="fa fa-check"></i><b>5.1.4</b> Percurso com <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="repet.html"><a href="repet.html#repet-for"><i class="fa fa-check"></i><b>5.2</b> Repetição Automática</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="repet.html"><a href="repet.html#repet-for-percu"><i class="fa fa-check"></i><b>5.2.1</b> Percurso com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="repet.html"><a href="repet.html#repet-for-conta"><i class="fa fa-check"></i><b>5.2.2</b> Contagem com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="repet.html"><a href="repet.html#repet-for-acumu"><i class="fa fa-check"></i><b>5.2.3</b> Agregação com <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="decis.html"><a href="decis.html"><i class="fa fa-check"></i><b>6</b> Decisão</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="decis.html"><a href="decis.html#decis-if"><i class="fa fa-check"></i><b>6.1</b> Decisão Simples</a></li>
+<li class="chapter" data-level="6.2" data-path="decis.html"><a href="decis.html#decis-if-else"><i class="fa fa-check"></i><b>6.2</b> Decisão Completa</a></li>
+<li class="chapter" data-level="6.3" data-path="decis.html"><a href="decis.html#decis-if-elif-else"><i class="fa fa-check"></i><b>6.3</b> Decisões Encadeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>7</b> Modularização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>7.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="modul.html"><a href="modul.html#modul-funcao"><i class="fa fa-check"></i><b>7.2</b> Funções</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modul.html"><a href="modul.html#modul-funcao-tipos"><i class="fa fa-check"></i><b>7.2.1</b> Tipos de funções</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modul.html"><a href="modul.html#modul-funcao-return"><i class="fa fa-check"></i><b>7.2.2</b> Retorno de Valor</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modul.html"><a href="modul.html#modul-funcao-param"><i class="fa fa-check"></i><b>7.2.3</b> Passagem de Parâmetros</a></li>
+<li class="chapter" data-level="7.2.4" data-path="modul.html"><a href="modul.html#modul-funcao-default"><i class="fa fa-check"></i><b>7.2.4</b> Parâmetros <em>Default</em></a></li>
+<li class="chapter" data-level="7.2.5" data-path="modul.html"><a href="modul.html#modul-funcao-var"><i class="fa fa-check"></i><b>7.2.5</b> Parâmetros Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>7.3</b> Importação</a></li>
+<li class="chapter" data-level="7.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>7.4</b> Criação de pacotes e módulos</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
+<li class="chapter" data-level="B" data-path="instalação-do-anaconda.html"><a href="instalação-do-anaconda.html"><i class="fa fa-check"></i><b>B</b> Instalação do Anaconda</a></li>
+<li class="chapter" data-level="" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i>Referências Bibliográficas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python - Guia do Programador</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="seque" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Sequenciação</h1>
+<p>A <em>sequenciação</em> é a habilidade requerida para organizarmos uma sequência de instruções que permita resolver um problema específico. De muitas maneiras, sequenciar instruções é o mesmo que criar um <em>algoritmo</em><a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>, pois:</p>
+<blockquote>
+<p>Na Matemática, representa um conjunto de regras para a resolução de um cálculo numérico, como, por exemplo, o algoritmo de Euclides encontra o máximo divisor comum de dois números inteiros. É também uma sequência de raciocínios ou operações que oferece a solução de certos problemas.</p>
+<p>Na Informática, é um conjunto de regras que fornecem uma sequência de operações capazes de resolver um problema específico.</p>
+</blockquote>
+<p>Uma definição um pouco mais precisa do ponto de vista da Ciência da Computação seria:</p>
+<blockquote>
+<p>Um algoritmo é uma sequência organizada e finita de instruções que permite a solução de um problema específico ou de uma classe de problemas.</p>
+</blockquote>
+<p>A habilidade da sequenciação trata, assim, de estabelecer uma sequência adequada de instruções para solução de um problema, ou seja, ela representa a lógica com a qual resolvemos um problema. A sequenciação determina como os dados de um problema serão processados, portanto combina todas as habilidades requeridas para a construção de programa de computador, que são a entrada e saída, a computação, a repetição, a decisão e a modularização.</p>
+<div id="seque-progr" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Programa Mínimo</h2>
+<p>O comportamento <em>natural</em> de um programa é ter suas instruções executadas uma a uma, da primeira até a última, na ordem em que se encontram. Isto é é o que se denomina <em>fluxo sequencial</em>. As instruções, chamadas formalmente de diretivas (<em>statements</em>), são separadas, no Python, por uma quebra de linha, de maneira que um programa é um texto, contendo uma, várias ou muitas instruções organizadas numa sequência.</p>
+<p>Na verdade, o Python é bastante direto para a construção de seus programas, pois uma sequência simples de instruções constitui um programa, de modo que o menor programa possível, ou seja, o <em>programa mínimo</em> seja aquele constituído de uma única instrução como no programa que segue, o clássico <a href="https://www.thesoftwareguild.com/blog/the-history-of-hello-world/"><em>Hello World</em></a>.</p>
+<p>Esta simplicidade extrema torna o Python atraente tanto para aquele que está iniciando os estudos em programação, como para o especialista de outra área que pode se beneficiar da autonomia de criar seus próprios programas, assim como para os profissionais de Tecnologia da Informação que trabalham com desenvolvimento de software.</p>
+</div>
+<div id="seque-e-p-s" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Estratégia E-P-S</h2>
+<p>Muitos programas de computador são construídos para realizar, da maneira mais simples possível, as tarefas necessárias para solucionar um problema. Em muitos casos, estas tarefas podem ser organizadas em três etapas simples, como descrito na seção <a href="e-s.html#e-s">3</a>, ou seja, efetuando uma ou mais operações de entrada de dados, seguida do processamento dos dados obtidos, e sendo finalizadas por uma etapa de saída de dados, a qual produz os resultados apresentados ao usuário ou armazenados para uso posterior. Essa é a estratégia <strong>E-P-S</strong> (<em>Entrada-Processamento-Saída</em>).</p>
+<p>É comum que, para resolver um problema, seja seguida uma sequência de operações na qual são realizados cálculos sobre valores específicos ou são efetuados outros tipos de manipulação sobre os dados disponíveis. Na maioria da vezes não é possível iniciar esta sequência de operações sem que alguns dos dados requeridos para os cálculos sejam conhecidos.</p>
+<p>Por isso é bastante típico que os programa sejam iniciados por uma etapa onde estes dados iniciais sejam solicitados ao usuário do programa. Esta é a etapa de <em>entrada de dados</em>, na qual os dados requeridos pelo programa são considerados como dados de entrada.</p>
+<p>Já a solução do problema, ou seja, os resultados desejados, que são produzidos pela execução do programa, são entendidos como <em>dados de saída</em>, os quais são apresentados (ou exibidos) ao usuário após a realização da sequência de operações que o programa realiza a partir dos dados de entrada. Ou seja, a computação, realizada a partir dos dados de entrada para produzir os dados de saída, é o que chamamos de <em>processamento de dados</em>.</p>
+<p>Alguns problemas-exemplo pode auxiliar na compreensão e aplicação desta estratégia.</p>
+<div id="seque-e-p-s-temper" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Problema I: temperatura média e amplitude térmica</h3>
+<p>Ao longo dos dias, é absolutamente comum a ocorrência de variações na temperatura. Estas variações são decorrentes de muitos fatores, como horário, localidade geográfica, estação do ano, fenômenos climáticos e outros. A Figura <a href="seque.html#fig:04-01">4.1</a> mostra um gráfico de temperaturas para a cidade de São Paulo, no período de julho/20 a junho/21<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a>. A linha vermelha central representa a temperatura média de cada mês, o que permite observar que fevereiro foi o mês mais quente do ano, com temperatura média de <code>22.5°C</code>, enquanto julho foi o mês mais frio do ano, com uma temperatura média de <code>16.2°C</code>.</p>
+<div class="figure"><span id="fig:04-01"></span>
+<img src="images/04-01.jpg" alt="Temperaturas em São Paulo [julho/20-junho/21]"  />
+<p class="caption">
+Figura 4.1: Temperaturas em São Paulo [julho/20-junho/21]
+</p>
+</div>
+<p>O problema que temos é:</p>
+<blockquote>
+<p>Como escrever um programa para determinar a temperatura média e amplitude térmica de uma localidade em um período determinado?</p>
+</blockquote>
+<p>Aqui existe uma questão que precisa ser enfatizada: para que seja possível escrever um programa para resolver um problema, precisamos, <em>primeiro</em>, resolver este problema, ao menos esquematicamente, ou seja, precisamos estabelecer <em>como</em> são realizadas as operações e os cálculos necessários para sua solução. Só então, saberemos quais são os dados necessários para a entrada, isto é, os dados que constituem os pré-requisitos da solução.</p>
+<p>Em resumo, <em>antes</em> de construirmos um programa, devemos ser capazes de solucionar o problema conceitualmente, de maneira a organizar este programa para que realize as operações e os cálculos que foram determinados para a solução deste problema particular.</p>
+<p>Para o problema em questão, vamos considerar que t<sub>max</sub> é a temperatura máxima e t<sub>min</sub> é a temperatura mínima, observadas numa localidade específica e em um período determinado (dia, semana, mês, ano etc.), a temperatura média é a média aritmética simples de t<sub>max</sub> e t<sub>min</sub>, ou seja:</p>
+<blockquote>
+<p>t<sub>média</sub> = (t<sub>max</sub> + t<sub>min</sub>) / 2</p>
+</blockquote>
+<p>A faixa ao redor da linha vermelha, que pode ser vista na Figura <a href="seque.html#fig:04-01">4.1</a>, representa a <em>amplitude térmica</em> ou <em>oscilação térmica</em> observada mês a mês. A <em>amplitude térmica</em> é a diferença existente entre os valores máximos e mínimos de temperatura, observada durante um período de tempo específico, em um determinado local. A amplitude térmica AT é calculada como:</p>
+<blockquote>
+<p>AT = t<sub>max</sub> - t<sub>min</sub></p>
+</blockquote>
+<p>Então, para calcular a temperatura média e a amplitude térmica são requeridas as temperaturas mínima t<sub>min</sub> e máxima t<sub>max</sub>. A estratégia <strong>E-P-S</strong> é adequada aqui, pois:</p>
+<ol style="list-style-type: decimal">
+<li>Devemos obter as temperaturas (t<sub>min</sub> e t<sub>max</sub>) da localidade e período desejados (entrada);</li>
+<li>Efetuamos os cálculos da temperatura média e da amplitude térmica (processamento);</li>
+<li>Apresentamos os resultados obtidos (saída).</li>
+</ol>
+<p>Assim, o problema é dividido em partes, simplificando sua solução.</p>
+<div id="entrada" class="section level4" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Entrada</h4>
+<p>A entrada de dados deste problema requer obter as as temperaturas mínima t<sub>min</sub> e máxima t<sub>max</sub> da da localidade e período desejados. Antes de obter estes dados, é necessário considerar de que tipo são. Medidas de temperatura são grandezas reais, pois seus valores podem conter uma parte inteira e outra fracionária, assim, as medidas de temperatura mínima e máxima devem ser tratadas como valores reais, do tipo <code>float</code> no Python.</p>
+<p>Toda vez que se realiza uma entrada de dados, devem ser exibidas mensagens de orientação para o usuário, dirigindo a leitura dos respectivos valores. O fragmento que segue pode efetuar a entrada da medida da temperatura mínima.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="seque.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da temperatura mínima</span></span>
+<span id="cb192-2"><a href="seque.html#cb192-2" aria-hidden="true" tabindex="-1"></a>temp_minima <span class="op">=</span> <span class="bu">float</span>(</span>
+<span id="cb192-3"><a href="seque.html#cb192-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span>(<span class="st">&#39;Digite a temperatura mínima [medida em C]: &#39;</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite a temperatura mínima [medida em C]: 19.4</code></pre>
+<p>A função <em>built-in</em> <code>input()</code> foi usada para exibir o <em>prompt</em> (mensagem de orientação ao usuário) e efetuar a leitura de um dado, enquanto a função <em>built-in</em> <code>float()</code> efetua a conversão do texto digitado pelo usuário e lido por <code>input()</code> em um número real (do tipo <code>float</code>) correspondente à temperatura mínima. Caberá ao usuário digitar valores válidos.</p>
+<p>O mesmo pode ser feito para entrada da medida da temperatura máxima.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="seque.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da temperatura máxima</span></span>
+<span id="cb194-2"><a href="seque.html#cb194-2" aria-hidden="true" tabindex="-1"></a>temp_maxima <span class="op">=</span> <span class="bu">float</span>(</span>
+<span id="cb194-3"><a href="seque.html#cb194-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span>(<span class="st">&#39;Digite a temperatura máxima [medida em C]: &#39;</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite a temperatura máxima [medida em C]: 26.8</code></pre>
+<p>Com isso, o programa passa a dispor das duas medidas necessárias para calcular a temperatura média e a amplitude térmica. Cabe ao usuário fornecer tais dados, relativos à uma mesma localidade, dentro do período de tempo desejado.</p>
+</div>
+<div id="processamento" class="section level4" number="4.2.1.2">
+<h4><span class="header-section-number">4.2.1.2</span> Processamento</h4>
+<p>O cálculo da temperatura média e da amplitude térmica deve ser feito como indicado no começo desta seção, ou seja:</p>
+<blockquote>
+<p>t<sub>média</sub> = (t<sub>max</sub> + t<sub>min</sub>) / 2</p>
+<p>AT = t<sub>max</sub> - t<sub>min</sub></p>
+</blockquote>
+<p>Como a sintaxe das expressões algébricas do Python (e de praticamente todas as linguagens de programação) é a mesma da Matemática, estas fórmulas matemáticas podem ser usadas diretamente, apenas com adequação dos nomes das variáveis, como mostra o fragmento que segue, onde t<sub>média</sub>, t<sub>max</sub> e t<sub>min</sub> tornam-se, respectivamente, <code>temp_media</code> <code>temp_maxima</code> e <code>temp_minima</code>.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="seque.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo da temperatura média</span></span>
+<span id="cb196-2"><a href="seque.html#cb196-2" aria-hidden="true" tabindex="-1"></a>temp_media <span class="op">=</span> (temp_maxima <span class="op">+</span> temp_minima) <span class="op">/</span> <span class="dv">2</span></span></code></pre></div>
+<p>O mesmo é feito no próximo fragmento onde, adicionalmente, AT (amplitude térmica) é substituída por <code>amp_termica</code>.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb197-1"><a href="seque.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo da amplitude térmica</span></span>
+<span id="cb197-2"><a href="seque.html#cb197-2" aria-hidden="true" tabindex="-1"></a>amp_termica <span class="op">=</span> temp_maxima <span class="op">-</span> temp_minima</span></code></pre></div>
+<p>Como estes são os únicos cálculos necessários, a etapa do processamento está concluída, possibilitando que os resultados sejam apresentados ao usuário.</p>
+</div>
+<div id="saída" class="section level4" number="4.2.1.3">
+<h4><span class="header-section-number">4.2.1.3</span> Saída</h4>
+<p>A etapa de saída de um programa deve apresentar os resultados obtidos por meio do processamento realizado, pois estes constituem a resposta do problema proposto. Neste exemplo, devem ser exibidos ao usuário os valores correspondentes à temperatura média e à amplitude térmica de uma localidade e período arbitrários. O uso da função <em>built-in</em> <code>print()</code> e da função <code>format()</code> permitem realizar esta tarefa.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="seque.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibição dos dados de entrada</span></span>
+<span id="cb198-2"><a href="seque.html#cb198-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Temperaturas mínima = </span><span class="sc">{:.1f}</span><span class="st">C e máxima = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span></span>
+<span id="cb198-3"><a href="seque.html#cb198-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>(temp_minima, temp_maxima))</span>
+<span id="cb198-4"><a href="seque.html#cb198-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibição dos dados de saída</span></span>
+<span id="cb198-5"><a href="seque.html#cb198-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Temperaturas média = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span>.<span class="bu">format</span>(temp_media))</span>
+<span id="cb198-6"><a href="seque.html#cb198-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Amplitude Térmica = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span>.<span class="bu">format</span>(amp_termica))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Temperaturas mínima = 19.4C e máxima = 26.8C
+&gt;&gt;&gt; Temperaturas média = 23.1C
+&gt;&gt;&gt; Amplitude Térmica = 7.4C</code></pre>
+<p>Foram realizadas três chamadas à função <code>print()</code>: para exibir os dados de entrada (temperaturas mínima e máxima); para exibir o resultado da temperatura média; e finalmente para imprimir a amplitude térmica. A repetição dos dados de entrada foi feita apenas para clarificar a origem do resultado, e deve ser considerada caso a caso. Um dos comandos era longo e, assim, foi apresentado em duas linhas, sendo a divisão feita no operador <code>.</code> (seletor) e observando a indentação da linha adicional com 4 espaços (padrão do Python). Observe também o uso do marcador com especificador <code>{:.1f}</code> para formatar os números reais (tipo <code>float</code>) com apenas uma casa decimal. A unidade de temperatura foi inclusa na <em>string</em> de formatação logo após os marcadores de formatação.</p>
+</div>
+<div id="programa-completo" class="section level4" number="4.2.1.4">
+<h4><span class="header-section-number">4.2.1.4</span> Programa Completo</h4>
+<p>Os trechos de código desenvolvidos para realizar as etapas de entrada, processamento e saída podem ser organizados em um único <em>script</em> Python, possibilitando sua execução conveniente como um programa, o qual soluciona o problema proposto de cálculo da temperatura média e da amplitude térmica de uma localidade e período arbitrários.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="seque.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Temperatura Média e Amplitude Térmica&#39;</span>)</span>
+<span id="cb200-2"><a href="seque.html#cb200-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="seque.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada de dados</span></span>
+<span id="cb200-4"><a href="seque.html#cb200-4" aria-hidden="true" tabindex="-1"></a>temp_minima <span class="op">=</span> <span class="bu">float</span>(</span>
+<span id="cb200-5"><a href="seque.html#cb200-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span>(<span class="st">&#39;Digite a temperatura mínima [medida em C]: &#39;</span>))</span>
+<span id="cb200-6"><a href="seque.html#cb200-6" aria-hidden="true" tabindex="-1"></a>temp_maxima <span class="op">=</span> <span class="bu">float</span>(</span>
+<span id="cb200-7"><a href="seque.html#cb200-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span>(<span class="st">&#39;Digite a temperatura máxima [medida em C]: &#39;</span>))</span>
+<span id="cb200-8"><a href="seque.html#cb200-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-9"><a href="seque.html#cb200-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento</span></span>
+<span id="cb200-10"><a href="seque.html#cb200-10" aria-hidden="true" tabindex="-1"></a>temp_media <span class="op">=</span> (temp_maxima <span class="op">+</span> temp_minima) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb200-11"><a href="seque.html#cb200-11" aria-hidden="true" tabindex="-1"></a>amp_termica <span class="op">=</span> temp_maxima <span class="op">-</span> temp_minima</span>
+<span id="cb200-12"><a href="seque.html#cb200-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-13"><a href="seque.html#cb200-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Saída de dados</span></span>
+<span id="cb200-14"><a href="seque.html#cb200-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Temperaturas mínima = </span><span class="sc">{:.1f}</span><span class="st">C e máxima = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span></span>
+<span id="cb200-15"><a href="seque.html#cb200-15" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>(temp_minima, temp_maxima))</span>
+<span id="cb200-16"><a href="seque.html#cb200-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Temperaturas média = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span>.<span class="bu">format</span>(temp_media))</span>
+<span id="cb200-17"><a href="seque.html#cb200-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Amplitude Térmica = </span><span class="sc">{:.1f}</span><span class="st">C&#39;</span>.<span class="bu">format</span>(amp_termica))</span></code></pre></div>
+<p>Esse programa pode ser salvo em um arquivo denominado, por exemplo, <code>amplitude_termica.py</code>. Para executá-lo em um computador dotado de uma instalação funcional de Python, basta fornecer o comando:</p>
+<pre><code>$ python amplitude_termica.py</code></pre>
+<p>Sua execução produz resultados como os ilustrados na Figura <a href="seque.html#fig:04-02">4.2</a>.</p>
+<div class="figure"><span id="fig:04-02"></span>
+<img src="images/04-02.jpg" alt="Execução de `amplitude_termica.py`"  />
+<p class="caption">
+Figura 4.2: Execução de <code>amplitude_termica.py</code>
+</p>
+</div>
+<p>Embora simples, este programa cumpre com seus objetivos e sistematiza a obtenção da temperatura média e da amplitude térmica, auxiliando seus usuários, que não precisam saber como são realizados os cálculos necessários, mas apenas como usar o programa.</p>
+</div>
+</div>
+<div id="seque-e-p-s-caixa" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Problema II: caixas de papelão</h3>
+<p>O transporte de mercadorias, desde os primórdios do comércio, é uma atividade extremamente importante, pois torna disponíveis produtos, de praticamente qualquer tipo, nos locais onde existe demanda, mas não são cultivados ou fabricados. Para facilitar o transporte é bastante comum que sejam utilizadas embalagens de papelão, pois são leves, relativamente resistentes e podem ser fabricadas para acomodar adequadamente produtos com características muito distintas.</p>
+<p>O formato mais comum para as embalagens de papelão é de caixa, ou seja, de um <a href="https://www.todamateria.com.br/paralelepipedo/">paralelepípedo reto</a> como na Figura <a href="seque.html#fig:04-03">4.3</a>, para o qual existem duas medidas importantes: sua área total e seu volume. Como o papelão é fornecido em folhas ou rolos que serão cortados e dobrados para fazer uma caixa, a área total ou superfície do paralelepípedo indica quanto papelão será necessário. Já o volume permite saber quanto cabe em uma caixa de papelão, facilitando a escolha da caixa adequada.</p>
+<div class="figure"><span id="fig:04-03"></span>
+<img src="images/04-03.jpg" alt="Paralelepípedo e sua planificação como caixa"  />
+<p class="caption">
+Figura 4.3: Paralelepípedo e sua planificação como caixa
+</p>
+</div>
+<p>O problema que se apresenta aqui é:</p>
+<blockquote>
+<p>Como construir um programa que determine a área total e o volume de uma caixa retangular?</p>
+</blockquote>
+<p>Uma caixa retangular é um paralelepípedo reto <span class="citation">(<a href="#ref-gou2021" role="doc-biblioref">GOUVEIA 2021</a>)</span>, uma figura geométrica sólida tridimensional, cujas dimensões são conhecidas como altura, largura e comprimento. A área ou superfície total desta figura é a soma das área de suas 6 faces, mas como as faces são paralelas, existem 3 pares de faces distintas, de modo que:</p>
+<blockquote>
+<p>área<sub>total</sub> = 2.(altura.largura + altura.comprimento + largura.comprimento)</p>
+</blockquote>
+<p>O volume do paralelepído reto é calculado pelo produto de suas dimensões:</p>
+<blockquote>
+<p>volume = altura.largura.comprimento</p>
+</blockquote>
+<p>Então, para seja possível determinar a área total e o volume de uma caixa retangular de papelão, precisamos conhecer quais são suas dimensões (altura, largura e comprimento), que são um pré-requisito para realização destes cálculos. A estratégia <strong>E-P-S</strong> é adequada aqui, pois:</p>
+<ol style="list-style-type: decimal">
+<li>Devemos obter as dimensões (altura, largura e comprimento) da caixa (entrada);</li>
+<li>Efetuamos os cálculos da área total e volume da caixa (processamento);</li>
+<li>Apresentamos os resultados obtidos (saída).</li>
+</ol>
+<p>Como antes, para saber quais são os dados necessários para a entrada, precisamos estabelecer <em>como</em> são realizados os cálculos que desejamos que o programa seja capaz de realizar. Assim <em>antes</em> de construir um programa, devemos ser capazes de resolver o problema, ao menos esquematicamente, como feito anteriormente.</p>
+<div id="entrada-1" class="section level4" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Entrada</h4>
+<p>Na entrada de dados deste problema devemos obter as dimensões da caixa retangular, que são sua altura, largura e comprimento. Para obter estes dados, é necessário considerar, antes, de que tipo são. Medidas de comprimento são grandezas reais, pois seus valores podem conter uma parte inteira e outra fracionária, assim, as medidas altura, largura e comprimento devem ser tratadas como valores reais, do tipo <code>float</code> no Python.</p>
+<p>A entrada destas medidas deve combinar mensagens de orientação para o usuário e a leitura dos respectivos valores. O fragmento que segue faz uso das funções <code>input()</code> e <code>float()</code> para efetuar a entrada da medida da altura.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="seque.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da medida da altura</span></span>
+<span id="cb202-2"><a href="seque.html#cb202-2" aria-hidden="true" tabindex="-1"></a>altura <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Digite a altura [medida em cm]: &#39;</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite a altura [medida em cm]: 5.5</code></pre>
+<p>O mesmo pode ser feito para entrada das medidas de largura e de comprimento.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="seque.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da medida da largura</span></span>
+<span id="cb204-2"><a href="seque.html#cb204-2" aria-hidden="true" tabindex="-1"></a>largura <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Digite a largura [medida em cm]: &#39;</span>))</span>
+<span id="cb204-3"><a href="seque.html#cb204-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada da medida do comprimento</span></span>
+<span id="cb204-4"><a href="seque.html#cb204-4" aria-hidden="true" tabindex="-1"></a>comprimento <span class="op">=</span> <span class="bu">float</span>(</span>
+<span id="cb204-5"><a href="seque.html#cb204-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">input</span>(<span class="st">&#39;Digite o comprimento [medida em cm]: &#39;</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite a largura [medida em cm]: 10
+&gt;&gt;&gt; Digite o comprimento [medida em cm]: 15</code></pre>
+<p>Com isso, o programa passa a dispor das três medidas necessárias para calcular a área total e o volume de uma caixa retangular de papelão.</p>
+</div>
+<div id="processamento-1" class="section level4" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> Processamento</h4>
+<p>O cálculo da área total e do volume da caixa retangular de papelão deve ser feito como indicado no começo desta seção, ou seja:</p>
+<blockquote>
+<p>área<sub>total</sub> = 2.(altura.largura + altura.comprimento + largura.comprimento)</p>
+<p>volume = altura.largura.comprimento</p>
+</blockquote>
+<p>Estas fórmulas matemáticas precisam de (pouca) adaptação para seguirem a sintaxe das expressões algébricas do Python, que é a mesma em praticamente todas as linguagens de programação. No fragmento que segue percebemos que área<sub>total</sub> torna-se <code>area_total</code>, enquanto o operador de multiplicação da matemática <code>.</code> é substituído por <code>*</code>.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb206-1"><a href="seque.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo da área total</span></span>
+<span id="cb206-2"><a href="seque.html#cb206-2" aria-hidden="true" tabindex="-1"></a>area_total <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (altura <span class="op">*</span> largura <span class="op">+</span> altura <span class="op">*</span> comprimento </span>
+<span id="cb206-3"><a href="seque.html#cb206-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> largura <span class="op">*</span> comprimento)</span></code></pre></div>
+<p>O mesmo é feito para <code>volume</code> no próximo fragmento.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb207-1"><a href="seque.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cálculo do volume</span></span>
+<span id="cb207-2"><a href="seque.html#cb207-2" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span> altura <span class="op">*</span> largura <span class="op">*</span> comprimento</span></code></pre></div>
+<p>Como não existem outros cálculos a serem realizados, o processamento está concluído e os resultados precisam ser apresentados ao usuário.</p>
+</div>
+<div id="saída-1" class="section level4" number="4.2.2.3">
+<h4><span class="header-section-number">4.2.2.3</span> Saída</h4>
+<p>A etapa de saída de um programa deve apresentar os resultados obtidos que constituem a resposta ao problema que deveria ser resolvido. Neste exemplo, devem ser exibidos ao usuário os valores correspondentes à área total e ao volume da caixa retangular. O uso da função <em>built-in</em> <code>print()</code> e de <em>f-strings</em> permite obter uma saída adequada.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="seque.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibição dos dados de entrada</span></span>
+<span id="cb208-2"><a href="seque.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Dimensões:</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb208-3"><a href="seque.html#cb208-3" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">altura = </span><span class="sc">{</span>altura<span class="sc">:.2f}</span><span class="ss"> cm</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb208-4"><a href="seque.html#cb208-4" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">largura = </span><span class="sc">{</span>largura<span class="sc">:.2f}</span><span class="ss"> cm</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb208-5"><a href="seque.html#cb208-5" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">comprimento = </span><span class="sc">{</span>comprimento<span class="sc">:.2f}</span><span class="ss"> cm&#39;</span>)</span>
+<span id="cb208-6"><a href="seque.html#cb208-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Exibição dos dados dos resultados</span></span>
+<span id="cb208-7"><a href="seque.html#cb208-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Resultados:</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb208-8"><a href="seque.html#cb208-8" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">área total = </span><span class="sc">{</span>area_total<span class="sc">:.3f}</span><span class="ss"> cm²</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb208-9"><a href="seque.html#cb208-9" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">volume = </span><span class="sc">{</span>volume<span class="sc">:.3f}</span><span class="ss"> cm³&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Dimensões:
+&gt;&gt;&gt;     altura = 5.50 cm
+&gt;&gt;&gt;     largura = 10.00 cm
+&gt;&gt;&gt;     comprimento = 15.00 cm
+&gt;&gt;&gt; Resultados:
+&gt;&gt;&gt;     área total = 575.000 cm²
+&gt;&gt;&gt;     volume = 825.000 cm³</code></pre>
+<p>Em vez de realizar uma chamada da função <code>print()</code> para exibir cada dado de entrada e de saída, preferiu-se efetuar duas chamadas, uma para exibir as dimensões fornecidas para a caixa e outra para imprimir os resultados obtidos. Como as <em>f-string</em> necessárias seriam muito longas, utilizou-se uma barra invertida <code>\</code> para dividí-las em várias linhas, coincidindo com o <em>layout</em> desejado para a saída. Note o uso dos caracteres especiais de tabulação <code>\t</code> e de quebra de linha <code>\n</code> para o melhor espaçamento e divisão das linhas da mensagem.</p>
+<p>Os valores reais das variáveis de entrada (<code>altura</code>, <code>largura</code> e <code>comprimento</code>) e de saída (<code>area_total</code> e <code>volume</code>) foram formatados para apresentar um número fixo de casas decimais, acompanhados de suas respectivas unidades (cm, cm<sup>2</sup> e cm<sup>3</sup>)</p>
+</div>
+<div id="programa-completo-1" class="section level4" number="4.2.2.4">
+<h4><span class="header-section-number">4.2.2.4</span> Programa Completo</h4>
+<p>Os trechos de código requeridos para realizar as etapas de entrada, processamento e saída podem ser organizados em um único <em>script</em> Python, possibilitando sua execução conveniente como um programa capaz de solucionar o problema proposto, do cálculo da área total e do volume de uma caixa de papelão retangular.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="seque.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Caixa de Papelão Retangular::área e volume&#39;</span>)</span>
+<span id="cb210-2"><a href="seque.html#cb210-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-3"><a href="seque.html#cb210-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Entrada de dados</span></span>
+<span id="cb210-4"><a href="seque.html#cb210-4" aria-hidden="true" tabindex="-1"></a>altura <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Digite a altura [medida em cm]: &#39;</span>))</span>
+<span id="cb210-5"><a href="seque.html#cb210-5" aria-hidden="true" tabindex="-1"></a>largura <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Digite a largura [medida em cm]: &#39;</span>))</span>
+<span id="cb210-6"><a href="seque.html#cb210-6" aria-hidden="true" tabindex="-1"></a>comprimento <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Digite o comprimento [medida em cm]: &#39;</span>))</span>
+<span id="cb210-7"><a href="seque.html#cb210-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-8"><a href="seque.html#cb210-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Processamento</span></span>
+<span id="cb210-9"><a href="seque.html#cb210-9" aria-hidden="true" tabindex="-1"></a>area_total <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (altura <span class="op">*</span> largura <span class="op">+</span> altura <span class="op">*</span> comprimento</span>
+<span id="cb210-10"><a href="seque.html#cb210-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> largura <span class="op">*</span> comprimento)</span>
+<span id="cb210-11"><a href="seque.html#cb210-11" aria-hidden="true" tabindex="-1"></a>volume <span class="op">=</span> altura <span class="op">*</span> largura <span class="op">*</span> comprimento</span>
+<span id="cb210-12"><a href="seque.html#cb210-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb210-13"><a href="seque.html#cb210-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Saída de dados</span></span>
+<span id="cb210-14"><a href="seque.html#cb210-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Dimensões:</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb210-15"><a href="seque.html#cb210-15" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">altura = </span><span class="sc">{</span>altura<span class="sc">:.2f}</span><span class="ss"> cm</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb210-16"><a href="seque.html#cb210-16" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">largura = </span><span class="sc">{</span>largura<span class="sc">:.2f}</span><span class="ss"> cm</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb210-17"><a href="seque.html#cb210-17" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">comprimento = </span><span class="sc">{</span>comprimento<span class="sc">:.2f}</span><span class="ss"> cm&#39;</span>)</span>
+<span id="cb210-18"><a href="seque.html#cb210-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Resultados:</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb210-19"><a href="seque.html#cb210-19" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">área total = </span><span class="sc">{</span>area_total<span class="sc">:.3f}</span><span class="ss"> cm²</span><span class="ch">\n</span><span class="ss">&#39;</span> \</span>
+<span id="cb210-20"><a href="seque.html#cb210-20" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&#39;</span><span class="ch">\t</span><span class="ss">volume = </span><span class="sc">{</span>volume<span class="sc">:.3f}</span><span class="ss"> cm³&#39;</span>)</span></code></pre></div>
+<p>Esse programa pode ser salvo em um arquivo denominado, por exemplo, <code>caixa_de_papelao.py</code>. Para executá-lo em um computador dotado de uma instalação funcional de Python, basta fornecer o comando:</p>
+<pre><code>$ python caixa_de_papelao.py</code></pre>
+<p>Sua execução produz resultados como os ilustrados na Figura <a href="seque.html#fig:04-04">4.4</a>.</p>
+<div class="figure"><span id="fig:04-04"></span>
+<img src="images/04-04.jpg" alt="Execução de `caixa_de_papelao.py`"  />
+<p class="caption">
+Figura 4.4: Execução de <code>caixa_de_papelao.py</code>
+</p>
+</div>
+<p>Embora simples, este programa cumpre com seus objetivos e sistematiza a obtenção da área total e do volume de caixas de papelão, auxiliando seus usuários.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3>Referências Bibliográficas</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-gou2021" class="csl-entry">
+GOUVEIA, Rosimar. 2021. <em>Paralelepípedo</em>. Toda Matéria. <a href="https://www.todamateria.com.br/paralelepipedo/">https://www.todamateria.com.br/paralelepipedo/</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p>Dicio (Dicionário On-Line de Português): <a href="https://www.dicio.com.br/algoritmo/" class="uri">https://www.dicio.com.br/algoritmo/</a><a href="seque.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>Fonte: <a href="https://pt.climate-data.org/america-do-sul/brasil/sao-paulo/sao-paulo-655/" class="uri">https://pt.climate-data.org/america-do-sul/brasil/sao-paulo/sao-paulo-655/</a>, acesso em 30/06/2021.<a href="seque.html#fnref25" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="e-s.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="repet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-sequenciacao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pygp.pdf", "pygp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

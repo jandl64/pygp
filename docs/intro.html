@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 1 Introdução | Python - Guia do Programador</title>
+  <meta name="description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 1 Introdução | Python - Guia do Programador" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="github-repo" content="pjandl/pygp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 1 Introdução | Python - Guia do Programador" />
+  
+  <meta name="twitter:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  
+
+<meta name="author" content="Peter Jandl Junior" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="comput.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python - Guia do Programador</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#convenções"><i class="fa fa-check"></i>Convenções</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#código-fonte"><i class="fa fa-check"></i>Código fonte</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#introd-histo"><i class="fa fa-check"></i><b>1.1</b> Breve Histórico</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#introd-carac"><i class="fa fa-check"></i><b>1.2</b> Características</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#introd-habil"><i class="fa fa-check"></i><b>1.3</b> Habilidades da Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comput.html"><a href="comput.html"><i class="fa fa-check"></i><b>2</b> Computação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="comput.html"><a href="comput.html#comput-liter"><i class="fa fa-check"></i><b>2.1</b> Valores Literais</a></li>
+<li class="chapter" data-level="2.2" data-path="comput.html"><a href="comput.html#comput-tipos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Dados</a></li>
+<li class="chapter" data-level="2.3" data-path="comput.html"><a href="comput.html#comput-varia"><i class="fa fa-check"></i><b>2.3</b> Variáveis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="comput.html"><a href="comput.html#comput-varia-nomes"><i class="fa fa-check"></i><b>2.3.1</b> Denominação de Variáveis</a></li>
+<li class="chapter" data-level="2.3.2" data-path="comput.html"><a href="comput.html#comput-varia-reser"><i class="fa fa-check"></i><b>2.3.2</b> Palavras Reservadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="comput.html"><a href="comput.html#comput-opera"><i class="fa fa-check"></i><b>2.4</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="comput.html"><a href="comput.html#comput-opera-aritm"><i class="fa fa-check"></i><b>2.4.1</b> Operadores Aritméticos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="comput.html"><a href="comput.html#comput-opera-relac"><i class="fa fa-check"></i><b>2.4.2</b> Operadores Relacionais</a></li>
+<li class="chapter" data-level="2.4.3" data-path="comput.html"><a href="comput.html#comput-opera-logic"><i class="fa fa-check"></i><b>2.4.3</b> Operadores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="comput.html"><a href="comput.html#comput-expre"><i class="fa fa-check"></i><b>2.5</b> Expressões</a></li>
+<li class="chapter" data-level="2.6" data-path="comput.html"><a href="comput.html#comput-prior"><i class="fa fa-check"></i><b>2.6</b> Prioridade dos operadores</a></li>
+<li class="chapter" data-level="2.7" data-path="comput.html"><a href="comput.html#comput-atrib"><i class="fa fa-check"></i><b>2.7</b> Atribuição</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="comput.html"><a href="comput.html#comput-atrib-multi"><i class="fa fa-check"></i><b>2.7.1</b> Atribuição Múltipla</a></li>
+<li class="chapter" data-level="2.7.2" data-path="comput.html"><a href="comput.html#comput-atrib-compo"><i class="fa fa-check"></i><b>2.7.2</b> Atribuição Composta</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="comput.html"><a href="comput.html#comput-funcao"><i class="fa fa-check"></i><b>2.8</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="e-s.html"><a href="e-s.html"><i class="fa fa-check"></i><b>3</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="e-s.html"><a href="e-s.html#e-s-saida"><i class="fa fa-check"></i><b>3.1</b> Saída Simples</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="e-s.html"><a href="e-s.html#e-s-saida-escap"><i class="fa fa-check"></i><b>3.1.1</b> Caracteres Especiais</a></li>
+<li class="chapter" data-level="3.1.2" data-path="e-s.html"><a href="e-s.html#e-s-saida-opcao"><i class="fa fa-check"></i><b>3.1.2</b> Controle de Separação e Finalização</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="e-s.html"><a href="e-s.html#e-s-entra"><i class="fa fa-check"></i><b>3.2</b> Entrada</a></li>
+<li class="chapter" data-level="3.3" data-path="e-s.html"><a href="e-s.html#e-s-format"><i class="fa fa-check"></i><b>3.3</b> Saída Formatada</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="e-s.html"><a href="e-s.html#e-s-format-funcao"><i class="fa fa-check"></i><b>3.3.1</b> Formatação com função <code>format()</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="e-s.html"><a href="e-s.html#e-s-format-inter"><i class="fa fa-check"></i><b>3.3.2</b> Interpolação de <em>string</em></a></li>
+<li class="chapter" data-level="3.3.3" data-path="e-s.html"><a href="e-s.html#e-s-format-fstring"><i class="fa fa-check"></i><b>3.3.3</b> Formatação com <em>f-string</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seque.html"><a href="seque.html"><i class="fa fa-check"></i><b>4</b> Sequenciação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="seque.html"><a href="seque.html#seque-progr"><i class="fa fa-check"></i><b>4.1</b> Programa Mínimo</a></li>
+<li class="chapter" data-level="4.2" data-path="seque.html"><a href="seque.html#seque-e-p-s"><i class="fa fa-check"></i><b>4.2</b> Estratégia E-P-S</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="seque.html"><a href="seque.html#seque-e-p-s-temper"><i class="fa fa-check"></i><b>4.2.1</b> Problema I: temperatura média e amplitude térmica</a></li>
+<li class="chapter" data-level="4.2.2" data-path="seque.html"><a href="seque.html#seque-e-p-s-caixa"><i class="fa fa-check"></i><b>4.2.2</b> Problema II: caixas de papelão</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="repet.html"><a href="repet.html"><i class="fa fa-check"></i><b>5</b> Repetição</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="repet.html"><a href="repet.html#repet-while"><i class="fa fa-check"></i><b>5.1</b> Repetição Condicional</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="repet.html"><a href="repet.html#repet-while-conta"><i class="fa fa-check"></i><b>5.1.1</b> Contagem com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="repet.html"><a href="repet.html#repet-while-acumu"><i class="fa fa-check"></i><b>5.1.2</b> Agregação com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="repet.html"><a href="repet.html#repet-while-ating"><i class="fa fa-check"></i><b>5.1.3</b> Atingimento de condição com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="repet.html"><a href="repet.html#repet-while-percu"><i class="fa fa-check"></i><b>5.1.4</b> Percurso com <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="repet.html"><a href="repet.html#repet-for"><i class="fa fa-check"></i><b>5.2</b> Repetição Automática</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="repet.html"><a href="repet.html#repet-for-percu"><i class="fa fa-check"></i><b>5.2.1</b> Percurso com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="repet.html"><a href="repet.html#repet-for-conta"><i class="fa fa-check"></i><b>5.2.2</b> Contagem com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="repet.html"><a href="repet.html#repet-for-acumu"><i class="fa fa-check"></i><b>5.2.3</b> Agregação com <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="decis.html"><a href="decis.html"><i class="fa fa-check"></i><b>6</b> Decisão</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="decis.html"><a href="decis.html#decis-if"><i class="fa fa-check"></i><b>6.1</b> Decisão Simples</a></li>
+<li class="chapter" data-level="6.2" data-path="decis.html"><a href="decis.html#decis-if-else"><i class="fa fa-check"></i><b>6.2</b> Decisão Completa</a></li>
+<li class="chapter" data-level="6.3" data-path="decis.html"><a href="decis.html#decis-if-elif-else"><i class="fa fa-check"></i><b>6.3</b> Decisões Encadeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>7</b> Modularização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>7.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="modul.html"><a href="modul.html#modul-funcao"><i class="fa fa-check"></i><b>7.2</b> Funções</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modul.html"><a href="modul.html#modul-funcao-tipos"><i class="fa fa-check"></i><b>7.2.1</b> Tipos de funções</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modul.html"><a href="modul.html#modul-funcao-return"><i class="fa fa-check"></i><b>7.2.2</b> Retorno de Valor</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modul.html"><a href="modul.html#modul-funcao-param"><i class="fa fa-check"></i><b>7.2.3</b> Passagem de Parâmetros</a></li>
+<li class="chapter" data-level="7.2.4" data-path="modul.html"><a href="modul.html#modul-funcao-default"><i class="fa fa-check"></i><b>7.2.4</b> Parâmetros <em>Default</em></a></li>
+<li class="chapter" data-level="7.2.5" data-path="modul.html"><a href="modul.html#modul-funcao-var"><i class="fa fa-check"></i><b>7.2.5</b> Parâmetros Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>7.3</b> Importação</a></li>
+<li class="chapter" data-level="7.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>7.4</b> Criação de pacotes e módulos</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
+<li class="chapter" data-level="B" data-path="instalação-do-anaconda.html"><a href="instalação-do-anaconda.html"><i class="fa fa-check"></i><b>B</b> Instalação do Anaconda</a></li>
+<li class="chapter" data-level="" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i>Referências Bibliográficas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python - Guia do Programador</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Introdução</h1>
+<p><strong>Python</strong> é uma linguagem de programação bastante popular, moderna, utilizada tanto no ambiente corporativo, como no meio acadêmico, e que todo programador devia conhecer. Segundo Kopec <span class="citation">(<a href="#ref-kop2019" role="doc-biblioref">KOPEC 2019, pág.1</a>)</span>:</p>
+<blockquote>
+<p>“Python é usada em atividades tão diversas como ciência de dados, produção de filmes, educação em ciência da computação, gerenciamento de tecnologia da informação e muito mais. Realmente não há um ramo da computação que Python não tenha tocado (exceto, talvez, desenvolvimento de <em>kernel</em> de sistemas operacionais). Python é amada por sua flexibilidade, sintaxa bela e suscinta, orientação a objetos pura, e uma comunidade movimentada.”</p>
+</blockquote>
+<p>Então, vamos falar um pouco sobre ela!</p>
+<div id="introd-histo" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Breve Histórico</h2>
+<p>Observando as dificuldades de muitas pessoas em aprender a programar e trabalhar com programação, Guido Van Rossun, que então trabalhava no <a href="http://www.cwi.nl/"><em>Stichting Mathematish Centrum</em></a> (CWI, Holanda), deu início ao desenvolvimento de uma nova linguagem de programação em 1990. Sua proposta era oferecer um linguagem de <em>script</em> simples, fácil de aprender e de programar. O nome <strong>Python</strong> foi inspirado pelo grupo humorístico britânico <em>Monty Python</em>, criador do programa de televisão <em>Monty Python’s Flying Circus</em>.</p>
+<p>Em 1995, já no <em>Corporation for National Research Initiatives</em> (EUA), Rossun, deu continuidade ao seu projeto de tornar o Python ainda melhor, neste ponto com as opiniões e ajuda de várias outras pessoas contribuíram no desenvolvimento da linguagem e de suas bibliotecas.</p>
+<p>Para garantir a evolução contínua da linguagem e, ao mesmo tempo, desvincular o Python da pessoa de Guido Van Rossun, foi criada em 2001 a <a href="https://www.python.org/psf/"><em>Python Software Foundation</em></a> (PSF), uma organização sem fins lucrativos, que detém os direitos de propriedade intelectual do Python, destinada a manter, desenvolver e divulgar a linguagem com base em um modelo de desenvolvimento comunitário, aberto, com participação de membros individuais e corporativos.</p>
+<p>Todas as versões do Python são de <em>código aberto</em><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+</div>
+<div id="introd-carac" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Características</h2>
+<p>Python é uma linguagem de programação de alto nível, orientada a objetos, interpretada, interativa, de semântica dinâmica, com tipagem forte. Sua sintaxe é bastante compacta e direta, o que possibilita aos seus programas serem mais curtos do que os construídos em C, C++, Java e outras linguagens.</p>
+<p>As razões para isso são:</p>
+<ul>
+<li>dispõe de tipos de dados de alto nível que permitem a expressão direta de operações complexas;</li>
+<li>não requer a declaração prévia de variáveis ou argumentos, cujos tipos são inferidos durante a execução do programa;</li>
+<li>a criação de blocos de diretivas nas suas construções requer apenas a indentação simples, sem necessidade de elementos extras, como chaves ou palavras reservadas, para identificação de início e fim de tais blocos.</li>
+</ul>
+<p>Foi projetada para ser simples e elegante, ao mesmo que é sofisticada e completa, pois:</p>
+<ul>
+<li>é orientada a objetos, oferece herança simples, herança múltipla e tratamento polimórfico de objetos;</li>
+<li>oferece exceções como mecanismo mais moderno para o tratamento de erros;</li>
+<li>possui coleta automática de lixo, que efetua a reciclagem de memória de objetos descartados, simplificando o desenvolvimento;</li>
+<li>inclui recursos avançados de manipulação de texto, listas e outras estruturas de dados; e</li>
+<li>seus programas podem ser organizados em módulos e pacotes, reusáveis em diferentes programas.</li>
+</ul>
+<p>Pode ser usada em múltiplas plataformas (Mac OS, Microsoft Windows, distribuições Linux e Unix), o que evidencia sua portabilidade<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. Além de ser extensível e dotada de uma ampla e versátil biblioteca.</p>
+<p>Como característica de seu projeto, a linguagem Python possui um interpretador que pode funcionar em modo interativo. Isto possibilita que programas escritos em Python, ou mesmo trechos de código, possam ser testados antes de serem compilados ou inclusos em outros programas. Com isso, o Python encoraja a programação de maneira simples, sem requisitar código burocrático, o que a torna muito conveniente para criação rápida de programas.</p>
+<p>Por tudo isso é muito utilizada para tratamento, processamento de visualização de dados em aplicações de Análise de Dados (<em>Data Analysis</em>) e de Ciência de Dados (<em>Data Science</em>). Mas tambem é empregada na construção de aplicações complexas e de grande porte em empresas icônicas como DropBox, Google, IBM, Instagram, Nasa, Reddit, Spotify, Uber, YouTube e outras.</p>
+</div>
+<div id="introd-habil" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Habilidades da Programação</h2>
+<p><em>Programar</em><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> significa <em>fazer o programa de, planejar, incluir em programação</em>, além de ter como sinônimos <em>planejar, projetar, delinear, designar e coordenar</em>.</p>
+<p>A programação de computadores exige o domínio de seis habilidades distintas:</p>
+<ol style="list-style-type: decimal">
+<li>computação (Capítulo <a href="comput.html#comput">2</a>),</li>
+<li>entrada e saída (Capítulo <a href="e-s.html#e-s">3</a>),</li>
+<li>repetição (Capítulo <a href="repet.html#repet">5</a>),</li>
+<li>decisão (Capítulo <a href="decis.html#decis">6</a>),</li>
+<li>modularização (Capítulo <a href="modul.html#modul">7</a>), e</li>
+<li>sequenciação (Capítulo <a href="seque.html#seque">4</a>).</li>
+</ol>
+<p>A <em>computação</em> é habilidade necessária para expressar e realizar cálculos, ou seja, a capacidade de combinar valores, variáveis, operadores e funções para obter os resultados desejados. Esta habilidade explora as capacidades dos computadores em realizar cálculos.</p>
+<p>Os dados necessários para realizar os cálculos desejados, isto é, requeridos pela computação, precisam ser obtidos dos usuários ou outras fontes de dados. Da mesma maneira, os resultados produzidos por um programa precisam ser exibidos para seus usuários. Estas são as operações de <em>entrada e saída</em>, simples mas essenciais.</p>
+<p>A <em>repetição</em> consiste da identificação de uma instrução ou de um conjunto de instruções que deve ser executado mais de uma vez. Isto inclui determinar o número de vezes que tais instruções serão realizadas ou a condição que exige sua repetição. Além disso, a repetição permite reduzir a quantidade de instruções que devem ser escritas para resolver um problema, o que confere maior flexibilidade às soluções criadas.</p>
+<p>Outra habilidade importante é a <em>decisão</em>, pois possibilita escolher quais instruções serão executadas, isto é, permite que, durante a execução das instruções, sejam selecionadas aquelas que serão executadas. Esta decisão é realizada mediante a avaliação de uma condição que o programador estabelece como critério de escolha ou de seleção.</p>
+<p>A <em>modularização</em>, que é a habilidade que trata da divisão das instruções necessárias para resolução de um problema em partes menores, cada uma com responsabilidades distintas. Essa estratégia oferece várias vantagens, entre elas, simplificar a compreensão e solução do problema, além de possibilitar o reuso.</p>
+<p>Finalmente temos a <em>sequenciação</em>, que se refere a habilidade de organizar as instruções de um programa de maneira tal que seja resolvido um problema específico. Esta habilidade trata de estabelecer uma sequência adequada de instruções para solução de um problema, ou seja, ela representa a <em>lógica</em> com a qual resolvemos um problema. A sequenciação determina como os dados de um problema serão processados, portanto combina todas as habilidades anteriores: a entrada e saída, a computação, a repetição, a decisão e a modularização necessárias para a construção de um programa.</p>
+
+</div>
+</div>
+<h3>Referências Bibliográficas</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-kop2019" class="csl-entry">
+KOPEC, David. 2019. <em>Classic Computer Science Problems in Python</em>. 1st ed. Shelter Island, New York: Manning Publications Co.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Veja uma definição de <em>código aberto</em> ou <em>open source</em> em <a href="http://www.opensource.org/" class="uri">http://www.opensource.org/</a>.<a href="intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><em>Portabilidade</em> é a capacidade dos programas gerados por uma linguagem de programação de serem executados em diferentes plataformas operacionais, idealmente sem alterações, ou com um mínimo de modificações.<a href="intro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Dicio (Dicionário On-Line de Português): <a href="https://www.dicio.com.br/programar/" class="uri">https://www.dicio.com.br/programar/</a>.<a href="intro.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comput.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-introducao.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pygp.pdf", "pygp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

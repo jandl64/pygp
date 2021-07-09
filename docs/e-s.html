@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Entrada e Saída | Python - Guia do Programador</title>
+  <meta name="description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Entrada e Saída | Python - Guia do Programador" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  <meta name="github-repo" content="pjandl/pygp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Entrada e Saída | Python - Guia do Programador" />
+  
+  <meta name="twitter:description" content="Este é um livro experimental, criado com uso do pacote bookdown, destinado aos iniciantes em Python, para incentivar o uso desta linguagem de programação. O formato de saída escolhido para esse material é bookdown::gitbook." />
+  
+
+<meta name="author" content="Peter Jandl Junior" />
+
+
+<meta name="date" content="2021-07-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="comput.html"/>
+<link rel="next" href="seque.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python - Guia do Programador</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#convenções"><i class="fa fa-check"></i>Convenções</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#código-fonte"><i class="fa fa-check"></i>Código fonte</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#introd-histo"><i class="fa fa-check"></i><b>1.1</b> Breve Histórico</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#introd-carac"><i class="fa fa-check"></i><b>1.2</b> Características</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#introd-habil"><i class="fa fa-check"></i><b>1.3</b> Habilidades da Programação</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="comput.html"><a href="comput.html"><i class="fa fa-check"></i><b>2</b> Computação</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="comput.html"><a href="comput.html#comput-liter"><i class="fa fa-check"></i><b>2.1</b> Valores Literais</a></li>
+<li class="chapter" data-level="2.2" data-path="comput.html"><a href="comput.html#comput-tipos"><i class="fa fa-check"></i><b>2.2</b> Tipos de Dados</a></li>
+<li class="chapter" data-level="2.3" data-path="comput.html"><a href="comput.html#comput-varia"><i class="fa fa-check"></i><b>2.3</b> Variáveis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="comput.html"><a href="comput.html#comput-varia-nomes"><i class="fa fa-check"></i><b>2.3.1</b> Denominação de Variáveis</a></li>
+<li class="chapter" data-level="2.3.2" data-path="comput.html"><a href="comput.html#comput-varia-reser"><i class="fa fa-check"></i><b>2.3.2</b> Palavras Reservadas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="comput.html"><a href="comput.html#comput-opera"><i class="fa fa-check"></i><b>2.4</b> Operadores</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="comput.html"><a href="comput.html#comput-opera-aritm"><i class="fa fa-check"></i><b>2.4.1</b> Operadores Aritméticos</a></li>
+<li class="chapter" data-level="2.4.2" data-path="comput.html"><a href="comput.html#comput-opera-relac"><i class="fa fa-check"></i><b>2.4.2</b> Operadores Relacionais</a></li>
+<li class="chapter" data-level="2.4.3" data-path="comput.html"><a href="comput.html#comput-opera-logic"><i class="fa fa-check"></i><b>2.4.3</b> Operadores Lógicos</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="comput.html"><a href="comput.html#comput-expre"><i class="fa fa-check"></i><b>2.5</b> Expressões</a></li>
+<li class="chapter" data-level="2.6" data-path="comput.html"><a href="comput.html#comput-prior"><i class="fa fa-check"></i><b>2.6</b> Prioridade dos operadores</a></li>
+<li class="chapter" data-level="2.7" data-path="comput.html"><a href="comput.html#comput-atrib"><i class="fa fa-check"></i><b>2.7</b> Atribuição</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="comput.html"><a href="comput.html#comput-atrib-multi"><i class="fa fa-check"></i><b>2.7.1</b> Atribuição Múltipla</a></li>
+<li class="chapter" data-level="2.7.2" data-path="comput.html"><a href="comput.html#comput-atrib-compo"><i class="fa fa-check"></i><b>2.7.2</b> Atribuição Composta</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="comput.html"><a href="comput.html#comput-funcao"><i class="fa fa-check"></i><b>2.8</b> Funções</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="e-s.html"><a href="e-s.html"><i class="fa fa-check"></i><b>3</b> Entrada e Saída</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="e-s.html"><a href="e-s.html#e-s-saida"><i class="fa fa-check"></i><b>3.1</b> Saída Simples</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="e-s.html"><a href="e-s.html#e-s-saida-escap"><i class="fa fa-check"></i><b>3.1.1</b> Caracteres Especiais</a></li>
+<li class="chapter" data-level="3.1.2" data-path="e-s.html"><a href="e-s.html#e-s-saida-opcao"><i class="fa fa-check"></i><b>3.1.2</b> Controle de Separação e Finalização</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="e-s.html"><a href="e-s.html#e-s-entra"><i class="fa fa-check"></i><b>3.2</b> Entrada</a></li>
+<li class="chapter" data-level="3.3" data-path="e-s.html"><a href="e-s.html#e-s-format"><i class="fa fa-check"></i><b>3.3</b> Saída Formatada</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="e-s.html"><a href="e-s.html#e-s-format-funcao"><i class="fa fa-check"></i><b>3.3.1</b> Formatação com função <code>format()</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="e-s.html"><a href="e-s.html#e-s-format-inter"><i class="fa fa-check"></i><b>3.3.2</b> Interpolação de <em>string</em></a></li>
+<li class="chapter" data-level="3.3.3" data-path="e-s.html"><a href="e-s.html#e-s-format-fstring"><i class="fa fa-check"></i><b>3.3.3</b> Formatação com <em>f-string</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="seque.html"><a href="seque.html"><i class="fa fa-check"></i><b>4</b> Sequenciação</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="seque.html"><a href="seque.html#seque-progr"><i class="fa fa-check"></i><b>4.1</b> Programa Mínimo</a></li>
+<li class="chapter" data-level="4.2" data-path="seque.html"><a href="seque.html#seque-e-p-s"><i class="fa fa-check"></i><b>4.2</b> Estratégia E-P-S</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="seque.html"><a href="seque.html#seque-e-p-s-temper"><i class="fa fa-check"></i><b>4.2.1</b> Problema I: temperatura média e amplitude térmica</a></li>
+<li class="chapter" data-level="4.2.2" data-path="seque.html"><a href="seque.html#seque-e-p-s-caixa"><i class="fa fa-check"></i><b>4.2.2</b> Problema II: caixas de papelão</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="repet.html"><a href="repet.html"><i class="fa fa-check"></i><b>5</b> Repetição</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="repet.html"><a href="repet.html#repet-while"><i class="fa fa-check"></i><b>5.1</b> Repetição Condicional</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="repet.html"><a href="repet.html#repet-while-conta"><i class="fa fa-check"></i><b>5.1.1</b> Contagem com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="repet.html"><a href="repet.html#repet-while-acumu"><i class="fa fa-check"></i><b>5.1.2</b> Agregação com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="repet.html"><a href="repet.html#repet-while-ating"><i class="fa fa-check"></i><b>5.1.3</b> Atingimento de condição com <code>while</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="repet.html"><a href="repet.html#repet-while-percu"><i class="fa fa-check"></i><b>5.1.4</b> Percurso com <code>while</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="repet.html"><a href="repet.html#repet-for"><i class="fa fa-check"></i><b>5.2</b> Repetição Automática</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="repet.html"><a href="repet.html#repet-for-percu"><i class="fa fa-check"></i><b>5.2.1</b> Percurso com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="repet.html"><a href="repet.html#repet-for-conta"><i class="fa fa-check"></i><b>5.2.2</b> Contagem com <code>for</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="repet.html"><a href="repet.html#repet-for-acumu"><i class="fa fa-check"></i><b>5.2.3</b> Agregação com <code>for</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="decis.html"><a href="decis.html"><i class="fa fa-check"></i><b>6</b> Decisão</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="decis.html"><a href="decis.html#decis-if"><i class="fa fa-check"></i><b>6.1</b> Decisão Simples</a></li>
+<li class="chapter" data-level="6.2" data-path="decis.html"><a href="decis.html#decis-if-else"><i class="fa fa-check"></i><b>6.2</b> Decisão Completa</a></li>
+<li class="chapter" data-level="6.3" data-path="decis.html"><a href="decis.html#decis-if-elif-else"><i class="fa fa-check"></i><b>6.3</b> Decisões Encadeadas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>7</b> Modularização</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>7.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="7.2" data-path="modul.html"><a href="modul.html#modul-funcao"><i class="fa fa-check"></i><b>7.2</b> Funções</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="modul.html"><a href="modul.html#modul-funcao-tipos"><i class="fa fa-check"></i><b>7.2.1</b> Tipos de funções</a></li>
+<li class="chapter" data-level="7.2.2" data-path="modul.html"><a href="modul.html#modul-funcao-return"><i class="fa fa-check"></i><b>7.2.2</b> Retorno de Valor</a></li>
+<li class="chapter" data-level="7.2.3" data-path="modul.html"><a href="modul.html#modul-funcao-param"><i class="fa fa-check"></i><b>7.2.3</b> Passagem de Parâmetros</a></li>
+<li class="chapter" data-level="7.2.4" data-path="modul.html"><a href="modul.html#modul-funcao-default"><i class="fa fa-check"></i><b>7.2.4</b> Parâmetros <em>Default</em></a></li>
+<li class="chapter" data-level="7.2.5" data-path="modul.html"><a href="modul.html#modul-funcao-var"><i class="fa fa-check"></i><b>7.2.5</b> Parâmetros Variáveis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>7.3</b> Importação</a></li>
+<li class="chapter" data-level="7.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>7.4</b> Criação de pacotes e módulos</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndices</b></span></li>
+<li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
+<li class="chapter" data-level="B" data-path="instalação-do-anaconda.html"><a href="instalação-do-anaconda.html"><i class="fa fa-check"></i><b>B</b> Instalação do Anaconda</a></li>
+<li class="chapter" data-level="" data-path="referências-bibliográficas.html"><a href="referências-bibliográficas.html"><i class="fa fa-check"></i>Referências Bibliográficas</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python - Guia do Programador</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="e-s" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Entrada e Saída</h1>
+<p>Os programas de computador podem manipular dados e realizar cálculos, desde simples até os mais complexos. O que os torna ainda mais convenientes é a possibilidade de obterem estes dados de fontes diferentes, o que permite que executem suas tarefas considerando valores diferentes, ampliando muito sua utilidade.</p>
+<p>Os dados requeridos para que um programa possa realizar os cálculos necessários são considerados como <em>dados de entrada</em>. Já os resultados desejados, produzidos pela execução do programa, são entendidos como <em>dados de saída</em>. A sequência de operações que o programa realiza, ou seja, a computação realizada a partir dos dados de entrada para produzir os dados de saída, é o que chamamos de <em>processamento de dados</em>.</p>
+<p>Muitos programas são construídos para trabalhar dessa maneira, efetuando uma etapa de <em>entrada de dados</em>, seguida do <em>processamento de dados</em>, que produz os resultados que serão apresentados ou armazenados na etapa de <em>saída de dados</em>, como ilustrado na Figura <a href="e-s.html#fig:03-01">3.1</a>.</p>
+<div class="figure"><span id="fig:03-01"></span>
+<img src="images/03-01.jpg" alt="Etapas típicas de um programa"  />
+<p class="caption">
+Figura 3.1: Etapas típicas de um programa
+</p>
+</div>
+<p>Programas mais sofisticados podem ter várias etapas distintas de entradas, utilizar dados de fontes diversas, podem ter o processamento subdividido em partes específicas, além de produzir várias saídas enviadas para destinos diferentes. As possibilidades, embora infinitas, são variações do tema <em>entrada-processamento-saída</em>.</p>
+<p>Os programas Python são executados pelo interpretador da linguagem que, <em>naturalmente</em>, utiliza o console da plataforma, ou seja, o ambiente interativo e em modo texto oferecido pelos sistemas operacionais, mais conhecidos como <em>prompt de comandos</em> no Microsoft Windows ou como <em>terminais</em> nas distribuições Linux, Apple Mac OS e outros sistemas semelhantes. O console é composto por dois dispositivos: o teclado, considerado como a <em>entrada-padrão</em>, e o monitor, tratado como <em>saída-padrão</em> de todos esses sistemas operacionais.</p>
+<p>Sendo assim, as operações de <em>entrada</em> e de <em>saída</em> realizadas no console dos sistemas são essenciais.</p>
+<div id="e-s-saida" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Saída Simples</h2>
+<p>A apresentação de resultados é uma etapa fundamental de qualquer programa, pois permite comunicar ao usuário informações sobre andamento do programa, bem como os resultados produzidos e, até mesmo, erros ou avisos sobre situações específicas encontradas durante sua execução.</p>
+<p>A função <em>built-in</em> <code>print()</code> tem como objetivo escrever os argumentos que recebe na <em>saída-padrão</em>, ou seja, no console, produzindo texto legível pelo usuário como resultado. Sua sintaxe é simples:</p>
+<blockquote>
+<p><code>print( argumento* )</code></p>
+</blockquote>
+<p>Tipicamente a função <code>print()</code> recebe um ou mais argumentos separados por vírgulas. Cada argumento pode ser uma <em>string</em>, um número (inteiro, real ou complexo), um valor lógico ou uma variável, tal como segue:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="e-s.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Python, guia do programador&#39;</span>) <span class="co"># str</span></span>
+<span id="cb116-2"><a href="e-s.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2021</span>) <span class="co"># int</span></span>
+<span id="cb116-3"><a href="e-s.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">7.654321</span>) <span class="co"># float</span></span>
+<span id="cb116-4"><a href="e-s.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">True</span>) <span class="co"># bool</span></span>
+<span id="cb116-5"><a href="e-s.html#cb116-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="fl">1.2</span> <span class="op">-</span> <span class="ot">3.4j</span> <span class="co"># complexo</span></span>
+<span id="cb116-6"><a href="e-s.html#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z) <span class="co"># variável</span></span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Python, guia do programador
+&gt;&gt;&gt; 2021
+&gt;&gt;&gt; 7.654321
+&gt;&gt;&gt; True
+&gt;&gt;&gt; (1.2-3.4j)</code></pre>
+<p>Neste fragmento, cada uso de <code>print()</code> recebeu um único argumento, dos tipo <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code> e <code>complex</code>. O de tipo <code>str</code> foi <em>transcrito</em> diretamente na saída-padrão, ou seja, no console, enquanto os demais foram convertidos para o tipo <code>str</code> e então exibidos.</p>
+<p>Mas <code>print()</code> pode receber qualquer quantidade e combinação de tipos de argumentos, os quais devem ser separados por uma vírgula (<code>,</code>), o que oferece inúmeras possibilidades, como no próximo fragmento que combina o nome da variável na <em>string</em> <code>'x ='</code> e o valor desta variável <code>x</code>:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="e-s.html#cb118-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">123456789</span></span>
+<span id="cb118-2"><a href="e-s.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;x =&#39;</span>, x)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; x = 123456789</code></pre>
+<p>Aqui a função <code>print()</code> combinou um argumento do tipo <code>str</code> com outro do tipo <code>int</code>, convertendo cada um num texto, separado automaticamente por um espaço em branco, permitindo informar o usuário sobre o valor de uma variável específica do programa. O mesmo pode ser feito para mais variáveis, com textos complementares diversos.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="e-s.html#cb120-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">123456789</span></span>
+<span id="cb120-2"><a href="e-s.html#cb120-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb120-3"><a href="e-s.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;x =&#39;</span>, x, <span class="st">&#39;e y =&#39;</span>, y)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; x = 123456789 e y = 9</code></pre>
+<p>Além de valores literais, a função <code>print()</code> aceita expressões, de todos os tipos, como argumentos, ampliando ainda mais as maneiras de gerar saídas nos programas.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="e-s.html#cb122-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">123456789</span></span>
+<span id="cb122-2"><a href="e-s.html#cb122-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb122-3"><a href="e-s.html#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;x * y =&#39;</span>, x <span class="op">*</span> y)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; x * y = 1111111101</code></pre>
+<p>Deve ser observado que <code>'x * y ='</code> é uma <em>string</em> (um literal do tipo <code>str</code>), pois está delimitada por aspas-simples, enquanto <code>x * y</code> é uma expressão que envolve o produto das variáveis <code>x</code> e <code>y</code>, definidas no início do fragmento. Além disso, note que, no resultado produzido (<em>impresso no console</em>), a função <code>print()</code> adicionou um espaço em branco entre os dois argumentos, tornando-os mais claros.</p>
+<div id="e-s-saida-escap" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Caracteres Especiais</h3>
+<p>Nos literais de texto, isto é, nas <em>strings</em>, é possível acrescentar caracteres especiais, em geral, caracteres <em>não imprimíveis</em>, como a quebra-de-linha, que oferecem maior controle sobre as mensagens exibidas por um programa. A Tabela <a href="#tab:escape-chars">3.1</a> lista os caracteres especiais do Python, conhecidos também como <em>escape characters</em>.</p>
+<p>Tabela <a name="tab:escape-chars">3.1</a>: Caracteres especiais do Python</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Código</th>
+<th align="left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>\'</code></td>
+<td align="left">Aspas simples</td>
+</tr>
+<tr class="even">
+<td align="left"><code>\"</code></td>
+<td align="left">Aspas duplas</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>\\</code></td>
+<td align="left">Barra invertida (<em>backslash</em>)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>\n</code></td>
+<td align="left">Nova linha (<em>new line</em>)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>\r</code></td>
+<td align="left">Retorno de carro (<em>carriage return</em>)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>\t</code></td>
+<td align="left">Tabulação</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>\b</code></td>
+<td align="left">Retrocesso (<em>backspace</em>)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>\o</code></td>
+<td align="left">Prefixo para valor octal</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>\x</code></td>
+<td align="left">Prefixo para valor hexadecimal</td>
+</tr>
+</tbody>
+</table>
+<p>Todos os caracteres especiais são, na verdade, sequências de dois caracteres, onde o primeiro é obrigatoriamente a barra invertida (<code>\</code>). Assim, para que a própria barra invertida possa fazer parte de uma <em>string</em>, ela deve ser indicada como a sequência de escape <code>\\</code>.</p>
+<p>As aspas simples e duplas são os caracteres delimitadores das <em>strings</em>, assim devem ser precedidas por uma barra invertida para que possam fazer parte da própria <em>string</em>. O fragmento que segue mostra como incorporar as aspas e a barra invertida em <em>strings</em> exibidas pela função <code>print()</code>.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="e-s.html#cb124-1" aria-hidden="true" tabindex="-1"></a>texto_1 <span class="op">=</span> <span class="st">&#39;Uso de aspas </span><span class="ch">\&#39;</span><span class="st">simples</span><span class="ch">\&#39;</span><span class="st">&#39;</span></span>
+<span id="cb124-2"><a href="e-s.html#cb124-2" aria-hidden="true" tabindex="-1"></a>texto_2 <span class="op">=</span> <span class="st">&quot;ou </span><span class="ch">\&quot;</span><span class="st">duplas</span><span class="ch">\&quot;</span><span class="st"> e da barra </span><span class="ch">\\</span><span class="st">!&quot;</span></span>
+<span id="cb124-3"><a href="e-s.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(texto_1, texto_2)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Uso de aspas &#39;simples&#39; ou &quot;duplas&quot; e da barra \!</code></pre>
+<p>Também é possível incluir tabulações e quebras de linha numa <em>string</em>, com o uso das sequências de escape <code>\t</code> e <code>\n</code> respectivamente. A tabulação introduz um espaçamento horizontal, cujo tamanho, de fato, depende do programa ou interface em uso, embora seja comum sua sua expansão para 4 ou 8 espaços. Observe o fragmento que segue, onde uma mesma frase é impressa quatro vezes, sem e com o uso de tabulação e quebra de linha.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="e-s.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Um texto simples&quot;</span>)</span>
+<span id="cb126-2"><a href="e-s.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> Um texto simples</span>
+<span id="cb126-3"><a href="e-s.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\t</span><span class="st">Um texto simples&quot;</span>)</span>
+<span id="cb126-4"><a href="e-s.html#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span>     Um texto simples</span>
+<span id="cb126-5"><a href="e-s.html#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Um texto</span><span class="ch">\n</span><span class="st">simples&quot;</span>)</span>
+<span id="cb126-6"><a href="e-s.html#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> Um texto</span>
+<span id="cb126-7"><a href="e-s.html#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> simples</span>
+<span id="cb126-8"><a href="e-s.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Um</span><span class="ch">\n</span><span class="st">texto</span><span class="ch">\n\t</span><span class="st">simples&quot;</span>)</span>
+<span id="cb126-9"><a href="e-s.html#cb126-9" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> Um</span>
+<span id="cb126-10"><a href="e-s.html#cb126-10" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> texto</span>
+<span id="cb126-11"><a href="e-s.html#cb126-11" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span>     simples</span></code></pre></div>
+<p>Na saída produzida por este fragmento, percebemos que a inclusão de um <code>\t</code> no início da <em>string</em> produz um espaçamento em sua apresentação. Já o caractere especial <code>\n</code> gera uma quebra de linha, dividindo a exibição da <em>string</em> em duas linhas. Os efeitos destes caracteres e as demais sequências de escape pode ser combinado para criação de mensagens, como se vê no último uso de <code>print()</code>.</p>
+</div>
+<div id="e-s-saida-opcao" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Controle de Separação e Finalização</h3>
+<p>Como visto nos exemplos anteriores, a função <em>built-in</em> <code>print()</code> adiciona, por padrão, um espaço em branco entre a impressão dos argumentos fornecidos, além disso, após imprimir o último argumento, finaliza a impressão com um caractere <code>\n</code>, preparando uma nova linha para a próxima impressão. Então temos três situações distintas no uso de <code>print()</code>:</p>
+<ol style="list-style-type: decimal">
+<li>Uso sem argumentos: impressão gera apenas uma quebra de linha.</li>
+</ol>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="e-s.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>() <span class="co"># sem argumentos</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Uso com um único argumento: a impressão adiciona um espaço em branco <em>entre</em> os argumentos e uma quebra de linha (<code>\n</code>) para finalizar a saída.</li>
+</ol>
+<div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="e-s.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Argumento_1&quot;</span>) <span class="co"># um argumento</span></span>
+<span id="cb128-2"><a href="e-s.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> Argumento_1</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Uso com dois ou mais argumentos: a impressão adiciona um espaço em branco <em>entre</em> todos argumentos e uma quebra de linha (<code>\n</code>) para finalizar a saída.</li>
+</ol>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="e-s.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Argumento_1&quot;</span>, <span class="st">&quot;Argumento_2&quot;</span>) <span class="co"># dois argumentos</span></span>
+<span id="cb129-2"><a href="e-s.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> Argumento_1 Argumento_2</span></code></pre></div>
+<p>Neste exemplos, foram usados apenas argumentos do tipo <em>string</em> para facilitar a compreensão, mas poderiam ser de qualquer tipo, ou ainda expressões. A Figura <a href="e-s.html#fig:03-01">3.1</a> ilustra a inserção do separador e do finalizador realizada pelo <code>print()</code>.</p>
+<div class="figure"><span id="fig:03-02"></span>
+<img src="images/03-02.jpg" alt="Inserção de separador e finalizador no `print()`"  />
+<p class="caption">
+Figura 3.2: Inserção de separador e finalizador no <code>print()</code>
+</p>
+</div>
+<p>Além disso, a função <code>print()</code> permite que outro separador ou finalizador sejam utilizados, ampliando ainda mais suas possibilidades de uso. Isto é possível com a indicação explícita do parâmetro <code>sep</code> para escolha de um novo separador e do parâmetro <code>end</code> para escolha de um novo finalizador de impressão. Veja no fragmento que segue o uso da <em>string</em> <code>-+-</code> como separador.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="e-s.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Argumento_1&quot;</span>, <span class="st">&quot;Argumento_2&quot;</span>, sep<span class="op">=</span><span class="st">&#39;-+-&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Argumento_1-+-Argumento_2</code></pre>
+<p>É fácil perceber que os argumentos passados para <code>print()</code> agora estão separados por <code>-+-</code>.</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/do.png" alt="DO" /></th>
+<th align="left">Para incluir o separador no início de uma impressão, ou em seu final, antes do finalizador, basta adicionar um argumento de tipo <em>string</em> vazio, ou seja, <code>''</code>, por exemplo:<br/><code>print('', 'Argumento 1', 'Argumento 2', '', sep=' | ')</code><br/>que produz:<br/><code>&gt;&gt;&gt;  | Argumento1 | Argumento2 |</code></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Segue outro fragmento que mostra o emprego do parâmetro <code>end</code> definido como ’ separador <code>||</code>.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb132-1"><a href="e-s.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Argumento_1&quot;</span>, end<span class="op">=</span><span class="st">&#39;||&#39;</span>)</span>
+<span id="cb132-2"><a href="e-s.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Argumento_2&quot;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Argumento_1||
+&gt;&gt;&gt; Argumento_2</code></pre>
+<p>Com isso, observamos que a sintaxe mais completa da função <em>built-in</em> <code>print()</code> é, de fato:</p>
+<blockquote>
+<p><code>print( argumento*, sep=' ', end='\n')</code></p>
+</blockquote>
+<p>A função <code>print()</code>, embora simples, é muito flexível e seu uso indispensável.</p>
+</div>
+</div>
+<div id="e-s-entra" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Entrada</h2>
+<p>É comum que os programas sejam construídos para trabalhar seguindo as três etapas ilustradas na Figura <a href="e-s.html#fig:03-01">3.1</a>: efetuando uma <em>entrada de dados</em>, seguida do <em>processamento de dados</em>, que produz os resultados apresentados como sua <em>saída de dados</em>. A entrada de dados é uma importante etapa que, em geral, dá início a esse processo.</p>
+<p>A função <em>built-in</em> <code>input()</code> tem como objetivo capturar dados fornecidos pelo usuário do programa na <em>entrada-padrão</em>, usualmente o teclado, um dos dispositivos que fazem parte do console. Sua sintaxe é simples:</p>
+<blockquote>
+<p><code>variavel = input( prompt )</code></p>
+</blockquote>
+<p>A função <code>input()</code> pode receber um argumento opcional do tipo <code>str</code>, ou seja, uma <em>string</em> que serve como mensagem de orientação para o usuário, que deveria explica qual dado é esperado, ou seja, o tipo de dado a ser fornecido, a faixa de valores aceita ou outra característica esperada. Após a impressão da mensagem na <em>saída-padrão</em>, aguarda que o usuário realize a digitação do dado, prosseguindo apenas quando é pressionada a tecla <code>ENTER</code>. Esta função então retorna o texto fornecido, usualmente armazenado em uma variável para uso futuro.</p>
+<p>Isto significa que o uso de <code>input()</code> faz com que o programa pare sua execução, esperando pela digitação do usuário, prosseguindo apenas quando a <em>entrada de dados</em> é finalizada com o acionamento de <code>ENTER</code>, armazenando o texto capturado na variável indicada pelo programador, o que é bastante conveniente.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="e-s.html#cb134-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Digite seu nome: &#39;</span>)</span>
+<span id="cb134-2"><a href="e-s.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;O nome digitado foi:&#39;</span>, nome)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite seu nome: Peter
+&gt;&gt;&gt; O nome digitado foi: Peter</code></pre>
+<p>Cada valor de entrada necessário à um programa deve ser lido por meio de uma chamada à função <code>input()</code>. Por exemplo;</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="e-s.html#cb136-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Digite seu nome: &#39;</span>)</span>
+<span id="cb136-2"><a href="e-s.html#cb136-2" aria-hidden="true" tabindex="-1"></a>cidade <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Informe sua cidade: &#39;</span>)</span>
+<span id="cb136-3"><a href="e-s.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Dados lidos:&#39;</span>, nome, <span class="st">&#39;,&#39;</span>, cidade)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite seu nome: Peter
+&gt;&gt;&gt; Informe sua cidade: Itatiba
+&gt;&gt;&gt; Dados lidos: Peter , Itatiba</code></pre>
+<p>Embora o uso da função <code>input()</code> seja simples, é necessário destacar que todos os dados lidos são tratados como texto, ou seja, do tipo <code>str</code>. Considere o fragmento que segue.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="e-s.html#cb138-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Digite um valor inteiro: &#39;</span>)</span>
+<span id="cb138-2"><a href="e-s.html#cb138-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Digite outro valor inteiro: &#39;</span>)</span>
+<span id="cb138-3"><a href="e-s.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valores lidos:&#39;</span>, a, <span class="st">&#39;,&#39;</span>, b)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite um valor inteiro: 12
+&gt;&gt;&gt; Digite outro valor inteiro: 34
+&gt;&gt;&gt; Valores lidos: 12 , 34</code></pre>
+<p>Se o valor contido nas variáveis <code>a</code> e <code>b</code> for somado, teremos:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="e-s.html#cb140-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb140-2"><a href="e-s.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;a + b =&#39;</span>, res)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; a + b = 1234</code></pre>
+<p>O que parece ser um erro, na verdade está correto, pois a função <code>input()</code> trata todas as entradas fornecidas pelo usuário como texto, ou seja, valores do tipo <code>str</code>, que ao serem <em>somados</em> são, de fato, <em>concatenados</em>, ou seja, o texto de um operando é justaposto ao texto do outro operando. Podemos comprovar que a, b e res são do tipo <code>str</code> com:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb142-1"><a href="e-s.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;type(a) =&#39;</span>, <span class="bu">type</span>(a), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">type(b) =&#39;</span>, <span class="bu">type</span>(b),</span>
+<span id="cb142-2"><a href="e-s.html#cb142-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;</span><span class="ch">\n</span><span class="st">type(res) =&#39;</span>, <span class="bu">type</span>(res))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; type(a) = &lt;class &#39;str&#39;&gt; 
+&gt;&gt;&gt; type(b) = &lt;class &#39;str&#39;&gt; 
+&gt;&gt;&gt; type(res) = &lt;class &#39;str&#39;&gt;</code></pre>
+<p>Para que possamos utilizar os dados fornecidos pelo usuário como valores numéricos, é necessário converter o texto lido no tipo de dados desejado. A conversão de texto para inteiro é feita com auxílio da função <em>built-in</em> <code>int()</code>, que pode ser usada como segue:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="e-s.html#cb144-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;Digite um valor inteiro: &#39;</span>))</span>
+<span id="cb144-2"><a href="e-s.html#cb144-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;Digite outro valor inteiro: &#39;</span>))</span>
+<span id="cb144-3"><a href="e-s.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valores lidos:&#39;</span>, a, <span class="st">&#39;,&#39;</span>, b)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Digite um valor inteiro: 12
+&gt;&gt;&gt; Digite outro valor inteiro: 34
+&gt;&gt;&gt; Valores lidos: 12 , 34</code></pre>
+<p>Note que o resultado produzido por <code>input()</code>, que é o texto capturado como entrada do usuário, é passado como argumento da função <code>int()</code>, que realiza sua conversão para um valor inteiro. Agora é obtido o resultado esperado quando o valor contido nas variáveis <code>a</code> e <code>b</code> é somado:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb146-1"><a href="e-s.html#cb146-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb146-2"><a href="e-s.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;a + b =&#39;</span>, res)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; a + b = 46</code></pre>
+<p>A conversão de texto para valores reais, do tipo <code>float</code> é semelhante, como segue:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="e-s.html#cb148-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;Primeiro valor real: &#39;</span>))</span>
+<span id="cb148-2"><a href="e-s.html#cb148-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&#39;Segundo valor real: &#39;</span>))</span>
+<span id="cb148-3"><a href="e-s.html#cb148-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">+</span> y</span>
+<span id="cb148-4"><a href="e-s.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Soma:&#39;</span>, z)</span>
+<span id="cb148-5"><a href="e-s.html#cb148-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Produto:&#39;</span>, x <span class="op">*</span> y)</span></code></pre></div>
+<p>Agora que sabemos como <em>computar</em>, isto é, efetuar cálculos diversos, e também realizar as operações de <em>entrada</em> e <em>saída</em>, torna-se possível construir programas Python para resolver muitos tipos de problemas.</p>
+<pre><code>&gt;&gt;&gt; Primeiro valor real: 3.45
+&gt;&gt;&gt; Segundo valor real: 8.76
+&gt;&gt;&gt; Soma: 12.21
+&gt;&gt;&gt; Produto: 30.222</code></pre>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/warn.png" alt="WARN" /></th>
+<th align="left">Atenção com o uso de <code>input()</code> quando são requeridos dados numéricos ou lógicos, pois isto requer transformar o texto lido no tipo desejado, usualmente com as funções <em>built-int</em> <code>int()</code>, <code>float()</code> e <code>bool</code> que permitem as conversões para os respectivos tipos.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/dont.png" alt="DONT" /></th>
+<th align="left">Se o usuário fornece uma entrada inválida, isto é, que não pode ser convertida pelas funções <em>built-int</em> <code>int()</code>, <code>float()</code> e <code>bool</code>, é lançada uma exceção <code>ValueError</code> indicando o problema. Além disso, caso esta exceção não seja tratada, o programa é abortado.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div id="e-s-format" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Saída Formatada</h2>
+<p>Como veremos, em muitos programas surgirá a necessidade de apresentar os resultados de maneira mais organizada, eventualmente com uma aparência mais familiar para o usuário. Para isso, é necessária a aplicação de padrões de apresentação aos dados produzidos pelo programa, ou mais simplesmente, é necessário <em>formatar</em> a saída.</p>
+<p>Esta seção é dedicada a explorar capacidades um pouco mais avançadas do Python em relação a produção de saída de dados formatada. Exatamente por isso, sua leitura pode ser adiada até o momento em que sua necessidade se apresente, quando os exemplos dos próximos capítulos não forem suficientes para a compreensão das técnicas de formatação, ou quando um maior aprofundamento for desejado.</p>
+<p>Existem algumas maneiras convenientes de produzir saída formatada no Python, obtido com:</p>
+<ul>
+<li>A função <em>built-in</em> <code>format()</code>;</li>
+<li>A interpolação de <em>strings</em> com <code>%()</code>; e</li>
+<li>As <em>formatted literal strings</em>, ou simplesmente, as <em>f-strings</em>.</li>
+</ul>
+<div id="e-s-format-funcao" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Formatação com função <code>format()</code></h3>
+<p>A função <em>built-in</em> <code>format()</code> é destinada a converter um valor em sua representação <em>formatada</em>, ou seja, aplica um padrão de apresentação, definido por uma <em>string</em> que emprega uma sintaxe própria. Sua utilização permite controlar como valores numéricos e não numéricos são exibidos para o usuário. Esta função é indiretamente utilizada pela função de mesmo nome <a href="https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method"><code>format()</code> da classe <code>str</code></a>, com a sintaxe que segue:</p>
+<blockquote>
+<p><code>'padrao_de_formatacao'.format( *valor)</code></p>
+</blockquote>
+<p>O padrão de formatação é uma <em>string</em> na qual são inseridos <em>marcadores de formatação</em> ou <em>placeholders</em>, um para cada valor que se pretende formatar e exibir. Na função <code>format()</code>, aplicada ao <em>padrão de formatação</em> por meio do operador <code>.</code> (denominado <em>seletor</em><a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>), devem ser dispostos os valores correspondentes aos marcadores de formatação. Seguem alguns exemplos para auxiliar na compreensão do uso da função <code>format()</code>.</p>
+<p>Os <em>marcadores de formatação</em> tem uma estrutura simples:</p>
+<blockquote>
+<p><code>{ [id] [: formato] }</code></p>
+</blockquote>
+<p>Todos os marcadores são delimitados por chaves obrigatórias, dentro das quais são dispostos um <code>id</code> e um <code>formato</code>, separados por dois-pontos quando o segundo elemento está presente. O <code>id</code> é um número inteiro opcional que pode ser utilizado para identificar um dos valores presentes em <code>format()</code>, o que permite sua reutilização, evitando sua repetição. Seu uso será visto mais à frente. O <code>formato</code> também é opcional e tem uma <a href="https://docs.python.org/3/library/string.html#formatspec">sintaxe própria</a>, na qual são utilizados os especificadores relacionados na Tabela <a href="#tab:especificadores">3.2</a>.</p>
+<p>Tabela <a name="tab:especificadores">3.2</a>: Alguns especificadores de formatação do Python</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Código</th>
+<th align="left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>b</code></td>
+<td align="left">Inteiro em formato binário (base 2)</td>
+</tr>
+<tr class="even">
+<td align="center"><code>c</code></td>
+<td align="left">Inteiro como caractere</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>d</code>,<code>n</code></td>
+<td align="left">Inteiro decimal</td>
+</tr>
+<tr class="even">
+<td align="center"><code>e</code>,<code>E</code></td>
+<td align="left">Real em notação científica</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>f</code>,<code>F</code></td>
+<td align="left">Real com precisão fixa</td>
+</tr>
+<tr class="even">
+<td align="center"><code>o</code></td>
+<td align="left">Inteiro em formato octal (base 8)</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>%</code></td>
+<td align="left">Porcentagem</td>
+</tr>
+<tr class="even">
+<td align="center"><code>s</code></td>
+<td align="left">String (cadeia de caracteres)</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>x</code>,<code>X</code></td>
+<td align="left">Inteiro em formato hexadecimal (base 16)</td>
+</tr>
+</tbody>
+</table>
+<p>No fragmento que segue, o número inteiro contido na variável <code>x</code> é impresso sem aplicação de um padrão de formatação, mas como uso da função <code>format()</code>.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="e-s.html#cb150-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb150-2"><a href="e-s.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(x))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 15</code></pre>
+<p>Neste exemplo, o marcador vazio <code>{}</code> serve apenas para indicar onde o valor da variável <code>x</code> deve ser colocado na <em>string de formatação</em>, funcionando como um <em>marcador posicional</em>. Esta alternativa é bastante conveniente quando é necessário intercalar vários valores em uma mensagem, como no exemplo que segue.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="e-s.html#cb152-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb152-2"><a href="e-s.html#cb152-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">19</span></span>
+<span id="cb152-3"><a href="e-s.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Se x =&#39;</span>, x, <span class="st">&#39;e y =&#39;</span>, y, <span class="st">&#39;então x == y --&gt;&#39;</span>,</span>
+<span id="cb152-4"><a href="e-s.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  x <span class="op">==</span> y)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Se x = 15 e y = 19 então x == y --&gt; False</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="e-s.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Se x = </span><span class="sc">{}</span><span class="st"> e y = </span><span class="sc">{}</span><span class="st">, então x == y --&gt; </span><span class="sc">{}</span><span class="st">&#39;</span></span>
+<span id="cb154-2"><a href="e-s.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">format</span>(x, y, x <span class="op">==</span> y))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Se x = 15 e y = 19, então x == y --&gt; False</code></pre>
+<p>No próximo fragmento, a função <code>print()</code> recebe uma <em>string</em> de formatação que contém três marcadores: os dois primeiros, com a especificação do tipo do valor <code>{:d}</code>, recebem o conteúdo das variáveis <code>x</code> e <code>y</code>; e o último, um marcador posicional <code>{}</code>, recebe o resultado da expressão <code>x * y</code>.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="e-s.html#cb156-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb156-2"><a href="e-s.html#cb156-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb156-3"><a href="e-s.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{:d}</span><span class="st"> * </span><span class="sc">{:d}</span><span class="st"> = </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(x, y, x <span class="op">*</span> y))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 20 * 6 = 120</code></pre>
+<p>Embora o efeito produzido aqui seja semelhante, o funcionamento destes marcadores é distinto. No marcador posicional, o valor correspondente é transformando numa <em>string</em> inclusa na posição dada na <em>string de formatação</em>, sendo indiferente o tipo do valor ali inserido. Já nos marcadores com especificadores é necessário que o valor correspondente seja de tipo compatível com o indicado, caso contrário será lançada a exceção <code>ValueError</code>.</p>
+<p>Segue outro fragmento, onde outro número inteiro é exibido de maneiras diferentes. Observe que o padrão de formatação pode conter uma mensagem na qual se intercalam os marcadores de formatação desejados. Observe também que uma <em>string</em> pode ser dividida em duas ou mais linhas, fechando seus delimitadores e usando uma barra invertida <code>\</code> para indicar a divisão.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="e-s.html#cb158-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="dv">12345</span></span>
+<span id="cb158-2"><a href="e-s.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valor não formatado </span><span class="sc">{:d}</span><span class="st"> e com formato de 7 &#39;</span> \</span>
+<span id="cb158-3"><a href="e-s.html#cb158-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;colunas </span><span class="sc">{:7n}</span><span class="st">&#39;</span>.<span class="bu">format</span>(r, r))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor não formatado 12345 e com formato de 7 colunas   12345</code></pre>
+<p>Dois aspectos deve ser observados aqui: o uso direto de um especificador, tal como <code>d</code>, apenas apresenta o valor correspondente (o conteúdo da variável <code>r</code>), sem formatação; mas ao acrescentar o inteiro <code>7</code> como prefixo do especificador <code>n</code>, indica-se que o valor deverá ocupar sete colunas, ou seja, sua apresentação ocupará o espaço fixo de sete colunas (<em>largura</em>). Este expediente pode ser utilizado com qualquer especificador para determinar a largura da apresentação.</p>
+<p>Os especificadores para inteiros tem, então, a estrutura <code>[s][w]d</code> ou <code>[s][w]n</code> onde:</p>
+<ul>
+<li><code>s</code>, opcional, indica como o sinal é mostrado: ausente ou <code>-</code>, apenas o sinal negativo é exibido; <code>+</code> exibe sinais positivos e negativos;</li>
+<li><code>w</code>, opcional, estabelece o número de colunas da largura da apresentação;</li>
+<li><code>d</code> ou <code>n</code> são os códigos dos especificadores para valores inteiros.</li>
+</ul>
+<p>O fragmento que segue mostra o uso do indicador de sinal.</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="e-s.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{:-8d}</span><span class="st">; </span><span class="sc">{:-8n}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">123456</span>, <span class="op">-</span><span class="dv">654321</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt;   123456;  -654321</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="e-s.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="sc">{:+8d}</span><span class="st">; </span><span class="sc">{:+8n}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">123456</span>, <span class="op">-</span><span class="dv">654321</span>))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt;  +123456;  -654321</code></pre>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/info.png" alt="INFO" /></th>
+<th align="left">Quando a quantidade de caracteres necessárias para apresentar o valor dentro do padrão é menor do que largura indicada, espaços em branco são acrescentados, garantindo que o valor formatado ocupe a largura estabelecida. Nesta situação, os valores são alinhados à direita. Nada acontece quando a largura indicada é a mesma requerida pelo valor formatado.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="88%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><img src="images/warn.png" alt="WARN" /></th>
+<th align="left">Quando o valor requer mais caracteres de apresentação do que a largura indicada, o padrão de formatação é desconsiderado e o valor é apresentado integralmente.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Em algumas situações, um mesmo valor é utilizado mais de uma vez na saída produzida. Para evitar repetição do valor literal, variável ou expressão, podem ser empregados os <code>ids</code> nos marcadores para selecionar qual valor da lista contida em <code>format()</code> deve ser usado.</p>
+<p>No fragmento que segue, a <em>string</em> de formatação possui quatro marcadores, apenas com a indicação do <code>id</code>, onde o número <code>0</code> indica do primeiro valor da lista presente em <code>format()</code> (neste exempo a variável <code>x</code>), <code>1</code> indica o segundo (aqui a variável <code>y</code>) e assim sucessivamente.</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="e-s.html#cb164-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">&#39;ra&#39;</span></span>
+<span id="cb164-2"><a href="e-s.html#cb164-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">&#39;qua&#39;</span></span>
+<span id="cb164-3"><a href="e-s.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;A</span><span class="sc">{0}{0}{1}{0}</span><span class="st">!&#39;</span>.<span class="bu">format</span>(x, y))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Araraquara!</code></pre>
+<p>Observe que o mesmo <code>id</code> pode ser indicado na <em>string</em> de formatação, de maneira repetida e em qualquer ordem, evitando a repetição dos valores presentes em <code>format()</code>.</p>
+<p>A formatação de números reais é bastante flexível, permitindo controlar não apenas a largura da apresentação, mas também o número de casas decimais exibidas e até mesmo a notação empregada.</p>
+<p>No fragmento que segue o número real contido na variável <code>z</code> é impresso de quatro maneiras diferentes, genericamente, real sem formatação e com dois usos da notação de <em>real com precisão fixa</em>, na qual se estabele um número fixo de casas decimais.</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="e-s.html#cb166-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="fl">123.456789</span></span>
+<span id="cb166-2"><a href="e-s.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;z = </span><span class="sc">{0}</span><span class="st"> ou </span><span class="sc">{0:f}</span><span class="st"> ou </span><span class="sc">{0:8.2f}</span><span class="st"> ou </span><span class="sc">{0:10.4f}</span><span class="st">!&#39;</span>.<span class="bu">format</span>(z))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; z = 123.456789 ou 123.456789 ou   123.46 ou   123.4568!</code></pre>
+<p>Neste fragmento, todos os marcadores fazem uso do primeiro valor contido em <code>format()</code>. O primeiro marcador <code>{0}</code> exibe o valor como uma <em>string</em>, sem verificar seu tipo. O segundo marcador, <code>{0:f}</code> verifica se o valor é um número real (de tipo <code>float</code>), mas sem aplicar qualquer formatação. Os demais marcadores aplicam a formatação de número <em>real com precisão fixa</em>: <code>{0:8.2f}</code> indica apresentação com oito colunas no total, das quais uma para o separador decimal e duas casas decimais; enquanto <code>{0:10.4f}</code> requer apresentação com dez colunas no total, uma para o separador decimal e quatro casas decimais.</p>
+<p>Os especificadores para reais tem, então, a estrutura <code>[s][w][.p]f</code> ou <code>[s][w][.p]e</code> onde:</p>
+<ul>
+<li><code>s</code>, opcional, indica como o sinal é mostrado: ausente ou <code>-</code>, apenas o sinal negativo é exibido; <code>+</code> exibe sinais positivos e negativos;</li>
+<li><code>w</code>, opcional, estabelece o número de colunas da largura da apresentação;</li>
+<li><code>p</code>, opcional, complemento que indica o número de casas decimais apresentado;</li>
+<li><code>f</code> ou <code>e</code> são os códigos dos especificadores para valores reais, o primeiro para precisão fixa e o segundo para notação científica.</li>
+</ul>
+<p>Quando <code>p</code> é indicado, aparece separado de <code>w</code> por um ponto, e determina o número de colunas da apresentação reservado para as casas decimais e o separador decimal.</p>
+<p>O fragmento que segue exemplifica a formatação de uma variável real <code>z</code> com precisão fixa e com notação científica.</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="e-s.html#cb168-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="fl">123.456789</span></span>
+<span id="cb168-2"><a href="e-s.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;z = </span><span class="sc">{0}</span><span class="st"> ou </span><span class="sc">{0:.4f}</span><span class="st"> ou </span><span class="sc">{0:+.4e}</span><span class="st"> ou </span><span class="sc">{0:14.5E}</span><span class="st">!&#39;</span></span>
+<span id="cb168-3"><a href="e-s.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  .<span class="bu">format</span>(z))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; z = 123.456789 ou 123.4568 ou +1.2346e+02 ou    1.23457E+02!</code></pre>
+<p>As <em>strings</em> também podem ter sua exibição ser controlada com o especificador <code>s</code>, como mostra o fragmento que segue, onde barras verticais foram adicionadas para indicar os limites da <em>string</em> impressa.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="e-s.html#cb170-1" aria-hidden="true" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">&#39;Peter Jandl Jr&#39;</span></span>
+<span id="cb170-2"><a href="e-s.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Nome: |</span><span class="sc">{0}</span><span class="st">|</span><span class="ch">\n</span><span class="st">Nome: |</span><span class="sc">{0:25s}</span><span class="st">|&#39;</span>.<span class="bu">format</span>(texto))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Nome: |Peter Jandl Jr|
+&gt;&gt;&gt; Nome: |Peter Jandl Jr           |</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="e-s.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Nome: |</span><span class="sc">{0:&gt;25s}</span><span class="st">|</span><span class="ch">\n</span><span class="st">Nome: |</span><span class="sc">{0:^25s}</span><span class="st">|</span><span class="ch">\n</span><span class="st">Nome: |</span><span class="sc">{0:&lt;25s}</span><span class="st">|&#39;</span></span>
+<span id="cb172-2"><a href="e-s.html#cb172-2" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>(texto))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Nome: |           Peter Jandl Jr|
+&gt;&gt;&gt; Nome: |     Peter Jandl Jr      |
+&gt;&gt;&gt; Nome: |Peter Jandl Jr           |</code></pre>
+<p>O especificador <code>s</code> que tem a estrutura <code>[a][w]s</code> onde:</p>
+<ul>
+<li><code>a</code>, opcional, controla o alinhamento: <code>&lt;</code> para esquerda, padrão para maioria dos objetos; <code>&gt;</code> para direita, padrão para valores numéricos; <code>^</code> para centralizado;</li>
+<li><code>w</code>, opcional, indica o número de colunas da largura da apresentação;</li>
+<li><code>s</code> é o código do especificador para <em>string</em>.</li>
+</ul>
+<p>A sintaxe dos especificadores é muito flexível, embora relativamente complexa, de maneira que sua <a href="https://docs.python.org/3/library/string.html#formatspec">documentação</a> deve ser consultada sempre que necessário.</p>
+</div>
+<div id="e-s-format-inter" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Interpolação de <em>string</em></h3>
+<p>O Python dispõe de outro idioma para formatação de valores, denominado <a href="https://docs.python.org/3/tutorial/inputoutput.html#old-string-formatting"><em>interpolação de strings</em></a>, que utiliza o operador <code>%</code> e uma série de valores. Observe o fragmento que segue, que produz a mesma saída formatada para uma variável real utilizando a função <code>format()</code> e a interpolação de <em>string</em> equivalente.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="e-s.html#cb174-1" aria-hidden="true" tabindex="-1"></a>n0 <span class="op">=</span> <span class="fl">745.02</span></span>
+<span id="cb174-2"><a href="e-s.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valor = R$ </span><span class="sc">{:7.2f}</span><span class="st">&#39;</span>.<span class="bu">format</span>(n0))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor = R$  745.02</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="e-s.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valor = R$ </span><span class="sc">%7.2f</span><span class="st">&#39;</span> <span class="op">%</span> (n0))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor = R$  745.02</code></pre>
+<p>Na interpolação de <em>string</em>, cada marcador <code>{}</code> é substituído por um prefixo <code>%</code> (<em>placeholder</em>), usando a mesma sintaxe dos especificadores vistos seção <a href="e-s.html#e-s-format-funcao">3.3.1</a>; e o acionamento da função <code>format()</code> simplificado para <code>%()</code>, onde deve ser relacionados um valor para cada <em>placeholder</em>.</p>
+<p>Este outro fragmento mostra a formatação de valores inteiros e reais, obtidos de variáveis e de expressões.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="e-s.html#cb178-1" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">190</span></span>
+<span id="cb178-2"><a href="e-s.html#cb178-2" aria-hidden="true" tabindex="-1"></a>n2 <span class="op">=</span> <span class="dv">125</span></span>
+<span id="cb178-3"><a href="e-s.html#cb178-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;n1 = </span><span class="sc">{:5d}</span><span class="st">, n2 = </span><span class="sc">{:5d}</span><span class="st">, n1 / n2 = </span><span class="sc">{:8.4f}</span><span class="st">&#39;</span></span>
+<span id="cb178-4"><a href="e-s.html#cb178-4" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>(n1, n2, n1 <span class="op">/</span> n2))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; n1 =   190, n2 =   125, n1 / n2 =   1.5200</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb180-1"><a href="e-s.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;n1 = </span><span class="sc">%5d</span><span class="st">, n2 = </span><span class="sc">%5d</span><span class="st">, n1 / n2 = </span><span class="sc">%8.4f</span><span class="st">&#39;</span> </span>
+<span id="cb180-2"><a href="e-s.html#cb180-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">%</span> (n1, n2, n1 <span class="op">/</span> n2))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; n1 =   190, n2 =   125, n1 / n2 =   1.5200</code></pre>
+<p>A interpolação de <em>string</em> é, em geral, um idioma mais compacto do que aquele requerido pela função <code>format()</code>, mas são, de fato equivalentes, portanto uma escolha pessoal de quem programa.</p>
+</div>
+<div id="e-s-format-fstring" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Formatação com <em>f-string</em></h3>
+<p>A versáo 3.6 do Python introduziu uma alternativa bastante interessante para formatação de saída denominada <a href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals"><em>formatted string literals</em></a> ou, mais simplesmente, <em>f-string</em>. Além de ser uma notação mais compacta e simples, é menos inclinada a erros e também mais eficiente, devendo constituir a escolha preferencial para esta tarefa.</p>
+<p>Uma <em>f-string</em> deve ser iniciada com o prefixo <code>f</code> ou <code>F</code>. Nela podem ser inseridos um ou mais marcadores (<em>placeholders</em>) para indicar onde valores, formatados ou não, devem ser inseridos, como no fragmento que segue:</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="e-s.html#cb182-1" aria-hidden="true" tabindex="-1"></a>f0 <span class="op">=</span> <span class="fl">745.02</span></span>
+<span id="cb182-2"><a href="e-s.html#cb182-2" aria-hidden="true" tabindex="-1"></a>i1 <span class="op">=</span> <span class="dv">2021</span></span>
+<span id="cb182-3"><a href="e-s.html#cb182-3" aria-hidden="true" tabindex="-1"></a>s3 <span class="op">=</span> <span class="st">&#39;Python&#39;</span></span>
+<span id="cb182-4"><a href="e-s.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Uma string </span><span class="sc">{s3}</span><span class="ss">, um inteiro </span><span class="sc">{i1}</span><span class="ss"> e um real </span><span class="sc">{f0}</span><span class="ss">.&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Uma string Python, um inteiro 2021 e um real 745.02.</code></pre>
+<p>O uso de uma <em>f-string</em> torna direta a inserção de valores não formatados, que são diretamente indicados dentro de chaves <code>{}</code>.</p>
+<p>A formatação dos valores requer a adição de um especificador para cada marcador, com a mesma sintaxe daqueles utilizados pela função <code>format()</code> (seção <a href="e-s.html#e-s-format-funcao">3.3.1</a>), como no exemplo que segue, que compara o uso de <code>format()</code> e de <em>f-string</em>.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="e-s.html#cb184-1" aria-hidden="true" tabindex="-1"></a>f0 <span class="op">=</span> <span class="fl">745.02</span></span>
+<span id="cb184-2"><a href="e-s.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Valor = R$ </span><span class="sc">{:7.2f}</span><span class="st">&#39;</span>.<span class="bu">format</span>(f0))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor = R$  745.02</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="e-s.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Valor = R$ </span><span class="sc">{n0:7.2f}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Valor = R$  745.02</code></pre>
+<p>Note que o valor a ser inserido (literal, variável ou expressão) é indicado diretamente dentro do marcador, que tem a estrutura <code>{&lt;valor&gt;[:especificador]}</code>, como no exemplo: <code>{n0:7.2f}</code>, onde <code>n0</code> é a variável, cujo valor é formatado, e <code>7.2f</code> é o especificador da formatação (número real, com 7 colunas de apresentação e duas casas decimais).</p>
+<p>No próximo fragmento, é comparado o uso de <em>interpolação de string</em> e de <em>f-string</em> na exibição de duas variáveis inteiras e uma expressão de resultado real.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb188-1"><a href="e-s.html#cb188-1" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">190</span></span>
+<span id="cb188-2"><a href="e-s.html#cb188-2" aria-hidden="true" tabindex="-1"></a>n2 <span class="op">=</span> <span class="dv">125</span></span>
+<span id="cb188-3"><a href="e-s.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;n1 = </span><span class="sc">%5d</span><span class="st">, n2 = </span><span class="sc">%5d</span><span class="st">, n1 / n2 = </span><span class="sc">%8.4f</span><span class="st">&#39;</span> <span class="op">%</span> (n1, n2, n1 <span class="op">/</span> n2))</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; n1 =   190, n2 =   125, n1 / n2 =   1.5200</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="e-s.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;n1 = </span><span class="sc">{n1:5d}</span><span class="ss">, n2 = </span><span class="sc">{n2:5d}</span><span class="ss">, n1 / n2 = </span><span class="sc">{n1</span> <span class="op">/</span> <span class="sc">n2:.4f}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; n1 =   190, n2 =   125, n1 / n2 = 1.5200</code></pre>
+<p>As <em>f-strings</em>, tanto por sua simplicidade, como flexibilidade e eficiência, devem ser usadas sempre que possível.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="23">
+<li id="fn23"><p>No Python tudo é tratado como um objeto, até mesmo os literais numéricos e as <em>strings</em>. Assim, o uso do operador <em>seletor</em> possibilita o acesso aos métodos destes objetos, ou seja, às funções-membro que estão disponíveis em suas respectivas classes.<a href="e-s.html#fnref23" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comput.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seque.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-entrada-saida.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pygp.pdf", "pygp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
