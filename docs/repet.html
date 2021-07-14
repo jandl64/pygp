@@ -24,7 +24,7 @@
 <meta name="author" content="Peter Jandl Junior" />
 
 
-<meta name="date" content="2021-07-12" />
+<meta name="date" content="2021-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,10 +256,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>8</b> Módulos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-def"><i class="fa fa-check"></i><b>8.1</b> Criação de módulos</a></li>
 <li class="chapter" data-level="8.2" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>8.2</b> Importação geral</a></li>
-<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.3</b> Importação seletiva</a></li>
-<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.4</b> Criação de módulos e pacotes</a></li>
+<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.3</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.4</b> Importação seletiva</a></li>
+<li class="chapter" data-level="8.5" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.5</b> Pacotes</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
 <li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
@@ -306,7 +307,7 @@ div.csl-indent {
 </blockquote>
 <p>A <em>condição</em> deve ser uma expressão lógica, isto é, cuja avaliação produz um valor de tipo <code>bool</code>, de maneira que, se resulta <code>True</code>, as instruções associadas são executadas; mas quando resulta <code>False</code>, finaliza o comando de repetição, ou seja, interrompe a repetição. Após a condição é obrigatório o uso do dois-pontos : para finalizar a diretiva while.</p>
 <p>Podem ser associados um ou mais comandos à diretiva <code>while</code>, desde que estejam indentados<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a> de quatro espaços à direita, que é o padrão do Python. É comum que algum dos comandos associados modifique o conteúdo de alguma variável presente na condição, fazendo que, em algum momento, seja avaliada logicamente como falsa.</p>
-<p>O comportamento desta diretiva é ilustrado no fluxograma da Figura <a href="repet.html#fig:05-01">5.1</a>. A execução desta diretiva se inicia com a avaliação da expressão lógica da condição, ou seja, seu teste. Se a condição é avaliada como <code>True</code>, os comandos associados são executados, sequencialmente, uma vez; se condição é avaliada como <code>False</code>, a diretiva <code>while</code> é finalizada.</p>
+<p>O comportamento desta diretiva é ilustrado no fluxograma da Figura <a href="repet.html#fig:05-01">5.1</a>. A execução desta diretiva se inicia com a avaliação da expressão lógica da condição, ou seja, seu teste. Se a condição é avaliada como <code>True</code>, os comandos associados são executados, sequencialmente, uma vez; se condição é avaliada como <code>False</code>, a diretiva <code>while</code> é finalizada. Cada execução dos comandos associados é considerada uma <em>iteração</em><a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>.</p>
 <div class="figure"><span id="fig:05-01"></span>
 <img src="images/05-01.jpg" alt="Fluxograma da diretiva `while`"  />
 <p class="caption">
@@ -357,7 +358,7 @@ Figura 5.1: Fluxograma da diretiva <code>while</code>
 &gt;&gt;&gt; 3
 &gt;&gt;&gt; 4</code></pre>
 <p>O funcionamento deste fragmento é simples. Começa com a inicialização da variável <code>contador</code> com o valor <code>0</code>; o laço de repetição <code>while</code> avalia a condição <code>contador &lt;= 4</code>, que resulta <code>True</code>, pois <code>contador</code> tem valor zero, executando as instruções associadas; a função <code>print()</code> exibe o valor de <code>contador</code>; então a variável contador recebe um incremento de 1 (e passa ter o valor <code>1</code>); ocorre o desvio para que <code>while</code> reavalie a condição.</p>
-<p>Assim, as instruções associadas ao <code>while</code> serão executadas <em>enquanto</em> a condição especificada for avaliada como verdadeira, ou seja, a partir de <code>contador = 0</code>, serão executadas para <code>contador = 0, 1, 2, 3, 4</code>, num total de cinco <em>iterações</em><a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>. Quando a variável <code>contador</code> contém o valor <code>4</code>, ao receber o incremento de uma unidade, passa a valor <code>5</code>, de maneira que a avaliação da condição <code>contador &lt;= 4</code> resulta em <code>False</code>, encerrando a execução da diretiva <code>while</code>.</p>
+<p>Assim, as instruções associadas ao <code>while</code> serão executadas <em>enquanto</em> a condição especificada for avaliada como verdadeira, ou seja, a partir de <code>contador = 0</code>, serão executadas para <code>contador = 0, 1, 2, 3, 4</code>, num total de cinco <em>iterações</em>. Quando a variável <code>contador</code> contém o valor <code>4</code>, ao receber o incremento de uma unidade, passa a valor <code>5</code>, de maneira que a avaliação da condição <code>contador &lt;= 4</code> resulta em <code>False</code>, encerrando a execução da diretiva <code>while</code>.</p>
 <p>Embora simples, toda contagem envolve cinco elementos que precisam ser identificados, como mostra a Figura <a href="repet.html#fig:05-02">5.2</a>:</p>
 <ul>
 <li>Uma <em>variável de controle</em> que armazena o valor corrente da contagem;</li>
@@ -777,7 +778,7 @@ Figura 5.7: Execução de <code>media3.py</code>
 <hr />
 <ol start="26">
 <li id="fn26"><p><em>Indentação</em> é o termo que se refere ao espaço de abertura de de um parágrafo, ou seja, entre a margem e o começo da da escrita. A indentação proporciona maior legibilidade ao código, pois indica a estrutura de associação dos comandos em um programa de computador.<a href="repet.html#fnref26" class="footnote-back">↩︎</a></p></li>
-<li id="fn27"><p>Na computação utiliza-se o termo <em>iteração</em> para designar uma execução dos comandos ou instruções associadas à um laço de repetição. Assim, um laço de repetição produz várias <em>iterações</em> ou <em>repetições</em>.<a href="repet.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>Segundo o Dicio (Dicionário On-Line de Português), <em>iteração</em> é a ação de iterar ou de repetir. Na computação utiliza-se este termo para designar cada uma das execuções dos comandos ou instruções associadas à um laço de repetição que, assim, produz várias <em>iterações</em> ou <em>repetições</em> (<a href="https://www.dicio.com.br/iteracao/" class="uri">https://www.dicio.com.br/iteracao/</a>).<a href="repet.html#fnref27" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

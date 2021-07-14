@@ -24,7 +24,7 @@
 <meta name="author" content="Peter Jandl Junior" />
 
 
-<meta name="date" content="2021-07-12" />
+<meta name="date" content="2021-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,10 +256,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>8</b> Módulos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-def"><i class="fa fa-check"></i><b>8.1</b> Criação de módulos</a></li>
 <li class="chapter" data-level="8.2" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>8.2</b> Importação geral</a></li>
-<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.3</b> Importação seletiva</a></li>
-<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.4</b> Criação de módulos e pacotes</a></li>
+<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.3</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.4</b> Importação seletiva</a></li>
+<li class="chapter" data-level="8.5" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.5</b> Pacotes</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
 <li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
@@ -287,13 +288,12 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="modul" class="section level1" number="8">
 <h1><span class="header-section-number">Capítulo 8</span> Módulos</h1>
-<div id="modul-main" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Programa Principal</h2>
-<div class="sourceCode" id="cb272"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb272-1"><a href="modul.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb272-2"><a href="modul.html#cb272-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Programa Principal&#39;</span>)</span>
-<span id="cb272-3"><a href="modul.html#cb272-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb272-4"><a href="modul.html#cb272-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Módulo&#39;</span>)</span></code></pre></div>
-<pre><code>&gt;&gt;&gt; Programa Principal</code></pre>
+<p>Python é uma plataforma de programação bastante conveniente, pois oferece várias alternativas para sua utilização. A mais simples é usar o <em>interpretador</em> Python em seu modo de console, que permite executar um comando de cada vez, interativamente, para declarar variáveis, realizar operações de computação, executar qualquer diretiva, além de possibilitar a definição de funções e sua utilização.</p>
+<p>Outra alternativa é a organização das construções necessárias em um arquivo de texto, usualmente com extensão <code>.py</code>, que podem ser executadas pelo <em>interpretador</em> como um <em>script</em>, evitando, com isso, que sequências longas ou complexas tenham que ser redigitadas, possibilitando ainda a inclusão de comentários e a exibição de mensagens mais detalhadas.</p>
+<p>O uso de <em>scripts</em> facilita muito o uso do Python e pode ser ainda mais interessante e efetivo quando emprega seu sistema de <em>módulos</em>.</p>
+<p>Um <em>módulo</em> é um arquivo que contém diretivas e definições do Python <span class="citation">(<a href="#ref-pytut2021A" role="doc-biblioref">PSF 2021</a>)</span>, o qual pode ser importado e, assim, utilizado pelo interpretador em modo interativo, durante a execução de um <em>script</em> ou mesmo por outros módulos. O nome do arquivo de um módulo é, em geral, o <em>nome</em> do módulo ao qual se adiciona a extensão <code>.py</code>.</p>
+<div id="modul-def" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Criação de módulos</h2>
 </div>
 <div id="modul-import" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Importação geral</h2>
@@ -301,22 +301,37 @@ div.csl-indent {
 <blockquote>
 <p>import &lt;modulo&gt;</p>
 </blockquote>
+<p>Após sua importação, o nome do módulo se torna disponível como uma <em>string</em> armazenada na variável global <code>__name__</code>.</p>
 </div>
-<div id="modul-from-import" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Importação seletiva</h2>
+<div id="modul-main" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Programa Principal</h2>
+<div class="sourceCode" id="cb276"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb276-1"><a href="modul.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
+<span id="cb276-2"><a href="modul.html#cb276-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Programa Principal&#39;</span>)</span>
+<span id="cb276-3"><a href="modul.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb276-4"><a href="modul.html#cb276-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;Módulo&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Programa Principal</code></pre>
+</div>
+<div id="modul-from-import" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Importação seletiva</h2>
 <p>Importação seletiva</p>
 <blockquote>
 <p>from &lt;modulo&gt; import &lt;elemento&gt;</p>
 </blockquote>
 </div>
-<div id="modul-packa" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Criação de módulos e pacotes</h2>
+<div id="modul-packa" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Pacotes</h2>
 
 </div>
 </div>
 
 
 
+<h3>Referências Bibliográficas</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-pytut2021A" class="csl-entry">
+PSF, Python Software Foundation. 2021. <span>“6.modules.”</span> <a href="https://docs.python.org/3/tutorial/modules.html">https://docs.python.org/3/tutorial/modules.html</a>.
+</div>
+</div>
             </section>
 
           </div>

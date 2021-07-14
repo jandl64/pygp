@@ -24,7 +24,7 @@
 <meta name="author" content="Peter Jandl Junior" />
 
 
-<meta name="date" content="2021-07-12" />
+<meta name="date" content="2021-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,10 +256,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>8</b> Módulos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-def"><i class="fa fa-check"></i><b>8.1</b> Criação de módulos</a></li>
 <li class="chapter" data-level="8.2" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>8.2</b> Importação geral</a></li>
-<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.3</b> Importação seletiva</a></li>
-<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.4</b> Criação de módulos e pacotes</a></li>
+<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.3</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.4</b> Importação seletiva</a></li>
+<li class="chapter" data-level="8.5" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.5</b> Pacotes</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
 <li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
@@ -646,7 +647,7 @@ Figura 6.5: Resultados de <code>adivinhe2.py</code>
 <span id="cb267-11"><a href="decis.html#cb267-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">len</span>(nomes), <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
 <pre><code>&gt;&gt;&gt; &quot;Guido&quot; foi encontrado na lista.
 &gt;&gt;&gt; Foram executados 4  testes de 10 .</code></pre>
-<p>No exemplo <code>primo.py</code>, que segue, é testado o número inteiro fornecido pelo usuário para determinar se é um número primo ou não. Os [números primos[(<a href="https://www.todamateria.com.br/numeros-primos/" class="uri">https://www.todamateria.com.br/numeros-primos/</a>)] são aqueles maiores do que ‘1’ e divisíveis apenas eles mesmos <span class="citation">(<a href="#ref-gou2021A" role="doc-biblioref">GOUVEIA 2021</a>)</span>, assim, para determinar se um número é primo, basta garantir que não possua divisores entre <code>2</code> e o valor de sua metade. Com o operador <code>%</code> (resto da divisão inteira) é possível verificar se um número é divisor de outro: fazendo <code>A % B</code>, um resto <code>0</code> indica que <code>B</code> é divisor de <code>A</code> (ou que <code>A</code> é múltiplo de <code>B</code>); e um resto diferente de <code>0</code> indica a inexistência dessas relações.</p>
+<p>No exemplo <code>primo.py</code>, que segue, é testado o número inteiro fornecido pelo usuário para determinar se é um número primo ou não. Os <a href="https://www.todamateria.com.br/numeros-primos/">números primos</a> são aqueles maiores do que ‘1’ e divisíveis apenas eles mesmos <span class="citation">(<a href="#ref-gou2021B" role="doc-biblioref">GOUVEIA 2021b</a>)</span>, assim, para determinar se um número é primo, basta garantir que não possua divisores entre <code>2</code> e o valor de sua metade. Com o operador <code>%</code> (resto da divisão inteira) é possível verificar se um número é divisor de outro: fazendo <code>A % B</code>, um resto <code>0</code> indica que <code>B</code> é divisor de <code>A</code> (ou que <code>A</code> é múltiplo de <code>B</code>); e um resto diferente de <code>0</code> indica a inexistência dessas relações.</p>
 <p>Um laço <code>for</code> é empregado para efetuar a divisão do <code>numero</code> dado com todas as possibilidades do intervalo <code>[2, numero//2]</code>. Se encontrado algum divisor, o número não é primo e, portanto, não existe necessidade de prosseguir com o teste, momento em que uma diretiva <code>break</code> pode encerrar o laço. A variável auxiliar <code>primo</code> atua como flag: inicialmente recebe o valor <code>True</code>, quando a divisão é possível, recebe <code>False</code>, pois número não é primo, permitindo selecionar a exibição da mensagem final correta.</p>
 <p class="caption">
 Exemplo 6.4: primo.py
@@ -705,8 +706,79 @@ Figura 6.6: Resultados de <code>primo.py</code>
 </div>
 <div id="desvio-incond-continue" class="section level3" number="6.5.2">
 <h3><span class="header-section-number">6.5.2</span> Desvio com <code>continue</code></h3>
-<p>As diretivas <code>while</code> e <code>for</code> são estruturas de controle de repetição que permitem construir laços onde comandos associados podem ter sua execução repetida. A iteração corrente (a execução da diretiva ou bloco associado) pode ser interrompida por meio do uso da diretiva continue, fazendo com que a estrutura de controle avalie se é possível realizar uma próxima iteração, continuando caso afirmativo. Assim, a diretiva continue permite abreviar a iteração corrente, o que pode ser interessante em certos casos. Essa diretiva pode ser empregada com qualquer uma das estruturas de repetição disponíveis.</p>
-<p>O Exemplo 3.9 mostra a aplicação do continue com a diretiva for num programa que exibe um gráfico de pontos de um polinômio de grau dois, cujos coeficientes e a faixa de sua ordenada são dados pelo usuário. Após a leitura dos valores, é desenhado o eixo da abscissa (uma reta formada por traços intercalada de valores da escala). Um laço for percorre todos os pontos da ordenada entre os limites dados, com uma variação fixa de 0.2. Para cada um desses pontos da ordenada (exibidos com printf) é determinado o valor da abscissa e testado para verificar se é negativo ou maior que 5, pois, como nesses casos o valor não pode ser plotado adequadamente, a iteração é abreviada com o uso da diretiva continue, a qual evita que as demais diretivas do laço sejam executadas. Se o valor da abscissa estiver no intervalo [0, 5], o ponto correspondente é exibido com um caractere + posicionado em escala.</p>
+<p>A diretiva <code>continue</code> permite acelerar a execução de um laço de repetição por meio da abreviação da iteração corrente, reduzindo o número de comandos executados. Sua sintaxe é simples:</p>
+<blockquote>
+<p>continue</p>
+</blockquote>
+<p>Sabemos que as diretivas <code>while</code> e <code>for</code> são estruturas de controle de repetição que permitem construir laços nos quais os comandos associados são iterados, ou seja, têm sua execução repetida. A diretiva <code>continue</code> permite interromper a iteração corrente, mas, diferentemente do <code>break</code>, faz com que a estrutura de controle avalie se é possível realizar uma próxima iteração, continuando caso afirmativo. Assim, o <code>continue</code> permite <em>abreviar</em> a repetição corrente, não executando os comandos associados que a seguem.</p>
+<p>O uso de <code>continue</code> pode ser interessante em certos casos, podendo ser empregado com qualquer uma das estruturas de repetição disponíveis. Observe o fragmento que segue, onde um laço <code>for</code> realiza uma contagem regressiva de <code>10</code> até <code>1</code>. Nos comandos associados ao laço, são testados os múltiplos de <code>3</code> ou <code>5</code>, situação na qual a diretiva <code>continue</code> é executada, evitando o processamento posterior destes valores. Para os demais, ocorre sua acumulação na variável <code>soma</code> e a impressão de uma mensagem. Após o laço a variável <code>soma</code> é exibida.</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb272-1"><a href="decis.html#cb272-1" aria-hidden="true" tabindex="-1"></a>soma <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb272-2"><a href="decis.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb272-3"><a href="decis.html#cb272-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> n <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb272-4"><a href="decis.html#cb272-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span><span class="op">;</span></span>
+<span id="cb272-5"><a href="decis.html#cb272-5" aria-hidden="true" tabindex="-1"></a>    soma <span class="op">+=</span> n</span>
+<span id="cb272-6"><a href="decis.html#cb272-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(n, n <span class="op">*</span> <span class="st">&#39;#&#39;</span>)</span>
+<span id="cb272-7"><a href="decis.html#cb272-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;soma =&#39;</span>, soma)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; 8 ########
+&gt;&gt;&gt; 7 #######
+&gt;&gt;&gt; 4 ####
+&gt;&gt;&gt; 2 ##
+&gt;&gt;&gt; 1 #
+&gt;&gt;&gt; soma = 22</code></pre>
+<p>O Exemplo 6.5 (<code>polinomio.py</code>) mostra a aplicação do <code>continue</code> com a diretiva <code>while</code> num programa que exibe um gráfico de dispersão simples para um polinômio de grau dois<span class="citation">(<a href="#ref-gou2021C" role="doc-biblioref">GOUVEIA 2021a</a>)</span> na forma <span class="math inline">\(f(x) = a*x^2 + b*x + c\)</span>, cujos coeficientes <code>a</code>, <code>b</code> e <code>c</code>, e a faixa de sua abcissa (variável <code>x</code>) são definidos e exibidos no início do programa. Por questões de simplificação, o eixo <code>y</code> (ordenada) como uma reta na horizontal, formada por traços, intercalada de valores da escala, com uso de uma diretiva <code>for</code>.</p>
+<p>Um laço <code>while</code> percorre todos os pontos da abcissa entre os limites dados (<code>xi</code> até <code>xf</code>), com uma variação fixa de <code>0.2</code>, acrescentando novas linhas ao gráfico, de modo que o eixo <code>x</code> (abcissa) fica desenhado na vertical, <em>orientado</em> para baixo. Para cada ponto <code>x</code> da abcissa (exibidos com <code>print()</code> sem finalização de linha) é determinado o valor <code>y</code> da ordenada e incrementado o valor de <code>x</code> (abcissa) de <code>0.2</code>. Então é testado o valor da ordenada, verificando se é negativo ou maior que 5, pois como nesses casos o valor não pode ser plotado adequadamente, a linha é finalizada com um <code>print()</code> e iteração é abreviada com o uso da diretiva <code>continue</code>, a qual evita que as demais diretivas do laço sejam executadas. Se o valor da ordenada estiver no intervalo <code>[0, 5]</code>, o ponto correspondente é exibido com um caractere <code>+</code> posicionado em escala, ou seja, precedido por um número de espaços calculado pela expressão <code>int(10 * y - 1)</code>.</p>
+<p class="caption">
+Exemplo 6.5: polinomio.py
+</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb274-1"><a href="decis.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficientes a, b, c do polinômio de 2o grau</span></span>
+<span id="cb274-2"><a href="decis.html#cb274-2" aria-hidden="true" tabindex="-1"></a>a, b, c <span class="op">=</span> <span class="op">-</span><span class="fl">1.5</span>, <span class="dv">3</span>, <span class="fl">2.2</span></span>
+<span id="cb274-3"><a href="decis.html#cb274-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ordenadas inicial e final</span></span>
+<span id="cb274-4"><a href="decis.html#cb274-4" aria-hidden="true" tabindex="-1"></a>xi, xf <span class="op">=</span> <span class="dv">0</span>, <span class="fl">2.6</span></span>
+<span id="cb274-5"><a href="decis.html#cb274-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb274-6"><a href="decis.html#cb274-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Polinomio de 2o. grau&#39;</span>)</span>
+<span id="cb274-7"><a href="decis.html#cb274-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Coeficientes a=</span><span class="sc">{a:.1f}</span><span class="ss">, b=</span><span class="sc">{b:.1f}</span><span class="ss">, c=</span><span class="sc">{c:.1f}</span><span class="ss">&#39;</span>)</span>
+<span id="cb274-8"><a href="decis.html#cb274-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;Ordenada inicial=</span><span class="sc">{xi:.1f}</span><span class="ss">, final=</span><span class="sc">{xf:.1f}</span><span class="ch">\n</span><span class="ss">&#39;</span>)</span>
+<span id="cb274-9"><a href="decis.html#cb274-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb274-10"><a href="decis.html#cb274-10" aria-hidden="true" tabindex="-1"></a><span class="co"># desenha eixo da abcissa</span></span>
+<span id="cb274-11"><a href="decis.html#cb274-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">6</span>):</span>
+<span id="cb274-12"><a href="decis.html#cb274-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>: <span class="bu">print</span>(<span class="st">&#39;    &#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb274-13"><a href="decis.html#cb274-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{i}</span><span class="ss">---------&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb274-14"><a href="decis.html#cb274-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb274-15"><a href="decis.html#cb274-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb274-16"><a href="decis.html#cb274-16" aria-hidden="true" tabindex="-1"></a><span class="co"># determina pontos do polinômio</span></span>
+<span id="cb274-17"><a href="decis.html#cb274-17" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> xi</span>
+<span id="cb274-18"><a href="decis.html#cb274-18" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;=</span> xf:</span>
+<span id="cb274-19"><a href="decis.html#cb274-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># exibe valor da abcissa</span></span>
+<span id="cb274-20"><a href="decis.html#cb274-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&#39;</span><span class="sc">{x:5.1f}</span><span class="ss">&#39;</span>, end<span class="op">=</span><span class="st">&#39;&#39;</span>)<span class="op">;</span></span>
+<span id="cb274-21"><a href="decis.html#cb274-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calcula ordenada</span></span>
+<span id="cb274-22"><a href="decis.html#cb274-22" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> a <span class="op">*</span> x <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> b <span class="op">*</span> x <span class="op">+</span> c</span>
+<span id="cb274-23"><a href="decis.html#cb274-23" aria-hidden="true" tabindex="-1"></a>    x <span class="op">+=</span> <span class="fl">0.2</span> <span class="co"># incremento fixo da abcissa</span></span>
+<span id="cb274-24"><a href="decis.html#cb274-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> y <span class="op">&lt;</span> <span class="dv">0</span> <span class="kw">or</span> y <span class="op">&gt;</span> <span class="dv">5</span>: <span class="co"># se ordenada fora de [0, 5]</span></span>
+<span id="cb274-25"><a href="decis.html#cb274-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span>
+<span id="cb274-26"><a href="decis.html#cb274-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb274-27"><a href="decis.html#cb274-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plota valor da ordenada em escala 10:1</span></span>
+<span id="cb274-28"><a href="decis.html#cb274-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">int</span>(<span class="dv">10</span> <span class="op">*</span> y <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="st">&#39; &#39;</span>, <span class="st">&#39;+ &#39;</span>, <span class="bu">round</span>(y, <span class="dv">2</span>), sep<span class="op">=</span><span class="st">&#39;&#39;</span>)</span></code></pre></div>
+<pre><code>&gt;&gt;&gt; Polinomio de 2o. grau
+&gt;&gt;&gt; Coeficientes a=-1.5, b=3.0, c=2.2
+&gt;&gt;&gt; Ordenada inicial=0.0, final=2.6
+&gt;&gt;&gt; 
+&gt;&gt;&gt;     0---------1---------2---------3---------4---------5---------
+&gt;&gt;&gt; 
+&gt;&gt;&gt;   0.0                     + 2.2
+&gt;&gt;&gt;   0.2                          + 2.74
+&gt;&gt;&gt;   0.4                              + 3.16
+&gt;&gt;&gt;   0.6                                 + 3.46
+&gt;&gt;&gt;   0.8                                   + 3.64
+&gt;&gt;&gt;   1.0                                    + 3.7
+&gt;&gt;&gt;   1.2                                   + 3.64
+&gt;&gt;&gt;   1.4                                 + 3.46
+&gt;&gt;&gt;   1.6                              + 3.16
+&gt;&gt;&gt;   1.8                          + 2.74
+&gt;&gt;&gt;   2.0                     + 2.2
+&gt;&gt;&gt;   2.2              + 1.54
+&gt;&gt;&gt;   2.4      + 0.76
+&gt;&gt;&gt;   2.6</code></pre>
+<p>O objetivo deste exemplo é mostra o uso de <code>continue</code> num problema real e ilustra a dificuldade da construção de gráficos, que podem ser gerados de maneira muito mais rica e bonita com os vários pacotes do Python destinados à esta tarefa, como o <a href="https://matplotlib.org/">Matplotlib</a>, <a href="https://seaborn.pydata.org/">Seaborn</a>, <a href="https://bokeh.org/">Bokeh</a> ou <a href="https://pyx-project.org/">PyX</a>.</p>
 <p>Os exemplos deste capítulo exploraram não apenas a habilidade da decisão, mas sua combinação com a computação, operações de entrada e saída, repetição e, é claro, sequenciação. Nos próximos capítulos será tratada a última das habilidades essenciais da programação, a modularização, que abrirá muitas novas possibilidades para o desenvolvimento de programas.</p>
 
 </div>
@@ -714,8 +786,11 @@ Figura 6.6: Resultados de <code>primo.py</code>
 </div>
 <h3>Referências Bibliográficas</h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-gou2021A" class="csl-entry">
-GOUVEIA, Rosimar. 2021. <em>Paralelepípedo</em>. Toda Matéria. <a href="https://www.todamateria.com.br/paralelepipedo/">https://www.todamateria.com.br/paralelepipedo/</a>.
+<div id="ref-gou2021C" class="csl-entry">
+GOUVEIA, Rosimar. 2021a. <em>Equação Do Segundo Grau</em>. Toda Matéria. <a href="https://www.todamateria.com.br/equacao-do-segundo-grau/">https://www.todamateria.com.br/equacao-do-segundo-grau/</a>.
+</div>
+<div id="ref-gou2021B" class="csl-entry">
+———. 2021b. <em>Números Primos</em>. Toda Matéria. <a href="https://www.todamateria.com.br/numeros-primos/">https://www.todamateria.com.br/numeros-primos/</a>.
 </div>
 </div>
 <div class="footnotes">

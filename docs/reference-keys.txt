@@ -89,8 +89,9 @@ funcao-param
 funcao-default
 funcao-var
 modul
-modul-main
+modul-def
 modul-import
+modul-main
 modul-from-import
 modul-packa
 instalação-básica

@@ -24,7 +24,7 @@
 <meta name="author" content="Peter Jandl Junior" />
 
 
-<meta name="date" content="2021-07-12" />
+<meta name="date" content="2021-07-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -256,10 +256,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8" data-path="modul.html"><a href="modul.html"><i class="fa fa-check"></i><b>8</b> Módulos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.1</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.1" data-path="modul.html"><a href="modul.html#modul-def"><i class="fa fa-check"></i><b>8.1</b> Criação de módulos</a></li>
 <li class="chapter" data-level="8.2" data-path="modul.html"><a href="modul.html#modul-import"><i class="fa fa-check"></i><b>8.2</b> Importação geral</a></li>
-<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.3</b> Importação seletiva</a></li>
-<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.4</b> Criação de módulos e pacotes</a></li>
+<li class="chapter" data-level="8.3" data-path="modul.html"><a href="modul.html#modul-main"><i class="fa fa-check"></i><b>8.3</b> Programa Principal</a></li>
+<li class="chapter" data-level="8.4" data-path="modul.html"><a href="modul.html#modul-from-import"><i class="fa fa-check"></i><b>8.4</b> Importação seletiva</a></li>
+<li class="chapter" data-level="8.5" data-path="modul.html"><a href="modul.html#modul-packa"><i class="fa fa-check"></i><b>8.5</b> Pacotes</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndices</b></span></li>
 <li class="chapter" data-level="A" data-path="instalação-básica.html"><a href="instalação-básica.html"><i class="fa fa-check"></i><b>A</b> Instalação básica</a></li>
@@ -381,7 +382,7 @@ div.csl-indent {
 <p>Um programa de computador requer o uso de alguns ou de muitos dados para que possa produzir os resultados desejados. Durante a execução do programa, os dados necessários são armazenados na memória do computador. Para evitar que o programador tenha que lidar com os endereços de memória, isto é, com as posições onde os dados ficam efetivamente armazenados, são utilizadas <em>variáveis</em>.</p>
 <p>Uma <em>variável</em> é um espaço em memória, reservado para guardar um valor, ao qual se associa um <em>identificador</em>, ou seja, um nome por meio do qual se define e se recupera o valor armazenado. O uso de variáveis simplifica a programação, pois o programador não precisa se preocupar com os endereços de memória utilizados, nem com o espaço necessário (número de bytes) para armazenar tais valores, tão pouco com a organização dos dados e das instruções do programa.</p>
 <p>Por meio do uso das variáveis, o programador pode armazenar valores literais ou o resultado de cálculos diversos, que podem ser utilizados em etapas posteriores do programa, evitando sua repetição e o processamento destes cálculos.</p>
-<p>Além disso, o uso de variáveis constitui um importante mecanismo de abstração<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>, pois o uso de nomes significativos melhora a legibilidade do programa e permite que suas ações sejam compreendidas mais facilmente.</p>
+<p>Além disso, o uso de variáveis constitui um importante mecanismo de <em>abstração</em><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>, pois o uso de nomes significativos melhora a legibilidade do programa e permite que suas ações sejam compreendidas mais facilmente.</p>
 <p>A criação de variáveis em Python é bastante simples e direta, empregando a sintaxe que segue:</p>
 <blockquote>
 <p>identificador = valor_inicial</p>
@@ -1219,7 +1220,7 @@ div.csl-indent {
 </dd>
 </dl>
 <div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="comput.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(A) <span class="co"># identidade da variável A</span></span></code></pre></div>
-<pre><code>&gt;&gt;&gt; 579024552</code></pre>
+<pre><code>&gt;&gt;&gt; 249968296</code></pre>
 <dl>
 <dt><code>input(prompt)</code></dt>
 <dd>Exibe a mensagem de <em>prompt</em>, se fornecida e retorna a leitura do texto digitado pelo usuário (até que seja pressionado <code>ENTER</code>.
@@ -1322,7 +1323,7 @@ BRANDÃO, Leônidas de Oliveira. 2021. <em>Introdução Às Funções</em>. São
 <li id="fn5"><p>Dicio (Dicionário On-Line de Português): <a href="https://www.dicio.com.br/computar" class="uri">https://www.dicio.com.br/computar</a>.<a href="comput.html#fnref5" class="footnote-back">↩︎</a></p></li>
 <li id="fn6"><p><em>Structured Query Language</em>, linguagem padronizada para consulta e manipulação de dados em <em>Sistemas Gerenciadores de Bancos de Dados Relacionais</em> (SGBDR).<a href="comput.html#fnref6" class="footnote-back">↩︎</a></p></li>
 <li id="fn7"><p>O termo <em>built-in</em> é utilizado para designar um elemento que faz parte da própria definição da linguagem, ou seja, está disponível em todos os programas, sem necessidade de importação de módulos ou pacotes.<a href="comput.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Segundo o Dicio (Dicionário On-Line de Português) <em>abstrair</em> é a ação de analisar isoladamente um aspecto, contido num todo, sem ter em consideração sua relação com a realidade. Fazer a abstração de uma coisa permite simplificar, pois observamos seu aspecto principal, sem levar em conta seus detalhes (<a href="https://www.dicio.com.br/" class="uri">https://www.dicio.com.br/</a>).<a href="comput.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Segundo o Dicio (Dicionário On-Line de Português) <em>abstrair</em> é a ação de analisar isoladamente um aspecto, contido num todo, sem ter em consideração sua relação com a realidade. Fazer a abstração de uma coisa permite simplificar, pois observamos seu aspecto principal, sem levar em conta seus detalhes (<a href="https://www.dicio.com.br/abstracao" class="uri">https://www.dicio.com.br/abstracao</a>).<a href="comput.html#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p>O Python possui vários operadores bit-a-bit (ou <em>bitwise</em>) que atuam sobre os bits que compõem os valores inteiros, mas que não serão tratados neste material dado que têm aplicação bastante restrita.<a href="comput.html#fnref9" class="footnote-back">↩︎</a></p></li>
 <li id="fn10"><p>Na matemática a <em>aridade</em> de uma função ou operação é o número de argumentos ou operandos tomados.<a href="comput.html#fnref10" class="footnote-back">↩︎</a></p></li>
 <li id="fn11"><p>Na matemática a <em>associatividade</em> de um operador determina qual de seus operandos é avaliado e tomado primeiro.<a href="comput.html#fnref11" class="footnote-back">↩︎</a></p></li>
